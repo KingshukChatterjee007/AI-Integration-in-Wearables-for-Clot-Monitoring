@@ -1,0 +1,14 @@
+{
+    "sampling_rate": 125,
+    "filter_lowcut": 0.5,
+    "filter_highcut": 8,
+    "window_size": 1000,
+    "stride": 500,
+    "normalization_method": "standard",
+    "anomaly_types": [
+        "mild",
+        "moderate",
+        "severe"
+    ],
+    "created_date": "2025-09-04 20:06:46"
+}
