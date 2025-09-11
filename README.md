@@ -63,11 +63,7 @@ Blood clots are silent killers that cause strokes, heart attacks, and pulmonary 
 │   ├── 📈 subject_features.csv      # Wearable features (4.42 MB)
 │   ├── 🔗 integrated_features.csv   # Complete ML dataset (4.61 MB)
 │   └── 💓 advanced_ppg_features.csv # Specialized heart analysis (0.00 MB)
-├── 📚 docs/                         # Human-friendly explanations
-│   ├── 📖 DATA_EXPLANATION.md       # What each file contains
-│   ├── 🎓 TEACHER_PRESENTATION.md   # Perfect for showing your teacher
-│   ├── 📝 SIMPLE_EXPLANATION.txt    # Easy-to-understand summary
-│   └── 🔍 CODE_EXECUTION_FLOW.md    # How the code actually works
+├
 └── 📖 README.md                     # This comprehensive guide
 ```
 
@@ -450,22 +446,6 @@ With good feature engineering (which we've done), expect:
 
 ### **Why This Matters**
 *"Every year, 900,000 Americans are affected by blood clots. Many of these cases could be prevented with early detection and intervention. This project represents a significant step toward making that prevention possible through accessible wearable technology."*
-
----
-
-## 📚 Documentation & Resources
-
-### **📖 Complete Documentation Available**
-- **📊 `docs/DATA_EXPLANATION.md`**: Detailed breakdown of each dataset
-- **🎓 `docs/TEACHER_PRESENTATION.md`**: Perfect for academic presentations  
-- **📝 `docs/SIMPLE_EXPLANATION.txt`**: Easy-to-understand project summary
-- **🔍 `docs/CODE_EXECUTION_FLOW.md`**: Step-by-step code execution explanation
-
-### **🔗 Quick Navigation**
-- Need a **simple explanation**? → Read `docs/SIMPLE_EXPLANATION.txt`
-- Presenting to your **teacher**? → Use `docs/TEACHER_PRESENTATION.md`
-- Want **technical details**? → Check `docs/CODE_EXECUTION_FLOW.md`
-- Understanding the **data**? → See `docs/DATA_EXPLANATION.md`
 
 ---
 

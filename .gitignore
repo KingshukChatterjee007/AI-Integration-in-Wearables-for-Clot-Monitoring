@@ -4,3 +4,4 @@
 *.log
 csv/
 rrest-syn_csv/
+__pycache__/
