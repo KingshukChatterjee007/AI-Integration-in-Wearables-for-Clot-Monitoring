@@ -481,9 +481,9 @@ def extract_ppg_features_from_dataset(data: pd.DataFrame,
         
         logger.info(f"Processing {len(ppg_columns)} PPG columns across multiple time windows")
         
-        # Process multiple time windows (not just window_id=0)
-        # Limit to 10 windows maximum to avoid excessive processing time
-        max_windows = min(10, len(data) // window_size)
+        # Process multiple time windows with improved memory management
+        # Increase window limit for more comprehensive feature extraction
+        max_windows = min(100, len(data) // window_size)  # Increased from 10 to 100 windows
         
         for window_id in range(max_windows):
             start_idx = window_id * window_size
@@ -495,9 +495,9 @@ def extract_ppg_features_from_dataset(data: pd.DataFrame,
             window_data = data.iloc[start_idx:end_idx]
             logger.debug(f"Processing window {window_id} (rows {start_idx}-{end_idx})")
             
-            # Process a subset of channels for each window to maintain diversity
+            # Process more channels per window for comprehensive feature extraction
             # Use modulo to select different channels for different windows
-            channels_per_window = min(5, len(ppg_columns))
+            channels_per_window = min(10, len(ppg_columns))  # Increased from 5 to 10 channels
             selected_channels = [ppg_columns[(i + window_id) % len(ppg_columns)] 
                                for i in range(channels_per_window)]
             
