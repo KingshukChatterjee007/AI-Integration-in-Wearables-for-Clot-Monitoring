@@ -10,8 +10,6 @@ Blood clots are silent killers that cause strokes, heart attacks, and pulmonary 
 
 **The Big Picture**: Transform everyday smartwatches and fitness trackers into life-saving medical monitoring devices.
 
----
-
 ## 🎯 What This Project Does
 
 ### **The Problem We're Solving**
@@ -26,8 +24,6 @@ Blood clots are silent killers that cause strokes, heart attacks, and pulmonary 
 - **Personalized risk assessment** based on your unique profile
 - **Preventive healthcare** instead of reactive emergency treatment
 
----
-
 ## 📊 Project Overview
 
 ### **Data Sources**
@@ -41,8 +37,6 @@ Blood clots are silent killers that cause strokes, heart attacks, and pulmonary 
 - 🧠 **273 engineered features** for comprehensive health analysis
 - 📊 **5 specialized datasets** ready for machine learning
 - ✅ **99.7% processing success** with robust error handling
-
----
 
 ## 📁 Project Structure
 
@@ -66,8 +60,6 @@ Blood clots are silent killers that cause strokes, heart attacks, and pulmonary 
 ├
 └── 📖 README.md                     # This comprehensive guide
 ```
-
----
 
 ## 🚀 Quick Start Guide
 
@@ -94,8 +86,6 @@ Your AI-ready datasets are now in the `processed_data/` folder, ready for machin
 - ✅ Generated 273 different health features
 - ✅ Built 5 specialized datasets for different AI models
 - ✅ All in about 87 seconds!
-
----
 
 ## 🩺 Understanding Your Health Data
 
@@ -152,8 +142,6 @@ Think of this like having a **super-smart health assistant** that never sleeps:
   - Anomaly detection (unusual patterns that might indicate problems)
 - **Why it matters**: Medical-grade analysis for clinical validation
 
----
-
 ## 🧠 How the AI Magic Works
 
 ### **The Transformation Process**
@@ -186,8 +174,6 @@ Raw Sensor Data → Smart Processing → AI-Ready Features → Life-Saving Model
 - **Perfusion Index**: Blood flow quality
 - **Motion Correlation**: Activity impact on circulation
 
----
-
 ## 🎯 Real-World Applications
 
 ### **What This Could Become**
@@ -213,8 +199,6 @@ Raw Sensor Data → Smart Processing → AI-Ready Features → Life-Saving Model
 - Identify community health trends and risk factors
 - Preventive care at scale
 
----
-
 ## 📈 Impressive Technical Achievements
 
 ### **🏆 What We've Accomplished**
@@ -236,8 +220,6 @@ Raw Sensor Data → Smart Processing → AI-Ready Features → Life-Saving Model
 - 🎯 **Real-time capable** processing for live monitoring
 - 🔄 **Scalable architecture** ready for millions of users
 - 🛡️ **Robust error handling** with comprehensive quality checks
-
----
 
 ## 🔬 The Science Behind Clot Detection
 
@@ -262,8 +244,6 @@ Raw Sensor Data → Smart Processing → AI-Ready Features → Life-Saving Model
 - Humans can't process millions of data points simultaneously
 - Machine learning identifies complex multi-variable patterns
 - Personalized models adapt to individual health profiles
-
----
 
 ## 🛠️ Advanced Usage & Customization
 
@@ -315,8 +295,6 @@ risk_indicators = preprocessor._create_risk_indicators(
 )
 ```
 
----
-
 ## 🎓 Perfect for Academic Presentations
 
 ### **Key Talking Points for Your Teacher**
@@ -340,8 +318,6 @@ risk_indicators = preprocessor._create_risk_indicators(
 - 🏥 **Medical-grade** validation with real patient data
 - 📱 **Smartwatch-compatible** sensor requirements
 - 🌍 **Scalable** to population-level monitoring
-
----
 
 ## 🔍 Troubleshooting & Support
 
@@ -372,8 +348,6 @@ preprocessor.chunk_size = 500  # Reduce from default 1000
 - Cross-validate by subject (not by time windows) to avoid data leakage
 - Focus on early warning (hours ahead) rather than immediate detection
 - Consider ensemble methods combining multiple algorithms
-
----
 
 ## 🚀 Next Steps: Building Your AI Model
 
@@ -428,8 +402,6 @@ With good feature engineering (which we've done), expect:
 - **🎯 Precision**: Focus on minimizing false alarms
 - **🔄 Real-time**: < 1 second prediction time
 
----
-
 ## 🌟 Project Impact & Future Vision
 
 ### **Immediate Benefits**
@@ -447,8 +419,6 @@ With good feature engineering (which we've done), expect:
 ### **Why This Matters**
 *"Every year, 900,000 Americans are affected by blood clots. Many of these cases could be prevented with early detection and intervention. This project represents a significant step toward making that prevention possible through accessible wearable technology."*
 
----
-
 ## 🏆 Conclusion
 
 **You've built something remarkable.** This isn't just a data processing project - it's a foundation for **life-saving healthcare technology**. 
@@ -463,7 +433,5 @@ Your preprocessing pipeline successfully:
 **What's next?** Train your AI models, validate against clinical outcomes, and potentially contribute to technology that could **save thousands of lives** through early blood clot detection.
 
 **This is healthcare AI at its finest** - where cutting-edge technology meets critical medical need. 🩺💓🤖
-
----
 
 *Ready to revolutionize healthcare monitoring? Your data is processed, your features are engineered, and your AI models are waiting to be trained. Let's make wearable clot detection a reality!* 🚀

@@ -12,7 +12,6 @@ Features:
 4. Reports detailed statistics on processed data
 5. Identifies any failures or missing data processing
 
-Author: AI Assistant
 Project: AI Integration in Wearables for Clot Monitoring
 """
 
@@ -388,7 +387,8 @@ def main():
     
     # Get CSV path
     base_dir = Path(__file__).parent
-    csv_path = base_dir / "csv"
+    # CSV folder is in the parent directory (since scripts are in scripts/ folder)
+    csv_path = base_dir.parent / "csv"
     
     if not csv_path.exists():
         logger.error(f"CSV directory not found: {csv_path}")

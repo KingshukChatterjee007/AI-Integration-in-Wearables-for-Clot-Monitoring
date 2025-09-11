@@ -4,7 +4,6 @@ Data Preprocessing for AI Integration in Wearables for Clot Monitoring
 
 Simplified, working version of the preprocessing pipeline.
 
-Author: AI Assistant
 Project: AI Integration in Wearables for Clot Monitoring
 Date: September 2025
 """
@@ -713,8 +712,9 @@ def main():
     """Example usage of the preprocessing pipeline"""
     # Set up paths
     base_dir = Path(__file__).parent
-    csv_path = base_dir / "csv"
-    output_path = base_dir / "processed_data"
+    # CSV folder is in the parent directory (since scripts are in scripts/ folder)
+    csv_path = base_dir.parent / "csv"
+    output_path = base_dir.parent / "processed_data"
     
     if not csv_path.exists():
         logger.error(f"CSV directory not found: {csv_path}")
