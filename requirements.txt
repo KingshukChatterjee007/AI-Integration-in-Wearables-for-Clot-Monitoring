@@ -1,0 +1,37 @@
+# Requirements for AI Integration in Wearables for Clot Monitoring
+# Data Preprocessing and Analysis Dependencies
+
+# Core data processing
+pandas>=1.5.0
+numpy>=1.21.0
+scipy>=1.9.0
+
+# Machine learning and preprocessing
+scikit-learn>=1.1.0
+
+# Signal processing
+matplotlib>=3.5.0
+seaborn>=0.11.0
+
+# Medical signal processing (optional, for advanced analysis)
+# wfdb>=4.0.0  # Uncomment if working with PhysioNet data
+
+# Progress tracking
+tqdm>=4.64.0
+
+# Configuration and logging
+pyyaml>=6.0
+pathlib  # Usually included with Python 3.4+
+
+# Optional: For advanced signal processing
+# biosignalsnotebooks>=0.4.0
+# heartpy>=1.2.7
+
+# Optional: For interactive analysis
+# jupyter>=1.0.0
+# ipywidgets>=7.6.0
+
+# Development and testing (optional)
+# pytest>=7.0.0
+# black>=22.0.0
+# flake8>=4.0.0

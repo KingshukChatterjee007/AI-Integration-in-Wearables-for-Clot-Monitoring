@@ -1,5 +1,6 @@
 *.atr
 *.dat
 *.hea
+*.log
 csv/
 rrest-syn_csv/
