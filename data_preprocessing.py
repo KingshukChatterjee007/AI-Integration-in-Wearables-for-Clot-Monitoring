@@ -631,13 +631,34 @@ class IntegratedPreprocessor:
         try:
             from ppg_analysis import extract_ppg_features_from_dataset
             
-            # Find PPG columns
+            # Find PPG columns - handle both named and numeric columns
             ppg_columns = [col for col in ppg_data.columns if 
                           'ppg' in col.lower() or 'pleth' in col.lower()]
             
+            # If no named PPG columns found, assume numeric columns are PPG signals
             if not ppg_columns:
-                logger.warning("No PPG columns found in dataset")
-                return pd.DataFrame()
+                # For PPG_Dataset.csv with numeric column names, assume all are PPG signals
+                numeric_columns = [col for col in ppg_data.columns if str(col).isdigit()]
+                
+                # Filter out non-signal columns
+                if 'Label' in ppg_data.columns:
+                    # This is a medical classification dataset - exclude label column
+                    numeric_columns = [col for col in numeric_columns if col != 'Label']
+                
+                if numeric_columns:
+                    # Use a subset to avoid memory issues - select evenly distributed channels
+                    total_channels = len(numeric_columns)
+                    if total_channels > 50:
+                        # Sample every nth column to get 20 representative channels
+                        step = total_channels // 20
+                        ppg_columns = [numeric_columns[i] for i in range(0, total_channels, step)][:20]
+                        logger.info(f"Using {len(ppg_columns)} representative PPG channels from {total_channels} total")
+                    else:
+                        ppg_columns = numeric_columns
+                        logger.info(f"Using all {len(ppg_columns)} numeric columns as PPG signals")
+                else:
+                    logger.warning("No PPG columns found in dataset")
+                    return pd.DataFrame()
             
             logger.info(f"Extracting features from {len(ppg_columns)} PPG columns...")
             
@@ -706,7 +727,7 @@ def main():
     results = preprocessor.run_complete_preprocessing(
         load_subjects=True,
         load_ppg_dataset=True, 
-        max_subject_files=5  # Limit for demonstration
+        max_subject_files=5 
     )
     
     if not results:
