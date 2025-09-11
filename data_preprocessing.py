@@ -453,7 +453,7 @@ class IntegratedPreprocessor:
     def run_complete_preprocessing(self, 
                                  load_subjects: bool = True,
                                  load_ppg_dataset: bool = False,
-                                 max_subject_files: Optional[int] = 10) -> Dict[str, Any]:
+                                 max_subject_files: Optional[int] = None) -> Dict[str, Any]:
         """Run complete preprocessing pipeline"""
         logger.info("Starting complete preprocessing pipeline...")
         
@@ -727,7 +727,7 @@ def main():
     results = preprocessor.run_complete_preprocessing(
         load_subjects=True,
         load_ppg_dataset=True, 
-        max_subject_files=5 
+        max_subject_files=None  # Process ALL files by default
     )
     
     if not results:
