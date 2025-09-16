@@ -104,7 +104,8 @@ Blood clots are silent killers that cause strokes, heart attacks, and pulmonary 
 │   ├── 👤 subjects_info.csv         # Demographics (0.01 MB)
 │   ├── 📈 subject_features.csv      # Wearable features (4.42 MB)
 │   ├── 🔗 integrated_features.csv   # Complete ML dataset (4.61 MB)
-│   └── 💓 advanced_ppg_features.csv # Specialized heart analysis (0.00 MB)
+│   ├── 💓 advanced_ppg_features.csv # Specialized heart analysis (0.00 MB)
+│   └── 🫀 rrest_syn_features.csv    # Synthetic respiratory signals (1.2+ MB)
 ├
 └── 📖 README.md                     # This comprehensive guide
 ```
@@ -131,8 +132,8 @@ Your AI-ready datasets are now in the `processed_data/` folder, ready for machin
 **What Just Happened?**
 - ✅ Processed 16.2 million sensor readings
 - ✅ Created 3,207 time windows for analysis  
-- ✅ Generated 273 different health features
-- ✅ Built 5 specialized datasets for different AI models
+- ✅ Generated 300+ different health features
+- ✅ Built 6 specialized datasets for different AI models
 - ✅ All in about 87 seconds!
 
 ## 🩺 Understanding Your Health Data
@@ -145,7 +146,7 @@ Think of this like having a **super-smart health assistant** that never sleeps:
 3. **👤 Personal Touch**: Your age, gender, weight, and health history make predictions more accurate
 4. **🔬 Advanced Analysis**: AI finds patterns humans might miss in millions of data points
 
-### **The 5 AI-Ready Datasets Explained**
+### **The 6 AI-Ready Datasets Explained**
 
 #### 🏥 **1. PPG_Dataset.csv** (60.84 MB) - *The Medical Expert*
 **What it is**: Real medical data from 2,576 patients with heart conditions
@@ -192,6 +193,20 @@ Think of this like having a **super-smart health assistant** that never sleeps:
   - Anomaly detection (risk scoring: NORMAL, LOW, MEDIUM, HIGH)
   - Subject demographics integration (age, BMI, activity type)
 - **Why it matters**: Medical-grade analysis ready for clinical ML models with 99.2% data completeness
+
+#### 🫁 **6. RRest_Syn_Features.csv** (1.2+ MB) - *The Respiratory Intelligence*
+**What it is**: Synthetic physiological signals for comprehensive respiratory monitoring
+- **Synthetic signal dataset** with **40+ respiratory and cardiac features** per record
+- **Three modulation types**: Baseline waveform (BW), Amplitude modulation (AM), Frequency modulation (FM)
+- Advanced respiratory analysis:
+  - Respiratory rate estimation (time-domain and frequency-domain methods)
+  - Heart rate extraction from photoplethysmography signals
+  - Signal quality assessment (signal-to-noise ratio, spectral power distribution)
+  - Morphological features (peak detection, valley analysis, slope characteristics)
+  - Statistical properties (mean, standard deviation, skewness, kurtosis)
+- **Complete feature coverage**: No missing values, synthetic data ensures consistent quality
+- **Multi-modal synthesis**: Combines respiratory mechanics with cardiac rhythms
+- **Why it matters**: Provides ground-truth data for validating respiratory monitoring algorithms and training robust AI models that can handle various signal conditions
 
 ## 🧠 How the AI Magic Works
 
@@ -261,13 +276,13 @@ Raw Sensor Data → Smart Processing → AI-Ready Features → Life-Saving Model
 - ✅ **Memory-efficient** handling of large medical datasets
 
 **Feature Engineering Innovation:**
-- 🧠 **273 unique features** across all health modalities
-- 📊 **Multi-modal fusion** combining 5 different sensor types
+- 🧠 **300+ unique features** across all health modalities
+- 📊 **Multi-modal fusion** combining 6 different sensor types and datasets
 - 🔬 **Medical-grade analysis** with clinical validation data
 - 📈 **Time-series intelligence** capturing temporal health patterns
 
 **AI-Ready Pipeline:**
-- 🤖 **5 specialized datasets** for different ML applications
+- 🤖 **6 specialized datasets** for different ML applications
 - 🎯 **Real-time capable** processing for live monitoring
 - 🔄 **Scalable architecture** ready for millions of users
 - 🛡️ **Robust error handling** with comprehensive quality checks
@@ -364,7 +379,7 @@ risk_indicators = preprocessor._create_risk_indicators(
 
 ### **Impressive Statistics to Share**
 - 📊 **16.2 million** sensor measurements processed
-- 🎯 **273** engineered health features
+- 🎯 **300+** engineered health features
 - ⏱️ **87 seconds** for complete data processing
 - 🏥 **Medical-grade** validation with real patient data
 - 📱 **Smartwatch-compatible** sensor requirements
