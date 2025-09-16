@@ -599,9 +599,17 @@ class RRestSynPreprocessor:
             output_file = Path(output_path)
             output_file.parent.mkdir(parents=True, exist_ok=True)
             
+            # Remove file_path and processed_timestamp columns before saving
+            if 'file_path' in features_df.columns:
+                features_df = features_df.drop(columns=['file_path'])
+                
+            if 'processed_timestamp' in features_df.columns:
+                features_df = features_df.drop(columns=['processed_timestamp'])
+            
             features_df.to_csv(output_file, index=False)
             logger.info(f"Saved RRest-Syn processed data to {output_file}")
             logger.info(f"Shape: {features_df.shape}")
+            logger.info(f"Columns removed: file_path, processed_timestamp")
             
         except Exception as e:
             logger.error(f"Failed to save processed data: {e}")
