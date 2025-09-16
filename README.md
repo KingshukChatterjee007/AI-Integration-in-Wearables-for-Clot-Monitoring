@@ -44,13 +44,13 @@ Blood clots are silent killers that cause strokes, heart attacks, and pulmonary 
 
 #### 📊 **Final Data Quality Results**
 
-| Dataset               | Records | Status      | Quality Score |
-|-----------------------|---------|-------------|---------------|
-| Advanced PPG Features | **2,906**   | ✅ **EXCELLENT** | **99.2%**     |
-| Subject Features      | 3,207   | ✅ Perfect   | 100%          |
-| Integrated Features   | 3,207   | ✅ Perfect   | 100%          |
-| PPG Dataset           | 2,576   | ✅ Perfect   | 100%          |
-| Subjects Info         | 66      | ✅ Perfect   | 100%          |
+| Dataset               | Records |Quality Score|
+|-----------------------|---------|-------------|
+| Advanced PPG Features | 2,906   | 99.2%       |
+| Subject Features      | 3,207   | 100%        |
+| Integrated Features   | 3,207   | 100%        |
+| PPG Dataset           | 2,576   | 100%        |
+| Subjects Info         | 66      | 100%        |
 
 #### 🎯 **Massive Data Processing Improvement**
 
@@ -70,11 +70,11 @@ Blood clots are silent killers that cause strokes, heart attacks, and pulmonary 
 
 #### 🎯 **Machine Learning Readiness Status: FULLY READY**
 
-✅ **Sufficient Data Volume**: 2,906 PPG + 3,207 sensor features  
-✅ **Balanced Representation**: All subjects and activities covered  
-✅ **Quality Features**: Signal quality, heart rate, anomaly scores  
-✅ **Demographic Integration**: Age, BMI, health metrics included  
-✅ **Clean Data**: No missing values or corrupted records
+- **Sufficient Data Volume**: 2,906 PPG + 3,207 sensor features  
+- **Balanced Representation**: All subjects and activities covered  
+- **Quality Features**: Signal quality, heart rate, anomaly scores  
+- **Demographic Integration**: Age, BMI, health metrics included  
+- **Clean Data**: No missing values or corrupted records
 
 #### 📝 **Key Technical Improvements Made**
 
@@ -130,11 +130,11 @@ python data_preprocessing.py
 Your AI-ready datasets are now in the `processed_data/` folder, ready for machine learning!
 
 **What Just Happened?**
-- ✅ Processed 16.2 million sensor readings
-- ✅ Created 3,207 time windows for analysis  
-- ✅ Generated 300+ different health features
-- ✅ Built 6 specialized datasets for different AI models
-- ✅ All in about 87 seconds!
+-  Processed 16.2 million sensor readings
+-  Created 3,207 time windows for analysis  
+-  Generated 300+ different health features
+-  Built 6 specialized datasets for different AI models
+-  All in about 87 seconds!
 
 ## 🩺 Understanding Your Health Data
 
@@ -421,10 +421,10 @@ preprocessor.chunk_size = 500  # Reduce from default 1000
 
 #### **1. Start with the Right Dataset**
 Use `integrated_features.csv` - it has everything you need:
-- ✅ Sensor data from wearables
-- ✅ Personal risk factors  
-- ✅ Pre-calculated risk scores
-- ✅ 3,207 training examples
+-  Sensor data from wearables
+-  Personal risk factors  
+-  Pre-calculated risk scores
+-  3,207 training example
 
 #### **2. Choose Your AI Approach**
 **For Real-Time Clot Risk Prediction:**
@@ -490,11 +490,11 @@ With good feature engineering (which we've done), expect:
 **You've built something remarkable.** This isn't just a data processing project - it's a foundation for **life-saving healthcare technology**. 
 
 Your preprocessing pipeline successfully:
-- ✅ **Processed 16.2 million health data points** with 99.7% accuracy
-- ✅ **Created comprehensive AI training datasets** ready for machine learning
-- ✅ **Demonstrated technical excellence** in large-scale healthcare data processing
-- ✅ **Established clinical relevance** through medical-grade validation data
-- ✅ **Enabled real-world impact** through smartwatch-compatible sensor analysis
+-  **Processed 16.2 million health data points** with 99.7% accuracy
+-  **Created comprehensive AI training datasets** ready for machine learning
+-  **Demonstrated technical excellence** in large-scale healthcare data processing
+-  **Established clinical relevance** through medical-grade validation data
+-  **Enabled real-world impact** through smartwatch-compatible sensor analysis
 
 **What's next?** Train your AI models, validate against clinical outcomes, and potentially contribute to technology that could **save thousands of lives** through early blood clot detection.
 
