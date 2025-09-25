@@ -88,20 +88,21 @@ class BloodClotRiskPredictor:
         }
 
         # Prepare features (exclude non-feature columns)
-        exclude_cols = ['subject_id', 'activity', 'window_id', 'composite_risk_score', 'gender']
+        exclude_cols = ['subject_id', 'activity', 'window_id', 'composite_risk_score', 'composite_risk_score_old', 'risk_category', 'gender']
         feature_columns = [col for col in self.data.columns if col not in exclude_cols]
 
         X = self.data[feature_columns]
         y_regression = self.data['composite_risk_score']
 
         # Create classification target (risk categories)
+        # Adjust bins to accommodate the full range of risk scores (0 to ~9)
         y_classification = pd.cut(y_regression,
-                                bins=[0, 1, 2, 3, 4],
+                                bins=[0, 2, 4, 6, 10],  # Extended range to capture all values
                                 labels=[0, 1, 2, 3],  # Use integer labels for XGBoost compatibility
                                 include_lowest=True)
 
         # Store label mapping for interpretation
-        self.class_labels = {0: 'Low', 1: 'Moderate', 2: 'High', 3: 'Critical'}
+        self.class_labels = {0: 'Low (0-2)', 1: 'Low-Moderate (2-4)', 2: 'Moderate-High (4-6)', 3: 'High-Critical (6+)'}
 
         print(f"Features selected: {len(feature_columns)}")
         print("Risk category distribution:")
@@ -574,7 +575,7 @@ class BloodClotRiskPredictor:
 if __name__ == "__main__":
 
     # Initialize the predictor
-    predictor = BloodClotRiskPredictor('processed_data/integrated_features.csv')
+    predictor = BloodClotRiskPredictor('processed_data/integrated_features_improved.csv')
 
     # Run complete analysis
     models, results = predictor.run_complete_analysis()
