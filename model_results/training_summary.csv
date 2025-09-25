@@ -1,0 +1,4 @@
+model,category,roc_auc_mean,roc_auc_std,timestamp
+Random Forest,traditional_ml,,,2025-09-25T14:02:34.379786
+PPG Random Forest,ppg_specialist,1.0,0.0,2025-09-25T14:02:34.379786
+PPG Gradient Boosting,ppg_specialist,1.0,0.0,2025-09-25T14:02:34.379786
