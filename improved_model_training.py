@@ -230,10 +230,9 @@ class ImprovedBloodClotPredictor:
         print("\\n2. REGRESSION MODELS:")
         print("-" * 30)
 
-        # Skip regression on balanced data for now
-
+        # Random Forest Regression
         rf_reg = RandomForestRegressor(n_estimators=200, max_depth=10, random_state=42)
-        rf_reg.fit(X_train, y_train)  # Use original data for regression
+        rf_reg.fit(X_train, y_train)
         rf_reg_pred = rf_reg.predict(X_test)
 
         rf_rmse = np.sqrt(mean_squared_error(y_test, rf_reg_pred))
@@ -249,6 +248,31 @@ class ImprovedBloodClotPredictor:
             'rmse': rf_rmse,
             'r2': rf_r2
         }
+
+        # XGBoost Regression (if available)
+        if XGBOOST_AVAILABLE:
+            xgb_reg = xgb.XGBRegressor(
+                n_estimators=200,
+                max_depth=6,
+                learning_rate=0.1,
+                random_state=42
+            )
+            xgb_reg.fit(X_train, y_train)
+            xgb_reg_pred = xgb_reg.predict(X_test)
+
+            xgb_rmse = np.sqrt(mean_squared_error(y_test, xgb_reg_pred))
+            xgb_r2 = r2_score(y_test, xgb_reg_pred)
+
+            print(f"\\nXGBoost Regression:")
+            print(f"  RMSE: {xgb_rmse:.4f}")
+            print(f"  R²: {xgb_r2:.4f}")
+
+            results['xgb_regression'] = {
+                'model': xgb_reg,
+                'predictions': xgb_reg_pred,
+                'rmse': xgb_rmse,
+                'r2': xgb_r2
+            }
 
         self.results = results
         return results
@@ -276,9 +300,9 @@ class ImprovedBloodClotPredictor:
         for i in range(cm.shape[0]):
             for j in range(cm.shape[1]):
                 if cm[i,j] > 0:
-                    annotations[i, j] = f'{cm[i,j]}\\n({cm_percent[i,j]:.1f}%)'
+                    annotations[i, j] = f'{cm[i,j]}\n({cm_percent[i,j]:.1f}%)'
                 else:
-                    annotations[i, j] = f'0\\n(0.0%)'
+                    annotations[i, j] = f'0\n(0.0%)'
 
         # Create heatmap with better formatting
         plt.figure(figsize=(10, 8))
@@ -293,7 +317,7 @@ class ImprovedBloodClotPredictor:
             plt.gca().add_patch(plt.Rectangle((i, i), 1, 1, fill=False,
                                edgecolor='red', lw=4, alpha=0.8))
 
-        plt.title(f'Confusion Matrix - {best_model.replace("_", " ").title()}\\n(Numbers show Count and Row Percentage)',
+        plt.title(f'Confusion Matrix - {best_model.replace("_", " ").title()}\n(Numbers show Count and Row Percentage)',
                  fontsize=14, fontweight='bold')
         plt.xlabel('Predicted Risk Category', fontsize=12)
         plt.ylabel('Actual Risk Category', fontsize=12)
@@ -337,19 +361,34 @@ class ImprovedBloodClotPredictor:
 
         # Regression comparison
         plt.subplot(1, 3, 2)
-        r2_scores = [self.results['rf_regression']['r2']]
+
+        # Get regression results
+        reg_models = []
+        r2_scores = []
+        rmse_scores = []
+
+        for model_name, results in self.results.items():
+            if 'regression' in model_name:
+                reg_models.append(model_name.replace('_regression', '').upper())
+                r2_scores.append(results['r2'])
+                rmse_scores.append(results['rmse'])
+
+        x_pos_reg = np.arange(len(reg_models))
         colors = ['red' if r2 < 0 else 'skyblue' for r2 in r2_scores]
 
-        bars = plt.bar(['RF Regression'], r2_scores, color=colors, alpha=0.8, edgecolor='black')
+        bars = plt.bar(x_pos_reg, r2_scores, color=colors, alpha=0.8, edgecolor='black')
+        plt.xlabel('Models', fontsize=10)
         plt.ylabel('R² Score')
-        plt.title('Regression Model Performance')
+        plt.title('Regression Model R² Comparison')
+        plt.xticks(x_pos_reg, reg_models)
         plt.axhline(y=0, color='black', linestyle='-', linewidth=0.8)
         plt.grid(True, alpha=0.3)
 
-        for bar, score in zip(bars, r2_scores):
+        # Add value labels
+        for i, (bar, score) in enumerate(zip(bars, r2_scores)):
             height = bar.get_height()
             plt.text(bar.get_x() + bar.get_width()/2., height + (0.02 if height >= 0 else -0.05),
-                    f'{score:.3f}', ha='center', va='bottom' if height >= 0 else 'top')
+                    f'{score:.3f}', ha='center', va='bottom' if height >= 0 else 'top', fontsize=10)
 
         # Feature importance
         plt.subplot(1, 3, 3)
