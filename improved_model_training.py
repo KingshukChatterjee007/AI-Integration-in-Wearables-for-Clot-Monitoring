@@ -322,7 +322,7 @@ class ImprovedBloodClotPredictor:
         plt.xlabel('Predicted Risk Category', fontsize=12)
         plt.ylabel('Actual Risk Category', fontsize=12)
         plt.tight_layout()
-        plt.savefig('04_confusion_matrix.png', dpi=300, bbox_inches='tight')
+        plt.savefig('integrated-images/04_confusion_matrix.png', dpi=300, bbox_inches='tight')
         plt.show()
 
         # 2. Performance Comparison (Regression + Feature Importance)
@@ -375,7 +375,7 @@ class ImprovedBloodClotPredictor:
         plt.grid(True, alpha=0.3)
 
         plt.tight_layout()
-        plt.savefig('01_regression_performance.png', dpi=300, bbox_inches='tight')
+        plt.savefig('integrated-images/01_regression_performance.png', dpi=300, bbox_inches='tight')
         plt.show()
 
         # 3. Classification Performance Chart
@@ -412,13 +412,13 @@ class ImprovedBloodClotPredictor:
             plt.text(i + width/2, f1 + 0.02, f'{f1:.3f}', ha='center', va='bottom', fontsize=11, fontweight='bold')
 
         plt.tight_layout()
-        plt.savefig('02_classification_performance.png', dpi=300, bbox_inches='tight')
+        plt.savefig('integrated-images/02_classification_performance.png', dpi=300, bbox_inches='tight')
         plt.show()
 
-        print("Visualizations saved:")
-        print("- 04_confusion_matrix.png")
-        print("- 01_regression_performance.png")
-        print("- 02_classification_performance.png")
+        print("Visualizations saved to 'integrated-images/' folder:")
+        print("- integrated-images/04_confusion_matrix.png")
+        print("- integrated-images/01_regression_performance.png")
+        print("- integrated-images/02_classification_performance.png")
 
     def generate_comprehensive_report(self):
         """Generate comprehensive performance report"""

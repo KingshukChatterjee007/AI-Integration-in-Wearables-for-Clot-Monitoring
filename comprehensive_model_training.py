@@ -308,7 +308,7 @@ class BloodClotRiskPredictor:
         ax2.grid(True, alpha=0.3)
 
         plt.tight_layout()
-        plt.savefig('01_regression_performance.png', dpi=300, bbox_inches='tight')
+        plt.savefig('integrated-images/01_regression_performance.png', dpi=300, bbox_inches='tight')
         plt.show()
 
         # 2. Classification Model Performance
@@ -329,7 +329,7 @@ class BloodClotRiskPredictor:
             plt.text(i, acc + 0.02, f'{acc:.3f}', ha='center', fontsize=11, fontweight='bold')
 
         plt.tight_layout()
-        plt.savefig('02_classification_performance.png', dpi=300, bbox_inches='tight')
+        plt.savefig('integrated-images/02_classification_performance.png', dpi=300, bbox_inches='tight')
         plt.show()
 
         # 3. Actual vs Predicted and Risk Distribution
@@ -353,7 +353,7 @@ class BloodClotRiskPredictor:
         ax2.grid(True, alpha=0.3)
 
         plt.tight_layout()
-        plt.savefig('03_prediction_vs_actual.png', dpi=300, bbox_inches='tight')
+        plt.savefig('integrated-images/03_prediction_vs_actual.png', dpi=300, bbox_inches='tight')
         plt.show()
 
         # 4. Confusion Matrix
@@ -374,7 +374,7 @@ class BloodClotRiskPredictor:
         plt.ylabel('Actual', fontsize=12)
 
         plt.tight_layout()
-        plt.savefig('04_confusion_matrix.png', dpi=300, bbox_inches='tight')
+        plt.savefig('integrated-images/04_confusion_matrix.png', dpi=300, bbox_inches='tight')
         plt.show()
 
         # 5. Feature Group Importance
@@ -395,7 +395,7 @@ class BloodClotRiskPredictor:
             plt.text(imp + 0.01, i, f'{imp:.3f}', va='center', fontsize=10)
 
         plt.tight_layout()
-        plt.savefig('05_feature_group_importance.png', dpi=300, bbox_inches='tight')
+        plt.savefig('integrated-images/05_feature_group_importance.png', dpi=300, bbox_inches='tight')
         plt.show()
 
         # 6. Top Individual Features
@@ -415,7 +415,7 @@ class BloodClotRiskPredictor:
             plt.text(imp + 0.005, i, f'{imp:.3f}', va='center', fontsize=9)
 
         plt.tight_layout()
-        plt.savefig('06_top_features.png', dpi=300, bbox_inches='tight')
+        plt.savefig('integrated-images/06_top_features.png', dpi=300, bbox_inches='tight')
         plt.show()
 
         # 7. Risk Analysis by Activity and Subject
@@ -442,7 +442,7 @@ class BloodClotRiskPredictor:
         ax2.grid(True, alpha=0.3)
 
         plt.tight_layout()
-        plt.savefig('07_risk_by_activity_subject.png', dpi=300, bbox_inches='tight')
+        plt.savefig('integrated-images/07_risk_by_activity_subject.png', dpi=300, bbox_inches='tight')
         plt.show()
 
         # 8. Clinical Insights
@@ -463,18 +463,18 @@ class BloodClotRiskPredictor:
         ax2.grid(True, alpha=0.3)
 
         plt.tight_layout()
-        plt.savefig('08_clinical_insights.png', dpi=300, bbox_inches='tight')
+        plt.savefig('integrated-images/08_clinical_insights.png', dpi=300, bbox_inches='tight')
         plt.show()
 
-        print("\nAll visualizations created successfully:")
-        print("01_regression_performance.png")
-        print("02_classification_performance.png")
-        print("03_prediction_vs_actual.png")
-        print("04_confusion_matrix.png")
-        print("05_feature_group_importance.png")
-        print("06_top_features.png")
-        print("07_risk_by_activity_subject.png")
-        print("08_clinical_insights.png")
+        print("\nAll visualizations created successfully in 'integrated-images/' folder:")
+        print("integrated-images/01_regression_performance.png")
+        print("integrated-images/02_classification_performance.png")
+        print("integrated-images/03_prediction_vs_actual.png")
+        print("integrated-images/04_confusion_matrix.png")
+        print("integrated-images/05_feature_group_importance.png")
+        print("integrated-images/06_top_features.png")
+        print("integrated-images/07_risk_by_activity_subject.png")
+        print("integrated-images/08_clinical_insights.png")
 
     def generate_model_summary(self):
         """Generate comprehensive model summary"""
@@ -579,4 +579,4 @@ if __name__ == "__main__":
     # Run complete analysis
     models, results = predictor.run_complete_analysis()
 
-    print("\nAnalysis complete! Check 'blood_clot_model_results.png' for visualizations.")
+    print("\nAnalysis complete! Check 'integrated-images/' folder for all visualizations.")
