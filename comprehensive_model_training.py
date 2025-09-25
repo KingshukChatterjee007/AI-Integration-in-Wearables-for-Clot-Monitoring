@@ -52,19 +52,19 @@ class ClotMonitoringMLPipeline:
 
         # Load integrated features (primary dataset)
         self.datasets['integrated'] = pd.read_csv(f"{self.data_dir}/integrated_features.csv")
-        print(f"✅ Integrated Features: {self.datasets['integrated'].shape[0]:,} records, {self.datasets['integrated'].shape[1]} features")
+        print(f"Integrated Features: {self.datasets['integrated'].shape[0]:,} records, {self.datasets['integrated'].shape[1]} features")
 
         # Load advanced PPG features (cardiac specialist)
         self.datasets['ppg_advanced'] = pd.read_csv(f"{self.data_dir}/advanced_ppg_features.csv")
-        print(f"✅ Advanced PPG Features: {self.datasets['ppg_advanced'].shape[0]:,} records, {self.datasets['ppg_advanced'].shape[1]} features")
+        print(f"Advanced PPG Features: {self.datasets['ppg_advanced'].shape[0]:,} records, {self.datasets['ppg_advanced'].shape[1]} features")
 
         # Load raw PPG dataset (time series)
         self.datasets['ppg_raw'] = pd.read_csv(f"{self.data_dir}/ppg_dataset.csv")
-        print(f"✅ PPG Raw Dataset: {self.datasets['ppg_raw'].shape[0]:,} records, {self.datasets['ppg_raw'].shape[1]} features")
+        print(f"PPG Raw Dataset: {self.datasets['ppg_raw'].shape[0]:,} records, {self.datasets['ppg_raw'].shape[1]} features")
 
         # Load subjects info
         self.datasets['subjects'] = pd.read_csv(f"{self.data_dir}/subjects_info.csv")
-        print(f"✅ Subjects Info: {self.datasets['subjects'].shape[0]:,} records, {self.datasets['subjects'].shape[1]} features")
+        print(f" Subjects Info: {self.datasets['subjects'].shape[0]:,} records, {self.datasets['subjects'].shape[1]} features")
 
         return self.datasets
 
