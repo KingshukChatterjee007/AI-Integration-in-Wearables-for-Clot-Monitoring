@@ -325,42 +325,11 @@ class ImprovedBloodClotPredictor:
         plt.savefig('04_confusion_matrix.png', dpi=300, bbox_inches='tight')
         plt.show()
 
-        # 2. Performance Comparison
-        plt.figure(figsize=(15, 5))
-
-        # Classification metrics
-        plt.subplot(1, 3, 1)
-        models = []
-        accuracies = []
-        f1_scores = []
-
-        for model_name, results in self.results.items():
-            if 'classification' in model_name:
-                models.append(model_name.replace('_classification', '').upper())
-                accuracies.append(results['accuracy'])
-                f1_scores.append(results['f1_score'])
-
-        x_pos = np.arange(len(models))
-        width = 0.35
-
-        plt.bar(x_pos - width/2, accuracies, width, label='Accuracy', alpha=0.8, color='green')
-        plt.bar(x_pos + width/2, f1_scores, width, label='F1-Score', alpha=0.8, color='blue')
-
-        plt.xlabel('Models')
-        plt.ylabel('Score')
-        plt.title('Improved Classification Performance')
-        plt.xticks(x_pos, models)
-        plt.legend()
-        plt.ylim(0, 1)
-        plt.grid(True, alpha=0.3)
-
-        # Add value labels
-        for i, (acc, f1) in enumerate(zip(accuracies, f1_scores)):
-            plt.text(i - width/2, acc + 0.02, f'{acc:.3f}', ha='center', va='bottom')
-            plt.text(i + width/2, f1 + 0.02, f'{f1:.3f}', ha='center', va='bottom')
+        # 2. Performance Comparison (Regression + Feature Importance)
+        plt.figure(figsize=(12, 5))
 
         # Regression comparison
-        plt.subplot(1, 3, 2)
+        plt.subplot(1, 2, 1)
 
         # Get regression results
         reg_models = []
@@ -384,14 +353,17 @@ class ImprovedBloodClotPredictor:
         plt.axhline(y=0, color='black', linestyle='-', linewidth=0.8)
         plt.grid(True, alpha=0.3)
 
-        # Add value labels
+        # Add value labels positioned just above bars
         for i, (bar, score) in enumerate(zip(bars, r2_scores)):
             height = bar.get_height()
-            plt.text(bar.get_x() + bar.get_width()/2., height + (0.02 if height >= 0 else -0.05),
-                    f'{score:.3f}', ha='center', va='bottom' if height >= 0 else 'top', fontsize=10)
+            # Use small fixed offset just above the bar
+            y_pos = height + 0.025 if height >= 0 else height - 0.025
+            plt.text(bar.get_x() + bar.get_width()/2., y_pos,
+                    f'{score:.3f}', ha='center', va='bottom' if height >= 0 else 'top',
+                    fontsize=10, fontweight='bold')
 
         # Feature importance
-        plt.subplot(1, 3, 3)
+        plt.subplot(1, 2, 2)
         rf_model = self.results['rf_classification']['model']
         importances = rf_model.feature_importances_
         indices = np.argsort(importances)[-10:]  # Top 10
