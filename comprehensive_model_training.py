@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-🩺 AI Integration in Wearables for Blood Clot Monitoring - Comprehensive Model Training
+
+AI Integration in Wearables for Blood Clot Monitoring - Comprehensive Model Training
 
 This script implements a complete machine learning pipeline for blood clot detection
 using preprocessed wearable sensor data and medical datasets.
@@ -47,29 +48,29 @@ class ClotMonitoringMLPipeline:
 
     def load_datasets(self):
         """Load all preprocessed datasets"""
-        print(">> Loading datasets...")
+        print("🔄 Loading datasets...")
 
         # Load integrated features (primary dataset)
         self.datasets['integrated'] = pd.read_csv(f"{self.data_dir}/integrated_features.csv")
-        print(f">> Integrated Features: {self.datasets['integrated'].shape[0]:,} records, {self.datasets['integrated'].shape[1]} features")
+        print(f"✅ Integrated Features: {self.datasets['integrated'].shape[0]:,} records, {self.datasets['integrated'].shape[1]} features")
 
         # Load advanced PPG features (cardiac specialist)
         self.datasets['ppg_advanced'] = pd.read_csv(f"{self.data_dir}/advanced_ppg_features.csv")
-        print(f">> Advanced PPG Features: {self.datasets['ppg_advanced'].shape[0]:,} records, {self.datasets['ppg_advanced'].shape[1]} features")
+        print(f"✅ Advanced PPG Features: {self.datasets['ppg_advanced'].shape[0]:,} records, {self.datasets['ppg_advanced'].shape[1]} features")
 
         # Load raw PPG dataset (time series)
         self.datasets['ppg_raw'] = pd.read_csv(f"{self.data_dir}/ppg_dataset.csv")
-        print(f">> PPG Raw Dataset: {self.datasets['ppg_raw'].shape[0]:,} records, {self.datasets['ppg_raw'].shape[1]} features")
+        print(f"✅ PPG Raw Dataset: {self.datasets['ppg_raw'].shape[0]:,} records, {self.datasets['ppg_raw'].shape[1]} features")
 
         # Load subjects info
         self.datasets['subjects'] = pd.read_csv(f"{self.data_dir}/subjects_info.csv")
-        print(f">> Subjects Info: {self.datasets['subjects'].shape[0]:,} records, {self.datasets['subjects'].shape[1]} features")
+        print(f"✅ Subjects Info: {self.datasets['subjects'].shape[0]:,} records, {self.datasets['subjects'].shape[1]} features")
 
         return self.datasets
 
     def explore_data_characteristics(self):
         """Explore and visualize data characteristics"""
-        print("\n>> Exploring Data Characteristics...")
+        print("\n📊 Exploring Data Characteristics...")
 
         fig, axes = plt.subplots(2, 3, figsize=(18, 12))
         fig.suptitle('🩺 Blood Clot Monitoring - Data Exploration', fontsize=16, fontweight='bold')
@@ -720,7 +721,7 @@ Performance: {best_score:.4f} ROC-AUC
 
     def run_complete_pipeline(self):
         """Run the complete ML pipeline"""
-        print(">> Starting Comprehensive Blood Clot Monitoring ML Pipeline")
+        print("🚀 Starting Comprehensive Blood Clot Monitoring ML Pipeline")
         print("=" * 60)
 
         try:
@@ -754,20 +755,20 @@ Performance: {best_score:.4f} ROC-AUC
             # 9. Save models
             self.save_models()
 
-            print("\n>> Pipeline completed successfully!")
-            print(f">> Trained {len(self.models)} models")
-            print(f">> Best model: {self._get_best_model_name()}")
-            print(">> Results saved to model_results/")
-            print(">> Visualizations saved as PNG files")
+            print("\n🎉 Pipeline completed successfully!")
+            print(f"✅ Trained {len(self.models)} models")
+            print(f"✅ Best model: {self._get_best_model_name()}")
+            print("✅ Results saved to model_results/")
+            print("✅ Visualizations saved as PNG files")
 
         except Exception as e:
-            print(f"ERROR: Pipeline error: {str(e)}")
+            print(f"❌ Pipeline error: {str(e)}")
             import traceback
             traceback.print_exc()
 
 def main():
     """Main execution function"""
-    print("** AI Integration in Wearables for Blood Clot Monitoring **")
+    print("🩺 AI Integration in Wearables for Blood Clot Monitoring")
     print("Comprehensive Model Training Pipeline")
     print("=" * 50)
 
