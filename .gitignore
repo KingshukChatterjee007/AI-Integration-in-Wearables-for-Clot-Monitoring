@@ -4,4 +4,6 @@
 *.log
 csv/
 rrest-syn_csv/
+claude/
+catboost_info/
 __pycache__/
