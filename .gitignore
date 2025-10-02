@@ -5,5 +5,6 @@
 csv/
 rrest-syn_csv/
 claude/
+.claude/
 catboost_info/
 __pycache__/
