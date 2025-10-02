@@ -1,0 +1,24 @@
+================================================================================
+ENHANCED ML MODEL COMPARISON FOR BLOOD CLOT PREDICTION
+================================================================================
+Loading data from: processed_data/integrated_features_improved_balanced.csv
+Removing 2 zero-variance features
+Removing 60 highly correlated features
+
+Final feature set: 82 features
+Total samples: 3207
+Risk categories: ['Critical' 'High' 'Low' 'Low-Moderate' 'Moderate']
+Training samples: 2244
+Testing samples: 963
+Traceback (most recent call last):
+  File "C:\Users\KIIT\Pictures\Screenshots\Machine Learning Applications\Self\AI Integration in Wearables for Clot Monitoring\enhanced_model_comparison.py", line 801, in <module>
+    results, best_classifier, best_regressor = comparison.run_complete_analysis()
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KIIT\Pictures\Screenshots\Machine Learning Applications\Self\AI Integration in Wearables for Clot Monitoring\enhanced_model_comparison.py", line 762, in run_complete_analysis
+    self.load_and_prepare_data()
+  File "C:\Users\KIIT\Pictures\Screenshots\Machine Learning Applications\Self\AI Integration in Wearables for Clot Monitoring\enhanced_model_comparison.py", line 132, in load_and_prepare_data
+    print("\u2713 Features scaled using StandardScaler")
+  File "C:\Users\KIIT\AppData\Local\Programs\Python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2713' in position 0: character maps to <undefined>

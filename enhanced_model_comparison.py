@@ -7,6 +7,9 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+import joblib
+import os
+from datetime import datetime
 from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.preprocessing import StandardScaler, LabelEncoder
 from sklearn.metrics import (accuracy_score, f1_score, precision_score, recall_score,
@@ -96,6 +99,7 @@ class EnhancedModelComparison:
 
         # Ensure only numeric features
         X = self.data[feature_cols].select_dtypes(include=[np.number])
+        self.feature_names = list(X.columns)  # Store feature names for metadata
         y_regression = self.data['composite_risk_score']
         y_classification = self.data['risk_category']
 
@@ -111,8 +115,21 @@ class EnhancedModelComparison:
             train_test_split(X, y_classification_encoded, y_regression, test_size=0.3,
                            random_state=42, stratify=y_classification_encoded)
 
+        # Fit scaler on training data and transform both sets
+        self.X_train = pd.DataFrame(
+            self.scaler.fit_transform(self.X_train),
+            columns=self.X_train.columns,
+            index=self.X_train.index
+        )
+        self.X_test = pd.DataFrame(
+            self.scaler.transform(self.X_test),
+            columns=self.X_test.columns,
+            index=self.X_test.index
+        )
+
         print(f"Training samples: {len(self.X_train)}")
         print(f"Testing samples: {len(self.X_test)}")
+        print("Features scaled using StandardScaler")
 
     def apply_smote(self):
         """Apply SMOTE for balanced training"""
@@ -313,7 +330,8 @@ class EnhancedModelComparison:
                 'regression': True,
                 'rmse': np.sqrt(mean_squared_error(self.y_test_reg, y_pred)),
                 'r2': r2_score(self.y_test_reg, y_pred),
-                'reg_predictions': y_pred
+                'reg_predictions': y_pred,
+                'reg_model': reg
             })
 
         self.print_results()
@@ -398,7 +416,7 @@ class EnhancedModelComparison:
 
         plt.tight_layout()
         plt.savefig('integrated-images/01_classification_metrics_comparison.png', dpi=300, bbox_inches='tight')
-        print("✓ Saved: integrated-images/01_classification_metrics_comparison.png")
+        print("Saved: integrated-images/01_classification_metrics_comparison.png")
         plt.close()
 
         # 2. Regression Metrics Comparison (exclude extreme outliers)
@@ -434,7 +452,7 @@ class EnhancedModelComparison:
 
         plt.tight_layout()
         plt.savefig('integrated-images/02_regression_metrics_comparison.png', dpi=300, bbox_inches='tight')
-        print("✓ Saved: integrated-images/02_regression_metrics_comparison.png")
+        print("Saved: integrated-images/02_regression_metrics_comparison.png")
         plt.close()
 
         # 3. Best Model Performance Summary
@@ -463,7 +481,7 @@ class EnhancedModelComparison:
 
         plt.tight_layout()
         plt.savefig('integrated-images/03_best_models_performance.png', dpi=300, bbox_inches='tight')
-        print("✓ Saved: integrated-images/03_best_models_performance.png")
+        print("Saved: integrated-images/03_best_models_performance.png")
         plt.close()
 
         # 4. Overall Model Ranking (with memory error handling)
@@ -503,14 +521,14 @@ class EnhancedModelComparison:
             # Save with minimal settings
             fig.savefig('integrated-images/04_overall_model_ranking.png',
                        dpi=80, bbox_inches='tight', format='png')
-            print("✓ Saved: integrated-images/04_overall_model_ranking.png")
+            print("Saved: integrated-images/04_overall_model_ranking.png")
             plt.close(fig)
             gc.collect()
         except (MemoryError, Exception) as e:
             print(f"⚠ Skipped ranking plot due to: {type(e).__name__}")
             plt.close('all')
 
-        print("\n✓ All critical visualizations generated successfully!")
+        print("\nAll critical visualizations generated successfully!")
 
         # Generate additional analysis plots (05-08)
         self.generate_analysis_plots(best_clf, best_reg)
@@ -575,7 +593,7 @@ class EnhancedModelComparison:
         plt.title('Feature Group Importance Analysis', fontsize=14, fontweight='bold')
         plt.tight_layout()
         plt.savefig('integrated-images/05_feature_group_importance.png', dpi=300, bbox_inches='tight')
-        print("✓ Saved: integrated-images/05_feature_group_importance.png")
+        print("Saved: integrated-images/05_feature_group_importance.png")
         plt.close()
 
         # 6. Top Individual Features
@@ -597,7 +615,7 @@ class EnhancedModelComparison:
 
         plt.tight_layout()
         plt.savefig('integrated-images/06_top_features.png', dpi=300, bbox_inches='tight')
-        print("✓ Saved: integrated-images/06_top_features.png")
+        print("Saved: integrated-images/06_top_features.png")
         plt.close()
 
         # 7. Risk by Activity and Subject
@@ -627,7 +645,7 @@ class EnhancedModelComparison:
 
         plt.tight_layout()
         plt.savefig('integrated-images/07_risk_by_activity_subject.png', dpi=300, bbox_inches='tight')
-        print("✓ Saved: integrated-images/07_risk_by_activity_subject.png")
+        print("Saved: integrated-images/07_risk_by_activity_subject.png")
         plt.close()
 
         # 8. Clinical Insights
@@ -654,10 +672,85 @@ class EnhancedModelComparison:
 
         plt.tight_layout()
         plt.savefig('integrated-images/08_clinical_insights.png', dpi=300, bbox_inches='tight')
-        print("✓ Saved: integrated-images/08_clinical_insights.png")
+        print("Saved: integrated-images/08_clinical_insights.png")
         plt.close()
 
-        print("\n✓ All analysis plots (05-08) generated successfully!")
+        print("\nAll analysis plots (05-08) generated successfully!")
+
+    def save_best_models(self, best_clf_name, best_reg_name):
+        """Save the best trained models to disk for future use"""
+
+        # Create models directory if it doesn't exist
+        models_dir = 'trained_models'
+        if not os.path.exists(models_dir):
+            os.makedirs(models_dir)
+            print(f"\nCreated directory: {models_dir}/")
+
+        print("\n" + "="*80)
+        print("SAVING TRAINED MODELS")
+        print("="*80)
+
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+
+        # Save best classifier
+        if best_clf_name in self.results and 'model' in self.results[best_clf_name]:
+            clf_path = os.path.join(models_dir, f'best_classifier_{best_clf_name}_{timestamp}.pkl')
+            joblib.dump(self.results[best_clf_name]['model'], clf_path)
+            print(f"\nSaved Best Classifier ({best_clf_name}):")
+            print(f"  -> {clf_path}")
+            print(f"  Accuracy: {self.results[best_clf_name]['accuracy']:.4f}")
+            print(f"  F1-Score: {self.results[best_clf_name]['f1_score']:.4f}")
+
+        # Save best regressor
+        if best_reg_name in self.results and 'reg_model' in self.results[best_reg_name]:
+            reg_path = os.path.join(models_dir, f'best_regressor_{best_reg_name}_{timestamp}.pkl')
+            joblib.dump(self.results[best_reg_name]['reg_model'], reg_path)
+            print(f"\nSaved Best Regressor ({best_reg_name}):")
+            print(f"  -> {reg_path}")
+            print(f"  R² Score: {self.results[best_reg_name]['r2']:.4f}")
+            print(f"  RMSE: {self.results[best_reg_name]['rmse']:.4f}")
+
+        # Save preprocessing objects
+        scaler_path = os.path.join(models_dir, f'scaler_{timestamp}.pkl')
+        joblib.dump(self.scaler, scaler_path)
+        print(f"\nSaved StandardScaler:")
+        print(f"  -> {scaler_path}")
+
+        encoder_path = os.path.join(models_dir, f'label_encoder_{timestamp}.pkl')
+        joblib.dump(self.label_encoder, encoder_path)
+        print(f"\nSaved LabelEncoder:")
+        print(f"  -> {encoder_path}")
+
+        # Save model metadata
+        metadata = {
+            'best_classifier': best_clf_name,
+            'best_regressor': best_reg_name,
+            'classifier_metrics': {
+                'accuracy': self.results[best_clf_name]['accuracy'],
+                'f1_score': self.results[best_clf_name]['f1_score'],
+                'precision': self.results[best_clf_name]['precision'],
+                'recall': self.results[best_clf_name]['recall']
+            },
+            'regressor_metrics': {
+                'r2': self.results[best_reg_name]['r2'],
+                'rmse': self.results[best_reg_name]['rmse']
+            },
+            'feature_columns': self.feature_names,
+            'risk_categories': list(self.label_encoder.classes_),
+            'timestamp': timestamp
+        }
+
+        metadata_path = os.path.join(models_dir, f'model_metadata_{timestamp}.pkl')
+        joblib.dump(metadata, metadata_path)
+        print(f"\nSaved Model Metadata:")
+        print(f"  -> {metadata_path}")
+        print(f"  (Includes feature names, risk categories, and performance metrics)")
+
+        print("\n" + "="*80)
+        print("Models saved successfully! Use these files for deployment.")
+        print("="*80)
+
+        return models_dir
 
     def run_complete_analysis(self):
         """Run complete enhanced model comparison"""
@@ -685,16 +778,20 @@ class EnhancedModelComparison:
         print("\n" + "="*80)
         print("FINAL RECOMMENDATIONS")
         print("="*80)
-        print(f"\n🏆 BEST CLASSIFIER: {best_clf}")
+        print(f"\nBEST CLASSIFIER: {best_clf}")
         print(f"   F1-Score: {self.results[best_clf]['f1_score']:.4f}")
         print(f"   Accuracy: {self.results[best_clf]['accuracy']:.4f}")
 
-        print(f"\n🏆 BEST REGRESSOR: {best_reg}")
+        print(f"\nBEST REGRESSOR: {best_reg}")
         print(f"   R² Score: {self.results[best_reg]['r2']:.4f}")
         print(f"   RMSE: {self.results[best_reg]['rmse']:.4f}")
 
+        # Save best models to disk
+        models_dir = self.save_best_models(best_clf, best_reg)
+
         print("\n" + "="*80)
         print("Analysis complete! Check 'integrated-images/' for visualizations")
+        print(f"Trained models saved in '{models_dir}/' directory")
         print("="*80)
 
         return self.results, best_clf, best_reg
