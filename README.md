@@ -89,25 +89,64 @@ Blood clots are silent killers that cause strokes, heart attacks, and pulmonary 
 ## 📁 Project Structure
 
 ```
-📦 AI-Clot-Monitoring/
-├── 📂 csv/                           # Your raw sensor data goes here
-│   ├── 🏥 PPG_Dataset.csv           # Medical-grade heart data (2,576 patients)
-│   ├── 👥 subjects_info.csv         # Demographics & health info
-│   ├── 📱 s1_walk.csv, s1_run.csv   # Subject sensor data (smartwatch-style)
-│   └── 📊 s2_sit.csv, ... s22_*     # All 67 activity files from 22 people
-├── 🧠 data_preprocessing.py          # Main AI preprocessing engine
-├── ❤️ ppg_analysis.py               # Heart signal analysis specialist
-├── ⚡ run_preprocessing.py           # One-click processing script
-├── 📋 requirements.txt              # Python packages needed
-├── 📊 processed_data/               # Your AI-ready datasets (auto-created)
-│   ├── 🎯 ppg_dataset.csv           # Medical data (60.84 MB)
-│   ├── 👤 subjects_info.csv         # Demographics (0.01 MB)
-│   ├── 📈 subject_features.csv      # Wearable features (4.42 MB)
-│   ├── 🔗 integrated_features.csv   # Complete ML dataset (4.61 MB)
-│   ├── 💓 advanced_ppg_features.csv # Specialized heart analysis (0.00 MB)
-│   └── 🫀 rrest_syn_features.csv    # Synthetic respiratory signals (1.2+ MB)
-├
-└── 📖 README.md                     # This comprehensive guide
+ AI-Clot-Monitoring/
+├──  csv/                                      # Raw sensor data (input)
+│   ├──  PPG_Dataset.csv                      # Medical-grade heart data (2,576 patients)
+│   ├──  subjects_info.csv                    # Demographics & health info (22 subjects)
+│   └──  s1-s22_walk/run/sit.csv              # 66 activity files (22 subjects × 3 activities)
+│
+├──  rrest-syn_csv/                            # Synthetic respiratory data (192 files)
+│   └──  rrest-syn001-192_data.csv + .txt     # Generated respiratory patterns
+│
+├──  scripts/                                  # Preprocessing pipeline
+│   ├──  data_preprocessing.py                # Main AI preprocessing engine
+│   ├──  ppg_analysis.py                      # Heart signal analysis specialist
+│   ├──  rrest_syn_preprocessing.py           # Respiratory synthesis engine
+│   ├──  comprehensive_preprocessing_test.py  # Full pipeline test
+│   └── requirements.txt                     # Python packages needed
+│
+├──  processed_data/                           # AI-ready datasets (output)
+│   ├──  ppg_dataset.csv                      # Medical data (60.84 MB)
+│   ├──  subjects_info.csv                    # Demographics (0.01 MB)
+│   ├──  subject_features.csv                 # Wearable features (4.42 MB)
+│   ├──  integrated_features_improved.csv     # Enhanced ML dataset (4.61 MB)
+│   ├──  integrated_features_improved_balanced.csv  # PRODUCTION DATASET (balanced risk, 3,207 samples)
+│   ├──  advanced_ppg_features.csv            # Specialized heart analysis (0.00 MB)
+│   └──  rrest_syn_features.csv               # Synthetic respiratory signals (1.2+ MB)
+│
+├──  trained_models/                           # Production ML models (87% accuracy)
+│   ├── best_classifier_XGBoost_20251003_032212.pkl           (2.4 MB)
+│   ├── best_regressor_Gradient Boosting_20251003_032212.pkl  (1.8 MB)
+│   ├── scaler_20251003_032212.pkl                            (4.4 KB - fitted)
+│   ├──  label_encoder_20251003_032212.pkl                     (589 bytes)
+│   └──  model_metadata_20251003_032212.pkl                    (1.7 KB)
+│
+├── integrated-images/                        # Visualization outputs
+│   ├── 01_classification_metrics_comparison.png # 8 models accuracy/F1/precision/recall
+│   ├── 02_regression_metrics_comparison.png     # RMSE & R² comparison
+│   ├── 03_best_models_performance.png           # Confusion matrix + scatter
+│   ├── 04_overall_model_ranking.png             # Composite ranking
+│   ├── 05_feature_group_importance.png          # Pleth/Temp/ECG importance
+│   ├── 06_top_features.png                      # Top 15 features
+│   ├── 07_risk_by_activity_subject.png          # Activity/subject analysis
+│   └── 08_clinical_insights.png                 # Age correlation + residuals
+│
+├── ML Training & Prediction Scripts
+│   ├── enhanced_model_comparison.py          # MAIN: Trains 8 algorithms, saves models
+│   ├──  improved_risk_scoring_balanced.py     # Creates balanced risk categories
+│   ├──  check_distribution.py                 # Diagnostic: Check class distribution
+│   └──  load_and_predict.py                   # PRODUCTION: Load models & predict
+│
+├── Documentation
+│   ├──  README.md                             # This comprehensive guide
+│   ├──  MODEL_COMPARISON_SUMMARY.md           # Detailed model results & analysis
+│   ├──  Integrated Models Summary.md          # Model integration overview
+│   └──  LICENSE.txt                           # Project license
+│
+└──  Configuration
+    ├── __pycache__/                             # Python cache
+    ├── catboost_info/                           # CatBoost training logs
+    └── training_output.txt                      # Latest training log
 ```
 
 ## 🚀 Quick Start Guide
