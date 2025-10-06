@@ -165,7 +165,7 @@ def create_balanced_risk_categories(continuous_scores):
 if __name__ == "__main__":
     # Load the improved integrated features
     print("Loading improved data...")
-    data = pd.read_csv('processed_data/integrated_features_improved.csv')
+    data = pd.read_csv('../processed_data/integrated_features_improved.csv')
 
     # Use existing risk scores, just re-categorize with balanced thresholds
     print("\nUsing existing risk scores, applying balanced thresholds...")
@@ -210,7 +210,7 @@ if __name__ == "__main__":
             print(f"{category:15s}: {min(scores):5.2f} - {max(scores):5.2f} (mean: {np.mean(scores):5.2f}, n={len(scores)})")
 
     # Save balanced dataset
-    output_file = 'processed_data/integrated_features_improved_balanced.csv'
+    output_file = '../processed_data/integrated_features_improved_balanced.csv'
     data.to_csv(output_file, index=False)
     print(f"\n✅ Saved balanced dataset: {output_file}")
     print(f"   Total records: {len(data)}")
@@ -237,6 +237,6 @@ if __name__ == "__main__":
     print("="*60)
     print("1. Review the balanced distribution above")
     print("2. If satisfied, update enhanced_model_comparison.py to use:")
-    print("   data_path='processed_data/integrated_features_improved_balanced.csv'")
+    print("   data_path='../processed_data/integrated_features_improved_balanced.csv'")
     print("3. Re-run the model comparison")
     print("4. Expect MUCH better classification performance!")

@@ -17,7 +17,7 @@ from sklearn.preprocessing import label_binarize
 plt.style.use('seaborn-v0_8-darkgrid')
 sns.set_palette("husl")
 
-def load_latest_models(models_dir='trained_models'):
+def load_latest_models(models_dir='../trained_models'):
     """Load the most recently trained models"""
     metadata_files = glob.glob(os.path.join(models_dir, 'model_metadata_*.pkl'))
     if not metadata_files:
@@ -302,7 +302,7 @@ def main():
     models = load_latest_models()
 
     # Load data
-    data = pd.read_csv('processed_data/integrated_features_improved_balanced.csv')
+    data = pd.read_csv('../processed_data/integrated_features_improved_balanced.csv')
 
     # Use same 600 patients as original study for fair comparison
     test_patients = data.sample(n=600, random_state=42)

@@ -20,7 +20,7 @@ import joblib
 plt.style.use('seaborn-v0_8-darkgrid')
 sns.set_palette("husl")
 
-def load_latest_models(models_dir='trained_models'):
+def load_latest_models(models_dir='../trained_models'):
     """Load the most recently trained models"""
     import glob
     import os
@@ -109,7 +109,7 @@ def main():
 
     # Load data (same 600 patients as pilot study)
     print("Loading patient data...")
-    data = pd.read_csv('processed_data/integrated_features_improved_balanced.csv')
+    data = pd.read_csv('../processed_data/integrated_features_improved_balanced.csv')
     test_patients = data.sample(n=600, random_state=42)
     print(f"Testing on {len(test_patients)} patients\n")
 
@@ -259,13 +259,13 @@ def main():
         plt.tight_layout()
 
         # Save plot
-        Path('pilot_study_plots').mkdir(exist_ok=True)
-        plt.savefig('pilot_study_plots/7_uncertainty_calibration.png', dpi=300, bbox_inches='tight')
-        print("Saved: pilot_study_plots/7_uncertainty_calibration.png")
+        Path('../pilot_study_plots').mkdir(exist_ok=True)
+        plt.savefig('../pilot_study_plots/7_uncertainty_calibration.png', dpi=300, bbox_inches='tight')
+        print("Saved: ../pilot_study_plots/7_uncertainty_calibration.png")
 
         # Save detailed results
-        results_df.to_csv('pilot_study_plots/uncertainty_calibration_results.csv', index=False)
-        print("Saved: pilot_study_plots/uncertainty_calibration_results.csv")
+        results_df.to_csv('../pilot_study_plots/uncertainty_calibration_results.csv', index=False)
+        print("Saved: ../pilot_study_plots/uncertainty_calibration_results.csv")
 
         # Additional Analysis: High-risk predictions
         print("\n" + "="*80)
@@ -300,7 +300,7 @@ def main():
         print(f"   - Overall Accuracy: {results_df['correct'].mean() * 100:.2f}%")
         print(f"   - Total Predictions: {len(results_df)}")
         print(f"   - Calibration Status: {calibration_stats[0]['status'] if calibration_stats else 'N/A'}")
-        print(f"\nResults saved to pilot_study_plots/")
+        print(f"\nResults saved to ../pilot_study_plots/")
 
 if __name__ == "__main__":
     main()

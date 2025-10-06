@@ -12,7 +12,7 @@ import glob
 import os
 from pathlib import Path
 
-def load_latest_models(models_dir='trained_models'):
+def load_latest_models(models_dir='../trained_models'):
     """Load the most recently trained models"""
     metadata_files = glob.glob(os.path.join(models_dir, 'model_metadata_*.pkl'))
     if not metadata_files:
@@ -235,7 +235,7 @@ def main():
     models = load_latest_models()
 
     # Load test data
-    data = pd.read_csv('processed_data/integrated_features_improved_balanced.csv')
+    data = pd.read_csv('../processed_data/integrated_features_improved_balanced.csv')
 
     # Test on same 5 samples as diagnostic
     test_indices = [705, 2336, 1972, 1643, 2124]

@@ -57,7 +57,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 class EnhancedModelComparison:
-    def __init__(self, data_path='processed_data/integrated_features_improved_balanced.csv'):
+    def __init__(self, data_path='../processed_data/integrated_features_improved_balanced.csv'):
         self.data_path = data_path
         self.data = None
         self.X_train = None
@@ -226,7 +226,8 @@ class EnhancedModelComparison:
         if CATBOOST_AVAILABLE:
             print("8. CatBoost...")
             classifiers['CatBoost'] = CatBoostClassifier(
-                iterations=200, depth=6, learning_rate=0.1, random_state=42, verbose=0
+                iterations=200, depth=6, learning_rate=0.1, random_state=42, verbose=0,
+                train_dir='../catboost_info'  # Save training info in parent directory
             )
             classifiers['CatBoost'].fit(X_train, y_train)
 
@@ -293,7 +294,8 @@ class EnhancedModelComparison:
         if CATBOOST_AVAILABLE:
             print("8. CatBoost...")
             regressors['CatBoost'] = CatBoostRegressor(
-                iterations=200, depth=6, learning_rate=0.1, random_state=42, verbose=0
+                iterations=200, depth=6, learning_rate=0.1, random_state=42, verbose=0,
+                train_dir='../catboost_info'  # Save training info in parent directory
             )
             regressors['CatBoost'].fit(X_train, y_train)
 
@@ -415,7 +417,7 @@ class EnhancedModelComparison:
             axes[1, 1].text(v + 0.01, i, f'{v:.3f}', va='center')
 
         plt.tight_layout()
-        plt.savefig('integrated-images/01_classification_metrics_comparison.png', dpi=300, bbox_inches='tight')
+        plt.savefig('../integrated-images/01_classification_metrics_comparison.png', dpi=300, bbox_inches='tight')
         print("Saved: integrated-images/01_classification_metrics_comparison.png")
         plt.close()
 
@@ -451,7 +453,7 @@ class EnhancedModelComparison:
             ax2.text(v + 0.01 if v >= 0 else v - 0.05, i, f'{v:.3f}', va='center', fontsize=9)
 
         plt.tight_layout()
-        plt.savefig('integrated-images/02_regression_metrics_comparison.png', dpi=300, bbox_inches='tight')
+        plt.savefig('../integrated-images/02_regression_metrics_comparison.png', dpi=300, bbox_inches='tight')
         print("Saved: integrated-images/02_regression_metrics_comparison.png")
         plt.close()
 
@@ -480,7 +482,7 @@ class EnhancedModelComparison:
         ax2.grid(True, alpha=0.3)
 
         plt.tight_layout()
-        plt.savefig('integrated-images/03_best_models_performance.png', dpi=300, bbox_inches='tight')
+        plt.savefig('../integrated-images/03_best_models_performance.png', dpi=300, bbox_inches='tight')
         print("Saved: integrated-images/03_best_models_performance.png")
         plt.close()
 
@@ -519,7 +521,7 @@ class EnhancedModelComparison:
 
             plt.tight_layout(pad=0.5)
             # Save with minimal settings
-            fig.savefig('integrated-images/04_overall_model_ranking.png',
+            fig.savefig('../integrated-images/04_overall_model_ranking.png',
                        dpi=80, bbox_inches='tight', format='png')
             print("Saved: integrated-images/04_overall_model_ranking.png")
             plt.close(fig)
@@ -592,7 +594,7 @@ class EnhancedModelComparison:
         plt.xlabel('Importance Score', fontsize=12)
         plt.title('Feature Group Importance Analysis', fontsize=14, fontweight='bold')
         plt.tight_layout()
-        plt.savefig('integrated-images/05_feature_group_importance.png', dpi=300, bbox_inches='tight')
+        plt.savefig('../integrated-images/05_feature_group_importance.png', dpi=300, bbox_inches='tight')
         print("Saved: integrated-images/05_feature_group_importance.png")
         plt.close()
 
@@ -614,7 +616,7 @@ class EnhancedModelComparison:
             plt.text(imp + 0.002, i, f'{imp:.3f}', va='center', fontsize=9)
 
         plt.tight_layout()
-        plt.savefig('integrated-images/06_top_features.png', dpi=300, bbox_inches='tight')
+        plt.savefig('../integrated-images/06_top_features.png', dpi=300, bbox_inches='tight')
         print("Saved: integrated-images/06_top_features.png")
         plt.close()
 
@@ -644,7 +646,7 @@ class EnhancedModelComparison:
             ax2.set_title('Top 10 Highest Risk Subjects', fontsize=12, fontweight='bold')
 
         plt.tight_layout()
-        plt.savefig('integrated-images/07_risk_by_activity_subject.png', dpi=300, bbox_inches='tight')
+        plt.savefig('../integrated-images/07_risk_by_activity_subject.png', dpi=300, bbox_inches='tight')
         print("Saved: integrated-images/07_risk_by_activity_subject.png")
         plt.close()
 
@@ -671,7 +673,7 @@ class EnhancedModelComparison:
         ax2.grid(True, alpha=0.3)
 
         plt.tight_layout()
-        plt.savefig('integrated-images/08_clinical_insights.png', dpi=300, bbox_inches='tight')
+        plt.savefig('../integrated-images/08_clinical_insights.png', dpi=300, bbox_inches='tight')
         print("Saved: integrated-images/08_clinical_insights.png")
         plt.close()
 
@@ -680,8 +682,8 @@ class EnhancedModelComparison:
     def save_best_models(self, best_clf_name, best_reg_name):
         """Save the best trained models to disk for future use"""
 
-        # Create models directory if it doesn't exist
-        models_dir = 'trained_models'
+        # Create models directory if it doesn't exist (in parent directory)
+        models_dir = '../trained_models'
         if not os.path.exists(models_dir):
             os.makedirs(models_dir)
             print(f"\nCreated directory: {models_dir}/")
@@ -790,7 +792,7 @@ class EnhancedModelComparison:
         models_dir = self.save_best_models(best_clf, best_reg)
 
         print("\n" + "="*80)
-        print("Analysis complete! Check 'integrated-images/' for visualizations")
+        print("Analysis complete! Check '../integrated-images/' for visualizations")
         print(f"Trained models saved in '{models_dir}/' directory")
         print("="*80)
 

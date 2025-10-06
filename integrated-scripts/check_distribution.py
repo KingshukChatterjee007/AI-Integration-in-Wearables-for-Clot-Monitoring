@@ -1,8 +1,8 @@
 import pandas as pd
 import numpy as np
 
-# Load data
-data = pd.read_csv('processed_data/integrated_features_improved.csv')
+# Load data (path updated for integrated-scripts directory)
+data = pd.read_csv('../processed_data/integrated_features_improved.csv')
 
 print("="*60)
 print("RISK CATEGORY DISTRIBUTION ANALYSIS")
