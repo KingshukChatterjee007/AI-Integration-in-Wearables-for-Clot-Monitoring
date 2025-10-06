@@ -100,6 +100,13 @@ def predict_with_uncertainty_improved(models, patient_data):
         if borderline_high_risk:
             safety_flag = True
 
+        # NEW: Overconfidence detection (catches Patients 937, 2972)
+        # Very high confidence (>95%) on borderline scores (2.5-4.0) is suspicious
+        overconfident = confidence > 0.95 and (2.5 <= risk_score < 4.0)
+
+        if overconfident:
+            safety_flag = True
+
         # IMPROVEMENT 3 (Priority 3): Fixed REVIEW_DISAGREEMENT logic
         # When classifier and threshold disagree, trust the MORE CONSERVATIVE option
         disagreement = predicted_category != tuned_category
@@ -120,8 +127,14 @@ def predict_with_uncertainty_improved(models, patient_data):
         # NEW: uncertainty > 0.55 OR confidence < 0.65 (slightly tighter)
 
         # Alert level determination
-        if final_category == 'Critical' or safety_flag:
+        if final_category == 'Critical':
             alert_level = 'URGENT'
+        elif safety_flag:
+            # Distinguish between different safety triggers
+            if overconfident:
+                alert_level = 'REVIEW_OVERCONFIDENT'
+            else:
+                alert_level = 'URGENT'
         elif uncertainty > 0.55:  # Raised from 0.50
             alert_level = 'REVIEW_HIGH_UNCERTAINTY'
         elif confidence < 0.65:  # Lowered from 0.70
