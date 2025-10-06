@@ -1,9 +1,5 @@
 """
 Clinical Pilot Study - IMPROVED VERSION
-Fixes:
-- Priority 1: Enhanced false negative detection with safety margins
-- Priority 3: Fixed REVIEW_DISAGREEMENT logic (trust classifier more)
-- Priority 4: Optimized review queue thresholds
 """
 
 import pandas as pd
