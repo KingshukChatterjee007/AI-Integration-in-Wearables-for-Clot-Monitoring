@@ -272,8 +272,8 @@ def create_comparison_report(old_results, new_results, output_file='improvement_
         f.write("   - Result: Better accuracy, safer predictions\n\n")
 
         f.write("3. **Priority 4 (Review Queue Optimization):**\n")
-        f.write("   - Uncertainty threshold: 0.50 -> 0.55 (tighter)\n")
-        f.write("   - Confidence threshold: 0.70 -> 0.65 (tighter)\n")
+        f.write("   - Uncertainty threshold: 0.50 → 0.55 (tighter)\n")
+        f.write("   - Confidence threshold: 0.70 → 0.65 (tighter)\n")
         f.write("   - Added margin check: <0.15 flagged for review\n")
         f.write(f"   - Result: Review queue reduced from {old_review/len(old_results)*100:.1f}% to {new_review/len(new_results)*100:.1f}%\n")
 
@@ -351,73 +351,12 @@ def main():
     print("LOADING ORIGINAL RESULTS FOR COMPARISON...")
     print("="*80)
 
-    # Run original prediction for comparison (inline to avoid import issues)
-    def predict_original(models, patient_data):
-        """Original prediction method"""
-        feature_columns = models['metadata']['feature_columns']
-        X = patient_data[feature_columns]
-        X_scaled_array = models['scaler'].transform(X)
-        X_scaled = pd.DataFrame(X_scaled_array, columns=feature_columns, index=X.index)
+    # Run original prediction for comparison
+    from clinical_pilot_study import predict_with_uncertainty
+    old_results = predict_with_uncertainty(models, test_patients)
 
-        results_orig = []
-        for idx in range(len(X_scaled)):
-            X_sample = X_scaled.iloc[[idx]]
-            class_probs = models['classifier'].predict_proba(X_sample)[0]
-            predicted_class_idx = np.argmax(class_probs)
-            predicted_category = models['label_encoder'].inverse_transform([predicted_class_idx])[0]
-            confidence = class_probs[predicted_class_idx]
-
-            epsilon = 1e-10
-            entropy = -np.sum(class_probs * np.log(class_probs + epsilon))
-            max_entropy = np.log(len(class_probs))
-            uncertainty = entropy / max_entropy if max_entropy > 0 else 0.0
-
-            risk_score = models['regressor'].predict(X_sample)[0]
-
-            if risk_score >= 6.0:
-                tuned_category = 'Critical'
-            elif risk_score >= 3.5:
-                tuned_category = 'High'
-            elif risk_score >= 2.5:
-                tuned_category = 'Moderate'
-            elif risk_score >= 1.5:
-                tuned_category = 'Low-Moderate'
-            else:
-                tuned_category = 'Low'
-
-            # ORIGINAL alert logic
-            if tuned_category == 'Critical':
-                alert_level = 'URGENT'
-            elif uncertainty > 0.5:  # OLD threshold
-                alert_level = 'REVIEW_HIGH_UNCERTAINTY'
-            elif confidence < 0.7:  # OLD threshold
-                alert_level = 'REVIEW_LOW_CONFIDENCE'
-            elif predicted_category != tuned_category:
-                alert_level = 'REVIEW_DISAGREEMENT'
-            elif tuned_category == 'High':
-                alert_level = 'MONITOR'
-            else:
-                alert_level = 'NORMAL'
-
-            result = {
-                'patient_id': patient_data.index[idx],
-                'predicted_category': predicted_category,
-                'tuned_category': tuned_category,
-                'confidence': confidence,
-                'uncertainty': uncertainty,
-                'risk_score': risk_score,
-                'alert_level': alert_level,
-                'actual_category': patient_data.loc[patient_data.index[idx], 'risk_category'],
-                'actual_score': patient_data.loc[patient_data.index[idx], 'composite_risk_score']
-            }
-            results_orig.append(result)
-        return pd.DataFrame(results_orig)
-
-    old_results = predict_original(models, test_patients)
-
-    # Generate comparison report (optional - comment out if not needed)
-    # Uncomment next line to generate improvement_comparison.md
-    # create_comparison_report(old_results, results)
+    # Generate comparison report
+    create_comparison_report(old_results, results)
 
     # Print comparison summary
     print("\n" + "="*80)
