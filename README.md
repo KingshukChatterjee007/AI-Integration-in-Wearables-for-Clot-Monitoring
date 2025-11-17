@@ -163,7 +163,7 @@ Blood clots are silent killers that cause strokes, heart attacks, and pulmonary 
 
 ## 🚀 Quick Start Guide
 
-### ** Goal**: Get your AI clot monitoring system running in 5 minutes!
+### **Goal:** Get your AI clot monitoring system running in 5 minutes!
 
 ### **Step 1: Setup** (2 minutes)
 ```bash
@@ -318,7 +318,7 @@ Raw Sensor Data → Smart Processing → AI-Ready Features → Life-Saving Model
 
 ##  Impressive Technical Achievements
 
-### ** What We've Accomplished**
+### **What We've Accomplished**
 
 **Data Processing Excellence:**
 - ✅ **16.2 million** individual sensor measurements successfully processed
