@@ -525,8 +525,6 @@ This discovery and fix demonstrates:
 - **Real-world readiness**: 84% accuracy is validated and deployable
 - **Best practices**: Following ML ethics and data science standards
 
-For full investigation details, see: [`DATA_LEAKAGE_INVESTIGATION_RESULTS.md`](DATA_LEAKAGE_INVESTIGATION_RESULTS.md)
-
 ---
 
 ##  Conclusion
