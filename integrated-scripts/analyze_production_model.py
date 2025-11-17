@@ -42,12 +42,16 @@ def load_production_model():
 
     logger.info("Loading production model...")
 
-    models_dir = Path('trained_models')
+    # Handle paths relative to script location
+    script_dir = Path(__file__).parent
+    project_root = script_dir.parent
+    models_dir = project_root / 'trained_models'
 
-    model = joblib.load(models_dir / 'xgboost_84percent_CLEAN.pkl')
-    scaler = joblib.load(models_dir / 'scaler_CLEAN.pkl')
-    encoder = joblib.load(models_dir / 'label_encoder_CLEAN.pkl')
-    feature_names = joblib.load(models_dir / 'feature_names_CLEAN.pkl')
+    # Use the actual filenames from comprehensive comparison
+    model = joblib.load(models_dir / 'xgboost_CLEAN.pkl')
+    scaler = joblib.load(models_dir / 'scaler_comparison_CLEAN.pkl')
+    encoder = joblib.load(models_dir / 'encoder_comparison_CLEAN.pkl')
+    feature_names = joblib.load(models_dir / 'features_comparison_CLEAN.pkl')
 
     logger.info("   Model loaded successfully!")
 
@@ -59,7 +63,10 @@ def create_visualizations(model, X_test, y_test, y_pred, y_pred_proba, encoder, 
 
     logger.info("\nCreating visualizations...")
 
-    output_dir = Path('model_analysis_plots')
+    # Use project root for output directory
+    script_dir = Path(__file__).parent
+    project_root = script_dir.parent
+    output_dir = project_root / 'model_analysis_plots'
     output_dir.mkdir(exist_ok=True)
 
     # Get class names
@@ -298,9 +305,11 @@ NEXT STEPS:
 {'='*70}
 """
 
-    # Save report
-    report_path = Path('model_analysis_plots/PERFORMANCE_REPORT.txt')
-    report_path.write_text(report)
+    # Save report using project root
+    script_dir = Path(__file__).parent
+    project_root = script_dir.parent
+    report_path = project_root / 'model_analysis_plots' / 'PERFORMANCE_REPORT.txt'
+    report_path.write_text(report, encoding='utf-8')
 
     logger.info(f"Report saved to: {report_path}")
 
@@ -320,7 +329,10 @@ def main():
 
     # Load test data
     logger.info("\nLoading test dataset...")
-    df = pd.read_csv('processed_data/integrated_features_enhanced_CLEAN.csv')
+    script_dir = Path(__file__).parent
+    project_root = script_dir.parent
+    data_path = project_root / 'processed_data' / 'integrated_features_enhanced_CLEAN.csv'
+    df = pd.read_csv(data_path)
 
     # Prepare features
     non_feature_cols = ['subject_id', 'activity', 'window_id', 'risk_category']
