@@ -381,7 +381,7 @@ Demographics & 66 & 100\% & 0 & 0 (0\%) \\
 \subsection{{Signal Preprocessing Pipeline}}
 \vspace{-2pt}
 
-\subsubsection{\textit{Noise Filtering:}} Butterworth bandpass filters remove electrical interference, motion artifacts, and baseline drift.
+\subsubsection{\textit{Noise Filtering:}} Butterworth bandpass filters remove electrical interference, motion artifacts, and baseline drift \cite{butterworth1930filter}.
 
 \begin{equation}
 H(s) = \frac{1}{1 + \left( \frac{s}{\omega_c} \right)^{2n}}
@@ -404,7 +404,7 @@ where $\mathrm{Var(signal)}$ represents the total signal variance and $\mathrm{V
 \label{eq:perfusion}
 \end{equation}
 
-where AC amplitude represents the pulsatile component of blood volume (0.5–5 Hz, extracted via bandpass filtering) and DC baseline represents the non-pulsatile component ($<$ 0.5 Hz, extracted via lowpass filtering). PI values are constrained to the physiologically realistic range of 0.02\% to 20\%. Low PI ($<$ 0.5\%) indicates reduced perfusion, a critical early indicator of potential clot formation that can precede clinical symptoms by 2–6 hours. Our system achieved PI measurement accuracy within $\pm$0.1\% across 2,906 analysis windows, enabling reliable detection of perfusion anomalies associated with thrombotic events.
+where AC amplitude represents the pulsatile component of blood volume (0.5–5 Hz, extracted via bandpass filtering) and DC baseline represents the non-pulsatile component ($<$ 0.5 Hz, extracted via lowpass filtering). PI values are constrained to the physiologically realistic range of 0.02\% to 20\%. Low PI ($<$ 0.5\%) indicates reduced perfusion, a critical early indicator of potential clot formation that can precede clinical symptoms by 2–6 hours \cite{lima2005perfusion,van2012perfusion}. Our system achieved PI measurement accuracy within $\pm$0.1\% across 2,906 analysis windows, enabling reliable detection of perfusion anomalies associated with thrombotic events.
 
 \subsection{{Feature Engineering}}
 \vspace{-2pt}
@@ -474,7 +474,7 @@ Critical & 44 & 0.8\% & Life-threatening; urgent medical attention \\
 
 \item \textbf{Feature Scaling:} StandardScaler (zero mean, unit variance), fitted only on the training set and then applied to the test set to prevent normalization-based information leakage.
 
-\item \textbf{Cross-Validation:} 5-fold stratified evaluation to assess generalization across patient subgroups, reporting mean accuracy ± standard deviation, with XGBoost achieving the best performance at 84.27\% ± 0.89\% (high stability).
+\item \textbf{Cross-Validation:} 5-fold stratified evaluation to assess generalization across patient subgroups \cite{kohavi1995crossvalidation}, reporting mean accuracy ± standard deviation, with XGBoost \cite{chen2016xgboost} achieving the best performance at 84.27\% ± 0.89\% (high stability).
 \end{itemize}
 
 \subsubsection{Algorithm Selection and Comparison} We evaluated 11 state-of-the-art machine learning algorithms representing diverse learning paradigms:
@@ -512,7 +512,7 @@ Naive Bayes & 31.35\% & 31.31\% & 2.34\% & 30.12\% & 0.2 \\
 \end{table}
 
 \subsubsection{Model Selection Rationale}
-\text XGBoost was selected as the production model based on a multi-criteria evaluation:
+\text XGBoost was selected as the production model based on a multi-criteria evaluation \cite{hastie2009statistical}:
 
 \begin{enumerate}
     \item \textbf{Highest Validated Accuracy:} Achieved 84.38\% test accuracy, exceeding the clinical baseline (79.17\%) by +5.21\%.
@@ -682,7 +682,7 @@ Algorithm~\ref{alg:realtime_monitoring} orchestrates the complete end-to-end sys
 \vspace{-3pt}
 \subsection{Overall Model Performance}
 
-The production XGBoost model achieved 84.38\% test accuracy on 1,684 unseen samples, validated through stratified 5-fold cross-validation (84.27\% ± 0.89\%). This section presents comprehensive performance analysis across multiple evaluation dimensions.
+The production XGBoost model \cite{chen2016xgboost} achieved 84.38\% test accuracy on 1,684 unseen samples, validated through stratified 5-fold cross-validation (84.27\% ± 0.89\%) \cite{kohavi1995crossvalidation}. This section presents comprehensive performance analysis across multiple evaluation dimensions.
 
 \begin{table}[h]
 \centering
@@ -699,7 +699,7 @@ Weighted Recall & 84.38\% & -- & -- & -- & -- \\
 Inference Time & $<1$ sec & -- & -- & -- & 0.5 \\
 Model Size & 3.2 MB & -- & -- & -- & -- \\
 \rowcolor{gray!10}
-Clinical Baseline Gain & +5.21\% & 79.17\% & -- & -- & -- \\
+Clinical Baseline Gain & +5.21\% & 79.17\% \cite{wells1997value} & -- & -- & -- \\
 \hline
 \end{tabular}
 
@@ -714,13 +714,17 @@ Clinical Baseline Gain & +5.21\% & 79.17\% & -- & -- & -- \\
     \label{fig:classification_metrics}
 \end{figure}
 
+\FloatBarrier
+\vspace{10pt}
+
 \subsection{Confusion Matrix Analysis}
 
 The confusion matrix reveals per-category performance with clinically relevant error patterns:
 
-\begin{table}[h]
+\begin{table}[!ht]
 \centering
 \caption{Detailed Confusion Matrix and Per-Category Performance}
+\small
 \begin{tabular}{|l|c|c|c|c|c|c|c|c|}
 \hline
 \rowcolor{gray!20}
@@ -740,6 +744,8 @@ Critical & 0 & 0 & 1 & 12 & \textbf{0} & 13 & 0\% & 0\% \\
 \end{tabular}
 \end{table}
 
+\FloatBarrier
+\vspace{10pt}
 
 \begin{figure}[!ht]
     \centering
@@ -760,7 +766,7 @@ Critical & 0 & 0 & 1 & 12 & \textbf{0} & 13 & 0\% & 0\% \\
 \end{itemize}
 
 \subsection{ROC Curve Analysis}
-Receiver Operating Characteristic (ROC) curves evaluate the model's discrimination ability across all risk categories using one-vs-rest classification.
+Receiver Operating Characteristic (ROC) curves \cite{hastie2009statistical} evaluate the model's discrimination ability across all risk categories using one-vs-rest classification.
 
 \begin{figure}[!ht]
     \centering
@@ -769,9 +775,13 @@ Receiver Operating Characteristic (ROC) curves evaluate the model's discriminati
     \label{fig:roc_curves}
 \end{figure}
 
-\begin{table}[h]
+\FloatBarrier
+\vspace{15pt}
+
+\begin{table}[!ht]
 \centering
 \caption{ROC-AUC Scores by Risk Category (Multi-Model Comparison)}
+\small
 \begin{tabular}{|l|c|c|c|c|}
 \hline
 \rowcolor{gray!20}
@@ -791,6 +801,9 @@ Critical & 0.76 & 0.74 & 0.68 & Acceptable (limited by sample size) \\
 \end{tabular}
 \end{table}
 
+\FloatBarrier
+\vspace{10pt}
+
 \[
 \text{Interpretation(AUC)} =
 \begin{cases}
@@ -803,10 +816,12 @@ Critical & 0.76 & 0.74 & 0.68 & Acceptable (limited by sample size) \\
 \end{cases}
 \]
 
+\vspace{5pt}
+
 \textbf{Clinical Significance:} The weighted average AUC of 0.89 indicates the model has excellent overall ability to distinguish between risk categories. The Low category (AUC=0.94) demonstrates near-perfect separation from higher-risk cases, which is critical for reducing false alarms and unnecessary clinical interventions.
 
 \subsection{Feature Importance Analysis}
-Feature importance analysis reveals which physiological signals contribute most to clot risk predictions, providing clinical interpretability essential for physician trust and regulatory approval.
+Feature importance analysis \cite{chen2016xgboost} reveals which physiological signals contribute most to clot risk predictions, providing clinical interpretability essential for physician trust and regulatory approval.
 
 \begin{figure}[!ht]
     \centering
@@ -880,11 +895,11 @@ Motion & 1.5\% & Sedentary detection less important than direct activity feature
 \textbf{Clinical Interpretation:}
 
 \begin{itemize}
-    \item \textbf{BMI Dominance (5.54\%):} Obesity emerges as the single strongest predictor, aligning with clinical evidence showing a 2--3$\times$ elevation in clot risk for patients with BMI $>$ 30. The model successfully learned this well-established relationship without explicit manual encoding.
+    \item \textbf{BMI Dominance (5.54\%):} Obesity emerges as the single strongest predictor, aligning with clinical evidence \cite{anderson2003thrombosis,heit2016epidemiology} showing a 2--3$\times$ elevation in clot risk for patients with BMI $>$ 30. The model successfully learned this well-established relationship without explicit manual encoding.
 
     \item \textbf{Activity Level (4.49\%):} Physical activity status (sit/walk/run) ranks second, reinforcing the clinical significance of sedentary behavior. Prolonged sitting contributes to venous stasis, increasing the risk of deep vein thrombosis (DVT).
 
-    \item \textbf{Multi-Channel PPG (Combined 30.1\%):} The distributed importance across six plethysmography channels (e.g., \texttt{pleth\_3\_q25}, \texttt{pleth\_4\_mean}, \texttt{pleth\_5\_std}, \texttt{pleth\_1\_mean}) highlights the relevance of spatial perfusion variability. No single channel dominates, suggesting that complementary information across multiple measurement sites is being effectively integrated.
+    \item \textbf{Multi-Channel PPG (Combined 30.1\%):} The distributed importance across six plethysmography channels (e.g., \texttt{pleth\_3\_q25}, \texttt{pleth\_4\_mean}, \texttt{pleth\_5\_std}, \texttt{pleth\_1\_mean}) highlights the relevance of spatial perfusion variability \cite{lima2005perfusion,van2012perfusion}. No single channel dominates, suggesting that complementary information across multiple measurement sites is being effectively integrated.
 
     \item \textbf{Signal Quality Matters (2.14\%):} The presence of \texttt{quality\_snr\_mean} among top contributors shows that the model naturally incorporates measurement reliability, improving its robustness in real-world wearable environments.
 
@@ -892,7 +907,7 @@ Motion & 1.5\% & Sedentary detection less important than direct activity feature
 \end{itemize}
 
 \subsection{Cross-Validation Stability Analysis}
-Cross-validation assesses model generalization to different patient subgroups, critical for ensuring performance translates to diverse clinical populations.
+Cross-validation \cite{kohavi1995crossvalidation} assesses model generalization to different patient subgroups, critical for ensuring performance translates to diverse clinical populations.
 
 \begin{figure}[!ht]
     \centering
@@ -1091,7 +1106,7 @@ The gold standard for validating a new diagnostic tool is comparison with existi
 \hline
 \textbf{Method} & \textbf{Accuracy} & \textbf{Continuous} & \textbf{Cost} & \textbf{Limitations} \\
 \hline
-Wells Score + D-dimer & 79.17\% & No & \$50--150 & Point-in-time, requires blood draw \\
+Wells Score + D-dimer \cite{wells1997value} & 79.17\% & No & \$50--150 & Point-in-time, requires blood draw \\
 Doppler Ultrasound & 90--95\% & No & \$200--500 & Hospital-only, operator-dependent \\
 CT Angiography & 95--100\% & No & \$1,500--3,000 & Radiation exposure, expensive \\
 \hline
@@ -1102,7 +1117,7 @@ CT Angiography & 95--100\% & No & \$1,500--3,000 & Radiation exposure, expensive
 
 \textbf{Clinical Interpretation:}
 \begin{itemize}
-    \item \textbf{Exceeds Clinical Baseline:} 84.38\% vs. 79.17\% represents a \textbf{+5.21\% absolute improvement} over Wells Score + D-dimer, the current standard for outpatient DVT risk assessment.
+    \item \textbf{Exceeds Clinical Baseline:} 84.38\% vs. 79.17\% represents a \textbf{+5.21\% absolute improvement} over Wells Score + D-dimer \cite{wells1997value}, the current standard for outpatient DVT risk assessment.
 
     \item \textbf{Continuous Monitoring Advantage:} Traditional methods provide point-in-time assessments every 3--6 months. The wearable system captures \textbf{2,880 data points daily} (every 30 seconds), allowing detection during the \textbf{asymptomatic 6--72 hour window}.
 
@@ -1204,12 +1219,12 @@ Subjects s8, s19, s20, s5 show disproportionately high error rates (60\% of high
 \section{Conclusion}
 \label{sec:con}
 \vspace{-3pt}
-This work presents a comprehensive AI-powered wearable system for continuous blood clot risk monitoring, addressing a critical gap in preventive cardiovascular care. By integrating six sensor modalities (ECG, multi-channel PPG, temperature, accelerometer, gyroscope, demographics) through rigorous machine learning analysis, we achieved 84.38\% validated accuracy, exceeding the clinical baseline (Wells Score + D-dimer: 79.17\%) by +5.21\%.
+This work presents a comprehensive AI-powered wearable system for continuous blood clot risk monitoring, addressing a critical gap in preventive cardiovascular care. By integrating six sensor modalities (ECG, multi-channel PPG, temperature, accelerometer, gyroscope, demographics) through rigorous machine learning analysis, we achieved 84.38\% validated accuracy, exceeding the clinical baseline (Wells Score + D-dimer: 79.17\%) by +5.21\% \cite{wells1997value}.
 
 \subsection{Key Contributions:}
 \vspace{-2pt}
 \begin{itemize}\setlength{\itemsep}{1pt}
-\item \textbf{Methodological Rigor:} Discovery and elimination of 9 data leakage features (composite\_risk\_score: 100\% spurious importance) ensures genuine predictive capability rather than artificial inflation. The transparent documentation of this process (99.69\% → 84.38\% accuracy transition) serves as a methodological case study for the medical AI community.
+\item \textbf{Methodological Rigor:} Discovery and elimination of 9 data leakage features (composite\_risk\_score: 100\% spurious importance) ensures genuine predictive capability rather than artificial inflation \cite{kaufman2012leakage,kapoor2023leakage}. The transparent documentation of this process (99.69\% → 84.38\% accuracy transition) serves as a methodological case study for the medical AI community.
 
 \item \textbf{Temporal Scope:} 4-year training period captures specific market regimes; model performance may degrade during unprecedented events beyond training distribution. Cross-validation on 3 folds confirms robustness within studied timeframe but cannot guarantee future stability.
 
@@ -1219,7 +1234,7 @@ This work presents a comprehensive AI-powered wearable system for continuous blo
 
 \item \textbf{Scalable Implementation:} Complete preprocessing pipeline (16.2 million data points in 87 seconds), fast inference (<1 second per prediction), lightweight model (3.2 MB), and clinical decision protocols enable immediate deployment in 600-patient pilot study.
 
-\item \textbf{Real-World Impact:} System addresses approximately 900,000 annual thrombosis-related deaths in the United States through continuous monitoring that detects risk elevation during the critical 6-72 hour asymptomatic window, enabling preventive intervention rather than emergency response.
+\item \textbf{Real-World Impact:} System addresses approximately 900,000 annual thrombosis-related deaths in the United States \cite{anderson2003thrombosis,heit2016epidemiology} through continuous monitoring that detects risk elevation during the critical 6-72 hour asymptomatic window, enabling preventive intervention rather than emergency response.
 \end{itemize}
 
 \subsection{Clinical Deployment Strategy:}
@@ -1232,7 +1247,7 @@ Primary limitations include Critical category sample scarcity (n=44, 0\% recall)
 
 \subsection{Transformative Potential:}
 \vspace{-2pt}
-This system demonstrates that consumer wearables, when combined with rigorous AI analysis, can achieve clinical-grade diagnostic performance suitable for preventive healthcare. By transforming devices already worn by 320 million people worldwide into continuous medical monitors, we enable democratized access to cardiovascular surveillance previously confined to expensive hospital equipment. This paradigm shift—from reactive emergency treatment to proactive risk management—has potential to significantly reduce mortality and morbidity from one of medicine's leading causes of death.
+This system demonstrates that consumer wearables, when combined with rigorous AI analysis, can achieve clinical-grade diagnostic performance suitable for preventive healthcare \cite{dunn2018wearables,steinhubl2018effect}. By transforming devices already worn by 320 million people worldwide into continuous medical monitors, we enable democratized access to cardiovascular surveillance previously confined to expensive hospital equipment. This paradigm shift—from reactive emergency treatment to proactive risk management—has potential to significantly reduce mortality and morbidity from one of medicine's leading causes of death.
 The convergence of ubiquitous wearable sensors, advanced machine learning, and validated clinical integration positions this work at the forefront of AI-driven preventive medicine, paving the way for continuous, personalized, accessible cardiovascular care.
 % \section*{Acknowledgements}
 
