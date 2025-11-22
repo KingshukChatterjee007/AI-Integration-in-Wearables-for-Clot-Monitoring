@@ -1,0 +1,508 @@
+﻿This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex.fmt)
+ restricted \write18 enabled.
+entering extended mode
+(PROCS_ ICMLDE 2025.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-04>
+(elsarticle.cls
+Document Class: elsarticle 2010/06/11, 1.21: Elsevier Ltd
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo))
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cf
+g)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def)
+)) (C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\pifont.sty
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\upzd.fd)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\upsy.fd))
+(PROCS_ ICMLDE 2025.spl)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/natbib\natbib.sty)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty))
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
+(framed.sty))
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/txfonts\txfonts.sty)
+(ecrc.sty (C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/base\fleqn.sty
+
+
+LaTeX Warning: inputting `fleqn.clo' instead of obsolete `fleqn.sty'.
+
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/base\fleqn.clo)))
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty))
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/tools\multicol.sty)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx))
+ (C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/colortbl\colortbl.sty
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty))
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/cellspace\cellspace.sty
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/tools\calc.sty)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/xkeyval\xkeyval.sty
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkeyval.tex
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkvutils.tex))
+)) (C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/tools\longtable.sty)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/tipa\tipa.sty
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/tipa\t3enc.def
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/txfonts\ot1txss.fd))
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/txfonts\ot1txr.fd)))
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+For additional information on amsmath, use the `?' option.
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty))
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty))
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/pdfpages\pdfpages.sty
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/eso-pic\eso-pic.sty)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/pdfpages\pppdftex.def))
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/mdwtools\footnote.sty)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/amscls\amsthm.sty)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/graphics\rotating.sty)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.sty)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption-elsartic
+le.sto))
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/caption\ltcaption.sty))
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/relsize\relsize.sty)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.st
+y)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty)
+
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefinek
+eys.sty)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.st
+y (C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty)
+
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.
+sty))
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/letltxmacro\letltxmacro.
+sty) (C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/auxhook\auxhook.sty
+) (C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettitl
+estring.sty
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty)
+)) (C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc.
+sty))
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/base\atbegshi-ltx.sty))
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/base\atveryend-ltx.sty)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfile
+check.sty
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniqueco
+unter.sty)))
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/lipsum\lipsum.sty
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/l3keys2e\l3ke
+ys2e.sty
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.sty
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdft
+ex.def)))
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/lipsum\lipsum.ltd.tex))
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
+*************************************
+* Local config file bblopts.cfg used
+*
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.cfg)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/babel-english\english.ld
+f))
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/en\babel-
+english.tex)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/txfonts\t1txr.fd))
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/wrapfig\wrapfig.sty)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/blindtext\blindtext.sty
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/tools\xspace.sty))
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/stackengine\stackengine.
+sty
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/listofitems\listofitems.
+sty
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/listofitems\listofitem
+s.tex)))
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/tabulary\tabulary.sty
+
+LaTeX Warning: You have requested, on input line 20, version
+               `2024/05/23' of package array,
+               but only version
+               `2023/10/16 v2.5g Tabular extension package (FMi)'
+               is available.
+
+) (C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\times.sty)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/chemformula\chemformula.
+sty
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendlayer\tikz.s
+ty
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgf.sty
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfrcs.sty
+
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil-
+common.tex)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil-
+latex.def)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfrcs.c
+ode.tex
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf\pgf.revision.tex))
+)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgfcore.s
+ty
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/pgf/systemlayer\pgfsys.s
+ty
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys
+.code.tex
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys.
+code.tex
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeysl
+ibraryfiltered.code.tex))
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf.cf
+g)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys
+-pdftex.def
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys
+-common-pdf.def)))
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys
+softpath.code.tex)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys
+protocol.code.tex))
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+.code.tex
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code.
+tex
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathutil.c
+ode.tex)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathparser
+.code.tex)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.code.tex)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.basic.code.tex)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.trigonometric.code.tex)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.random.code.tex)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.comparison.code.tex)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.base.code.tex)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.round.code.tex)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.misc.code.tex)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfuncti
+ons.integerarithmetics.code.tex)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathcalc.c
+ode.tex)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfloat.
+code.tex))
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfint.code.t
+ex)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+points.code.tex)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+pathconstruct.code.tex)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+pathusage.code.tex)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+scopes.code.tex)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+graphicstate.code.tex)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+transformations.code.tex)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+quick.code.tex)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+objects.code.tex)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+pathprocessing.code.tex)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+arrows.code.tex)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+shade.code.tex)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+image.code.tex)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+external.code.tex)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+layers.code.tex)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+transparency.code.tex)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+patterns.code.tex)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore
+rdf.code.tex)))
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodules
+hapes.code.tex)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodulep
+lot.code.tex)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfcom
+p-version-0-65.sty)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfcom
+p-version-1-18.sty))
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgffor.sty
+
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfkeys.st
+y
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys.
+code.tex))
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/pgf/math\pgfmath.sty
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code.
+tex))
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgffor.c
+ode.tex))
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz
+\tikz.code.tex
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibra
+ryplothandlers.code.tex)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodulem
+atrix.code.tex)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz
+/libraries\tikzlibrarytopaths.code.tex)))
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xfrac\xfrac.s
+ty (C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/base\textcomp.sty)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xparse\xparse
+.sty)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xtemplate\xte
+mplate.sty))
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/units\nicefrac.sty)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibra
+ryarrows.meta.code.tex))
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/mathalpha\mathalfa.sty)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/mathalpha\mathalpha.sty
+`mathalpha' v1.145, 2025/01/17, a renaming of mathalfa (msharpe))
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\eucal.sty)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/ragged2e\ragged2e.sty)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/tools\bm.sty)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/placeins\placeins.sty)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/tools\tabularx.sty)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/algorithms\algorithm.sty
+)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/algorithmicx\algpseudoco
+de.sty
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/algorithmicx\algorithmic
+x.sty
+Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
+)
+Document Style - pseudocode environments for use with the `algorithmicx' style
+)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\adjustbox.sty
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\adjcalc.sty)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\trimclip.sty
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/collectbox\collectbox.st
+y)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\tc-pdftex.def)
+)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/ifoddpage\ifoddpage.sty)
+ (C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/varwidth\varwidth.sty))
+ (C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/tools\verbatim.sty)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg))
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1ptm.fd)
+(PROCS_ ICMLDE 2025.aux)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/txfonts\omltxmi.fd)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/txfonts\omstxsy.fd)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/txfonts\omxtxex.fd)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/txfonts\utxexa.fd)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/tipa\t3cmr.fd)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mki
+i
+[Loading MPS to PDF converter (version 2006.09.02).]
+)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-ba
+se.sty
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cf
+g))
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape.sty
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape-nome
+tadata.sty
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/graphics\lscape.sty)))
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/txfonts\utxmia.fd)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/txfonts\utxsyc.fd)
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd)
+Underfull \hbox (badness 4805) in paragraph at lines 250--250
+ []\T1/ptm/m/n/13 Mukesh Kumar$[]$, Md Azlan$[]$, Kanishk$[]$, King-shuk Chatte
+rjee$[]$ 
+
+Underfull \hbox (badness 10000) in paragraph at lines 250--250
+ []$[]$\T1/ptm/m/it/8 School of Com-puter En-gi-neer-ing,Kalinga In-sti-tute of
+ In-dus-trial Technology-751024 
+
+Underfull \hbox (badness 10000) in paragraph at lines 250--250
+ []$[]$\T1/ptm/m/it/8 School of Com-puter En-gi-neer-ing,Kalinga In-sti-tute of
+ In-dus-trial Technology-751024 
+
+Underfull \hbox (badness 10000) in paragraph at lines 250--250
+ []$[]$\T1/ptm/m/it/8 School of Com-puter En-gi-neer-ing,Kalinga In-sti-tute of
+ In-dus-trial Technology-751024 
+
+Underfull \hbox (badness 10000) in paragraph at lines 250--250
+ []$[]$\T1/ptm/m/it/8 School of Com-puter En-gi-neer-ing,Kalinga In-sti-tute of
+ In-dus-trial Technology-751024 
+
+Underfull \vbox (badness 10000) has occurred while \output is active
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1phv.fd)
+Underfull \hbox (badness 3557) has occurred while \output is active
+ [][] 
+
+Overfull \vbox (53.55399pt too high) has occurred while \output is active
+Overfull \vbox (35.42392pt too high) has occurred while \output is active
+[1{C:/Users/KIIT/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/KII
+T/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc} <./elsevier-logo-3
+p.pdf> <./SDlogo-3p.pdf> <./Procs.pdf>] [2]
+Underfull \hbox (badness 10000) in paragraph at lines 342--342
+ []\T1/ptm/m/n/8 Figure 1: |Pro-posed Fin-Re-port Sys-tem Ar-chi-tec-ture| 
+[3 <./flowchart.jpg>]
+Underfull \vbox (badness 1215) has occurred while \output is active [4]
+(C:\Users\KIIT\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1pcr.fd)
+Underfull \hbox (badness 3343) in paragraph at lines 404--405
+[]\T1/ptm/b/n/10 Structured Event Pro-cess-ing: \T1/ptm/m/n/10 Ex-tracted event
+s are for-mat-ted as struc-tured \T1/pcr/m/n/10 (event_type,
+[5] [6] [7]
+Underfull \vbox (badness 6758) has occurred while \output is active [8]
+Underfull \vbox (badness 6412) has occurred while \output is active [9]
+Underfull \hbox (badness 2165) in paragraph at lines 649--650
+[]\T1/ptm/m/n/10 The im-ple-men-ta-tion em-ploys the Ex-po-nen-tial Gen-er-al-i
+zed Au-tore-gres-sive Con-di-tional Het-eroskedas-tic-ity
+[10]
+Underfull \vbox (badness 1205) has occurred while \output is active [11]
+Underfull \hbox (badness 3536) in paragraph at lines 737--738
+[]\T1/ptm/m/n/10 The risk as-sess-ment sys-tem di-rectly in-ter-faces with the 
+dataset struc-ture [[]], uti-liz-ing the \T1/ptm/b/n/10 volatil-
+[12]
+Underfull \vbox (badness 1490) has occurred while \output is active [13]
+[14] [15] [16]
+Underfull \vbox (badness 5147) has occurred while \output is active [17]
+Underfull \vbox (badness 10000) has occurred while \output is active [18]
+Underfull \vbox (badness 10000) has occurred while \output is active [19]
+[20]
+Underfull \vbox (badness 2913) has occurred while \output is active [21]
+Underfull \vbox (badness 10000) has occurred while \output is active [22]
+Underfull \vbox (badness 10000) has occurred while \output is active [23]
+[24]
+Underfull \hbox (badness 1275) in paragraph at lines 1394--1398
+ [][] 
+
+Underfull \hbox (badness 10000) in paragraph at lines 1399--1399
+ []\T1/ptm/m/n/8 Figure 2: |Rapid Ini-tial Learn-ing| 
+
+Underfull \vbox (badness 10000) has occurred while \output is active [25 <./Pic
+ture2.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1413--1413
+ []\T1/ptm/m/n/8 Table 1: |\T1/ptm/b/n/8 Model Per-for-mance Met-rics and In-te
+r-pre-ta-tions| 
+
+Underfull \hbox (badness 10000) in paragraph at lines 1418--1418
+[]\T1/ptm/m/n/10 Relatively low mean squared er-ror in-di-cates lim-ited
+
+Underfull \hbox (badness 10000) in paragraph at lines 1418--1418
+\T1/ptm/m/n/10 de-vi-a-tion be-tween pre-dicted and ac-tual val-ues, re-flect-i
+ng
+
+Underfull \hbox (badness 10000) in paragraph at lines 1419--1419
+[]\T1/ptm/m/n/10 Root mean squared er-ror sug-gests that pre-dic-tions vary
+
+Underfull \hbox (badness 10000) in paragraph at lines 1419--1419
+\T1/ptm/m/n/10 by ap-prox-i-mately 25% from ac-tual val-ues on av-er-age,
+
+Underfull \hbox (badness 10000) in paragraph at lines 1420--1420
+[]\T1/ptm/m/n/10 A low mean ab-so-lute er-ror con-firms con-sis-tent and
+
+Underfull \hbox (badness 10000) in paragraph at lines 1421--1421
+[]\T1/ptm/m/n/10 The model ex-plains 55.15% of the vari-ance in ac-tual
+
+Underfull \hbox (badness 10000) in paragraph at lines 1421--1421
+\T1/ptm/m/n/10 stock re-turns, re-flect-ing mod-er-ately strong ex-plana-tory
+
+Underfull \hbox (badness 10000) in paragraph at lines 1422--1422
+[]\T1/ptm/m/n/10 A very high cor-re-la-tion be-tween pre-dicted and ac-tual
+
+Underfull \hbox (badness 10000) in paragraph at lines 1422--1422
+\T1/ptm/m/n/10 re-turns con-firms strong lin-ear align-ment and model
+
+Underfull \hbox (badness 3407) in paragraph at lines 1414--1425
+ [][] 
+
+Underfull \hbox (badness 10000) in paragraph at lines 1437--1437
+ []\T1/ptm/m/n/8 Table 2: |\T1/ptm/b/n/8 Top Per-form-ing Stocks (R$[]$ > 0.98)
+| 
+
+Underfull \hbox (badness 10000) in paragraph at lines 1440--1451
+ [][] 
+
+Underfull \hbox (badness 1275) in paragraph at lines 1457--1461
+ [][] 
+
+Underfull \hbox (badness 10000) in paragraph at lines 1462--1462
+ []\T1/ptm/m/n/8 Figure 3: |Over-all Statis-tics| 
+[26]
+Underfull \hbox (badness 10000) in paragraph at lines 1478--1478
+ []\T1/ptm/m/n/8 Table 3: |\T1/ptm/b/n/8 Poorly Per-form-ing Pre-dic-tion Sam-p
+les| 
+
+Underfull \hbox (badness 6741) in paragraph at lines 1479--1488
+ [][] 
+
+Underfull \vbox (badness 4967) has occurred while \output is active [27 <./Pict
+ure3.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1503--1503
+ []\T1/ptm/m/n/8 Table 4: |\T1/ptm/b/n/8 Sector-wise Av-er-age Per-for-mance Me
+t-rics| 
+
+Underfull \hbox (badness 10000) in paragraph at lines 1534--1534
+ []\T1/ptm/m/n/8 Table 5: |\T1/ptm/b/n/8 Mar-ket Cap-i-tal-iza-tion Im-pact on 
+Pre-dic-tion Ac-cu-racy| 
+
+Underfull \hbox (badness 10000) in paragraph at lines 1547--1548
+ [][] 
+[28]
+Underfull \hbox (badness 10000) in paragraph at lines 1568--1568
+ []\T1/ptm/m/n/8 Table 6: |\T1/ptm/b/n/8 Fac-tor In-flu-ence Anal-y-sis| 
+
+Underfull \hbox (badness 1776) in paragraph at lines 1583--1584
+ [][] 
+[29] (PROCS_ ICMLDE 2025.bbl [30]) [31] (PROCS_ ICMLDE 2025.aux) )
+(see the transcript file for additional information)<C:/Users/KIIT/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/public/txfonts/rtxb.pfb><C:/Users/KIIT/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/txfonts/rtxbmi.pfb><C:/Users/KIIT/AppDat
+a/Local/Programs/MiKTeX/fonts/type1/public/txfonts/rtxmi.pfb><C:/Users/KIIT/App
+Data/Local/Programs/MiKTeX/fonts/type1/public/txfonts/rtxr.pfb><C:/Users/KIIT/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/txfonts/txbsy.pfb><C:/Users/KII
+T/AppData/Local/Programs/MiKTeX/fonts/type1/public/txfonts/txex.pfb><C:/Users/K
+IIT/AppData/Local/Programs/MiKTeX/fonts/type1/public/txfonts/txsy.pfb><C:/Users
+/KIIT/AppData/Local/Programs/MiKTeX/fonts/type1/public/txfonts/txsyc.pfb><C:/Us
+ers/KIIT/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/U
+sers/KIIT/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:
+/Users/KIIT/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/
+Users/KIIT/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/U
+sers/KIIT/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
+Output written on "PROCS_ ICMLDE 2025.pdf" (31 pages, 2094353 bytes).
+Transcript written on "PROCS_ ICMLDE 2025.log".
+pdflatex : pdflatex: major issue: So far, you have not checked for MiKTeX updates.
+At line:1 char:144
++ ... MLDE 2025"; pdflatex "PROCS_ ICMLDE 2025.tex" > final_compilation.txt ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (pdflatex: major...MiKTeX updates.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
