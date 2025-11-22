@@ -879,13 +879,17 @@ Feature importance analysis \cite{chen2016xgboost} reveals which physiological s
 \small
 \begin{tabular}{|l|c|l|}
 \hline
+\rowcolor{gray!20}
 \textbf{Category} & \textbf{Total Importance} & \textbf{Key Insights} \\
 \hline
 Demographics & 35.2\% & BMI, age, activity level dominate—validates established clinical risk factors \\
+\rowcolor{gray!10}
 Pleth/PPG (6 channels) & 30.1\% & Multi-channel perfusion analysis captures circulatory dysfunction \\
 Advanced PPG & 20.3\% & Signal quality, HRV, pulse morphology provide cardiac context \\
+\rowcolor{gray!10}
 ECG & 9.8\% & Heart rhythm variability supplements PPG circulatory data \\
 Temperature & 3.1\% & Inflammation markers contribute modestly but meaningfully \\
+\rowcolor{gray!10}
 Motion & 1.5\% & Sedentary detection less important than direct activity feature \\
 \hline
 \end{tabular}
@@ -916,22 +920,29 @@ Cross-validation \cite{kohavi1995crossvalidation} assesses model generalization 
     \label{fig:cv_stability}
 \end{figure}
 
-\begin{table}[h]
+\begin{table}[!ht]
 \centering
 \caption{Cross-Validation Stability Rankings}
+\small
 \begin{tabular}{|c|l|c|c|c|}
 \hline
+\rowcolor{gray!20}
 \textbf{Rank} & \textbf{Model} & \textbf{CV Mean} & \textbf{CV Std} & \textbf{Stability Rating} \\
 \hline
 1 & SVM (RBF) & 71.36\% & $\pm$0.49\% & Excellent (lowest variance) \\
+\rowcolor{gray!10}
 2 & CatBoost & 75.08\% & $\pm$0.83\% & Excellent \\
 \textbf{3} & \textbf{XGBoost} & \textbf{84.27\%} & \textbf{$\pm$0.89\%} & \textbf{Excellent (best balance)} \\
+\rowcolor{gray!10}
 4 & Decision Tree & 75.48\% & $\pm$1.03\% & Very good \\
 5 & Gradient Boosting & 82.97\% & $\pm$1.10\% & Very good \\
+\rowcolor{gray!10}
 6 & Random Forest & 75.94\% & $\pm$1.24\% & Good \\
 7 & KNN & 72.07\% & $\pm$1.47\% & Good \\
+\rowcolor{gray!10}
 8 & Extra Trees & 72.73\% & $\pm$1.54\% & Good \\
 9 & Logistic Regression & 68.94\% & $\pm$1.59\% & Acceptable \\
+\rowcolor{gray!10}
 10 & Naive Bayes & 31.31\% & $\pm$2.34\% & Poor \\
 11 & AdaBoost & 63.11\% & $\pm$2.79\% & Poor (unstable) \\
 \hline
@@ -951,20 +962,26 @@ Cross-validation \cite{kohavi1995crossvalidation} assesses model generalization 
 \subsection{Per-Class Performance Metrics}
 Detailed precision, recall, and F1-scores for each risk category reveal model strengths and weaknesses:
 
-\begin{table}[ht]
+\begin{table}[!ht]
 \centering
 \caption{Detailed Per-Category Performance Metrics (XGBoost)}
+\small
 \begin{tabular}{|l|c|c|c|c|l|}
 \hline
+\rowcolor{gray!20}
 \textbf{Category} & \textbf{Precision} & \textbf{Recall} & \textbf{F1-Score} & \textbf{Support} & \textbf{Clinical Implication} \\
 \hline
 Low & 0.87 & 0.96 & 0.91 & 1052 & Excellent low-risk identification \\
+\rowcolor{gray!10}
 Low-Moderate & 0.74 & 0.69 & 0.71 & 310 & Good boundary case handling \\
 Moderate & 0.96 & 0.67 & 0.78 & 225 & High precision, moderate recall \\
+\rowcolor{gray!10}
 High & 0.78 & 0.58 & 0.67 & 84 & Acceptable, needs physician validation \\
 Critical & 0.00 & 0.00 & 0.00 & 13 & Insufficient training data \\
 \hline
+\rowcolor{gray!20}
 \textbf{Macro Avg} & 0.67 & 0.58 & 0.61 & 1684 & Unweighted average \\
+\rowcolor{gray!20}
 \textbf{Weighted Avg} & \textbf{0.84} & \textbf{0.84} & \textbf{0.84} & 1684 & \textbf{Production performance} \\
 \hline
 \end{tabular}
@@ -1011,19 +1028,24 @@ Critical & 0.00 & 0.00 & 0.00 & 13 & Insufficient training data \\
 \subsection{Prediction Confidence Analysis}
 Analyzing prediction confidence distributions reveals model certainty levels and informs clinical safety protocols.
 
-\begin{table}[h]
+\begin{table}[!ht]
 \centering
 \caption{Prediction Confidence Distribution by Risk Category}
+\small
 \begin{tabular}{|l|c|c|c|c|}
 \hline
+\rowcolor{gray!20}
 \textbf{Risk Category} & \textbf{Samples} & \textbf{Avg Confidence} & \textbf{Confidence Range} & \textbf{<70\% Count} \\
 \hline
 Low & 1052 & 87.6\% & 62\%-99\% & 18 (1.7\%) \\
+\rowcolor{gray!10}
 Low-Moderate & 310 & 75.0\% & 58\%-94\% & 68 (21.9\%) \\
 Moderate & 225 & 79.7\% & 61\%-96\% & 31 (13.8\%) \\
+\rowcolor{gray!10}
 High & 84 & 82.1\% & 65\%-97\% & 9 (10.7\%) \\
 Critical & 13 & 79.5\% & 66\%-91\% & 2 (15.4\%) \\
 \hline
+\rowcolor{gray!20}
 \textbf{Overall} & \textbf{1684} & \textbf{83.9\%} & \textbf{58\%-99\%} & \textbf{128 (7.6\%)} \\
 \hline
 \end{tabular}
@@ -1050,16 +1072,20 @@ Critical & 13 & 79.5\% & 66\%-91\% & 2 (15.4\%) \\
 \subsection{High-Risk Patient Detection Analysis}
 A critical clinical metric is sensitivity for high-risk patients (High + Critical categories combined), as these cases require urgent intervention.
 
-\begin{table}[ht]
+\begin{table}[!ht]
 \centering
 \caption{High-Risk Patient Detection Summary}
+\small
 \begin{tabular}{|l|c|l|}
 \hline
+\rowcolor{gray!20}
 \textbf{Metric} & \textbf{Value} & \textbf{Clinical Interpretation} \\
 \hline
 Total high-risk patients & 97 & 84 High + 13 Critical in test set \\
+\rowcolor{gray!10}
 Correctly identified & 61 & 49 High + 12 Critical (predicted as High) \\
 Sensitivity & 62.9\% & Detection rate for urgent cases \\
+\rowcolor{gray!10}
 False negatives & 36 & Missed high-risk patients (37.1\%) \\
 False positives (low→high) & 3 & Very low over-prediction rate (0.3\%) \\
 \hline
@@ -1104,12 +1130,15 @@ The gold standard for validating a new diagnostic tool is comparison with existi
 \small
 \begin{tabular}{|l|c|c|c|l|}
 \hline
+\rowcolor{gray!20}
 \textbf{Method} & \textbf{Accuracy} & \textbf{Continuous} & \textbf{Cost} & \textbf{Limitations} \\
 \hline
 Wells Score + D-dimer \cite{wells1997value} & 79.17\% & No & \$50--150 & Point-in-time, requires blood draw \\
+\rowcolor{gray!10}
 Doppler Ultrasound & 90--95\% & No & \$200--500 & Hospital-only, operator-dependent \\
 CT Angiography & 95--100\% & No & \$1,500--3,000 & Radiation exposure, expensive \\
 \hline
+\rowcolor{gray!20}
 \textbf{XGBoost Wearable} & \textbf{84.38\%} & \textbf{Yes} & \textbf{\$200--500} & \textbf{Consumer device, 24/7 monitoring} \\
 \hline
 \end{tabular}
@@ -1140,13 +1169,17 @@ Production deployment requires real-time performance suitable for consumer devic
 \small
 \begin{tabular}{|l|c|l|}
 \hline
+\rowcolor{gray!20}
 \textbf{Operation} & \textbf{Performance} & \textbf{Clinical Relevance} \\
 \hline
 Feature extraction (5s window) & 0.027 seconds & Real-time processing on smartwatch \\
+\rowcolor{gray!10}
 Model prediction (single patient) & \textless 1 second & Instant risk assessment \\
 Batch prediction (1,000 patients) & 9.3 seconds & Scalable to population monitoring \\
+\rowcolor{gray!10}
 Model retraining (3,928 samples) & 8.2 seconds & Fast updates with new patient data \\
 Full pipeline (16.2M data points) & 87 seconds & Efficient large-scale preprocessing \\
+\rowcolor{gray!10}
 Memory footprint (inference) & \textless 50 MB & Suitable for mobile deployment \\
 Model size (compressed) & 3.2 MB & Transferable over cellular networks \\
 \hline
