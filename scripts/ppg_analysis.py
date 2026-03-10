@@ -11,7 +11,6 @@ Features:
 - Blood flow pattern detection
 - Anomaly detection for clot indicators
 
-Author: AI Assistant
 Project: AI Integration in Wearables for Clot Monitoring
 """
 
