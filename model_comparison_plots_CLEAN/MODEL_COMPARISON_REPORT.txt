@@ -101,13 +101,18 @@ RECOMMENDATIONS:
 
 FOR PRODUCTION DEPLOYMENT:
    → Use: XGBoost (84.38% accuracy)
-   → Backup: Gradient Boosting (82.96% accuracy)
+   → Backup: Gradient Boosting (82.96% accuracy) //this is the seconf best model
 
 FOR RESEARCH PUBLICATION:
    → Report all 11 models for transparency
    → Highlight clean data methodology
    → Document data leakage discovery and resolution
-
+ 
 ================================================================================
-GENERATED: 2025-11-17 21:28:20
+Low	< 1.5	Minimal clot risk
+Low-Moderate	1.5 – 2.5	Slightly elevated risk
+Moderate	2.5 – 3.5	Notable risk requiring attention
+High	3.5 – 6.0	Significant clot risk, needs monitoring
+Critical	≥ 6.0	Urgent — immediate clinical action needed
 ================================================================================
+// mre recent dl technicquws atleast 2 +(high & critical data augment) generative model
