@@ -1,0 +1,35 @@
+
+================================================================================
+1D CNN + Bi-LSTM v2 — ANTI-OVERFITTING REDESIGN
+AI Integration in Wearables for Blood Clot Monitoring
+================================================================================
+Generated: 2026-03-11 19:58:21.743384
+
+ANTI-OVERFITTING MEASURES APPLIED:
+  ✓ Label Smoothing (0.1) — prevents overconfident predictions
+  ✓ Dropout 0.5 — at every layer boundary
+  ✓ L2 Weight Decay (1e-3) — 10x stronger than previous
+  ✓ Gradient Clipping (max_norm=1.0)
+  ✓ Conservative Augmentation (1x jitter, σ=0.005 noise only)
+  ✓ ReduceLROnPlateau scheduler (patience=8, factor=0.5)
+  ✓ Label health checks (leakage, low-variance feature removal)
+
+FINAL RESULTS:
+  Test Accuracy:              63.52%
+  Weighted F1 Score:          59.97%
+  Final Train vs Val Gap:     +0.00%  ← should be < 5%
+
+PER-CLASS PERFORMANCE:
+              precision    recall  f1-score   support
+
+    Critical       0.00      0.00      0.00         0
+        High       0.25      0.04      0.07        23
+         Low       0.74      0.84      0.78       475
+Low-Moderate       0.08      0.01      0.02        72
+    Moderate       0.09      0.08      0.08        66
+
+    accuracy                           0.64       636
+   macro avg       0.23      0.19      0.19       636
+weighted avg       0.58      0.64      0.60       636
+
+================================================================================

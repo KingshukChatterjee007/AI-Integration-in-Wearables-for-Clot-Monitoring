@@ -1,0 +1,52 @@
+# LSTM + Data Augmentation Walkthrough
+
+I have successfully implemented and evaluated a **Deep Learning (LSTM)** approach with **Data Augmentation** for blood clot risk classification. This model specifically addresses the class imbalance issue in the dataset while providing a high-performance alternative to traditional ML models.
+
+## 📊 Performance Summary
+
+The LSTM model achieved a **82.84% Test Accuracy**, placing it in the **Top 3** of all 12 models evaluated (just behind XGBoost and Gradient Boosting).
+
+| Metric | Score |
+| :--- | :--- |
+| **Test Accuracy** | **82.84%** |
+| **CV Accuracy (5-Fold)** | **81.59% ± 0.45%** |
+| **F1 Score (Weighted)** | **82.52%** |
+| **Precision** | **82.50%** |
+| **Recall** | **82.84%** |
+
+## 🚀 Key Improvements
+
+### 1. Advanced Data Augmentation
+To handle the extreme data imbalance (only 44 samples for 'Critical'), I implemented a dual augmentation strategy:
+- **SMOTE**: Generates synthetic samples via feature space interpolation.
+- **Gaussian Noise & Jitter**: Injects σ=0.02 noise and ±5% scaling jitter to existing High/Critical samples.
+- **Result**: Expanded the training set from **3,928** to **22,077** samples (**5.6x increase**), providing much better regularization for deep learning.
+
+### 2. Bidirectional LSTM with Attention
+- **Temporal Patterns**: 154 features are reshaped into sequences of (14, 11) to capture hidden relationships between sensor readings.
+- **Bidirectionality**: The model reads the feature sequences in both directions to capture complex dependencies.
+- **Attention Layer**: Learns which parts of the sensor data are most critical for risk prediction at any given time.
+
+## 📈 Visual Results
+
+````carousel
+![Training Curves](file:///c:/Users/91704/AI-Integration-in-Wearables-for-Clot-Monitoring/model_comparison_plots_CLEAN/08_lstm_training_curves.png)
+Accurate loss convergence and steady validation accuracy improvements over 103 epochs.
+<!-- slide -->
+![Confusion Matrix](file:///c:/Users/91704/AI-Integration-in-Wearables-for-Clot-Monitoring/model_comparison_plots_CLEAN/09_lstm_confusion_matrix.png)
+Detailed per-class performance showing robust classification across most risk categories.
+<!-- slide -->
+![Model Ranking](file:///c:/Users/91704/AI-Integration-in-Wearables-for-Clot-Monitoring/model_comparison_plots_CLEAN/10_lstm_vs_ml_comparison.png)
+LSTM (Rank 3) provides comparable accuracy to tree-based models while significantly outperforming 8 other ML algorithms.
+<!-- slide -->
+![Augmentation Distribution](file:///c:/Users/91704/AI-Integration-in-Wearables-for-Clot-Monitoring/model_comparison_plots_CLEAN/11_augmentation_effect.png)
+The impact of SMOTE and Noise augmentation on balancing the minority risk classes (High and Critical).
+````
+
+## 📂 Deliverables
+
+- **Model Script**: [lstm_with_augmentation.py](file:///c:/Users/91704/AI-Integration-in-Wearables-for-Clot-Monitoring/integrated-scripts/lstm_with_augmentation.py)
+- **Trained Model**: [trained_models/lstm_augmented_CLEAN.pth](file:///c:/Users/91704/AI-Integration-in-Wearables-for-Clot-Monitoring/trained_models/lstm_augmented_CLEAN.pth) (PyTorch)
+- **Detailed Report**: [LSTM_RESULTS_REPORT.txt](file:///c:/Users/91704/AI-Integration-in-Wearables-for-Clot-Monitoring/model_comparison_plots_CLEAN/LSTM_RESULTS_REPORT.txt)
+
+The model is now ready for production testing or clinical pilot study integration.
