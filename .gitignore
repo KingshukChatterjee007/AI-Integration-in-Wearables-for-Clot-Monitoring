@@ -8,3 +8,7 @@ claude/
 .claude/
 catboost_info/
 __pycache__/
+.venv/
+raw_data_stress/
+trained_models/
+model_comparison_plots_CLEAN/attention_maps/
