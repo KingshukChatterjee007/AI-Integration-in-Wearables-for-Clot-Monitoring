@@ -1,0 +1,17 @@
+Balanced Clot/Stress Transformer Report (v4)
+Total Samples: 12369
+Features: 8
+Model Params: 230,405
+Best Test Acc: 55.56%
+
+              precision    recall  f1-score   support
+
+         Low       0.00      0.00      0.00         0
+Low-Moderate       0.00      0.00      0.00         0
+    Moderate       0.00      0.00      0.00         0
+        High       0.53      0.60      0.56      1198
+    Critical       0.58      0.52      0.55      1309
+
+    accuracy                           0.56      2507
+   macro avg       0.22      0.22      0.22      2507
+weighted avg       0.56      0.56      0.56      2507

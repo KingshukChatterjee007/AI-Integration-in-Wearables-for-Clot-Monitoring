@@ -45,7 +45,6 @@ class ClotTransformer(nn.Module):
         self.cls_token = nn.Parameter(torch.zeros(1, 1, d_token))
         nn.init.trunc_normal_(self.cls_token, std=0.02)
         
-        # Use a custom transformer to extract weights if needed
         self.n_heads = n_heads
         encoder_layer = nn.TransformerEncoderLayer(
             d_model=d_token, nhead=n_heads, dim_feedforward=d_token * 4,
@@ -69,18 +68,10 @@ class ClotTransformer(nn.Module):
         cls_tokens = self.cls_token.expand(b, -1, -1)
         x = torch.cat([cls_tokens, tokens], dim=1)
         
-        # Standard PyTorch TransformerEncoder doesn't easily return weights.
-        # For XAI, we just pass through and provide a hook or manual calculation if return_attention is True.
-        # We will use the last layer's attention for the heatmap.
-        
         x = self.transformer(x)
-        
         logits = self.classifier(self.norm(x[:, 0, :]))
         
         if return_attention:
-            # We'll use a simplified attribution for now: 
-            # In a real XAI module we'd use Captum or Integrated Gradients.
-            # Here we'll return a dummy for structure, then implement real attribution in visualize_attention.py
             return logits, x
         return logits
 
@@ -119,88 +110,59 @@ def mixup_criterion(criterion, pred, y_a, y_b, lam):
     return lam * criterion(pred, y_a) + (1 - lam) * criterion(pred, y_b)
 
 # =============================================================================
-# 4. DATA PREP (Integrating Stress Dataset)
+# 4. DATA PREP (Balanced v4 Dataset)
 # =============================================================================
 
 def load_integrated_data():
-    """Loads original clinical data AND new stress data, harmonizing features."""
+    """Loads the CTGAN-balanced integrated dataset."""
     project_root = Path(__file__).parent.parent
-    clean_path = project_root / 'processed_data' / 'integrated_features_enhanced_CLEAN.csv'
-    stress_path = project_root / 'processed_data' / 'stress_features_v1.csv'
+    balanced_path = project_root / 'processed_data' / 'integrated_features_balanced_v1.csv'
     
-    # 1. Load Original Data
-    df_clean = pd.read_csv(clean_path)
+    if not balanced_path.exists():
+        raise FileNotFoundError(f"Balanced dataset not found at {balanced_path}. Run ctgan_balancing.py first.")
+        
+    df = pd.read_csv(balanced_path)
+    logger.info(f"Loaded Balanced Dataset: {df.shape} samples")
     
-    # Keep only the features that are common/comparable between both sets.
-    # The stress dataset has BVP (PPG), ACC, TEMP, HR, EDA.
-    # The clean dataset has PLETH (PPG), ACC, TEMP, HR, ECG.
-    
-    # Mapping old names to universal names
-    rename_map = {
-        'pleth_mean': 'bvp_mean', 'pleth_std': 'bvp_std', 
-        'pleth_min': 'bvp_min', 'pleth_max': 'bvp_max',
-        'a_x_var': 'acc_x_var', 'a_y_var': 'acc_y_var', 'a_z_var': 'acc_z_var'
-    }
-    df_clean.rename(columns=rename_map, inplace=True)
-    
-    # 2. Load Stress Data
-    df_stress = pd.read_csv(stress_path)
-    # Assign artificial "risk_category" to stress data. 
-    # High stress (exam time) correlates to elevated clot risk factors.
-    # We'll map "Midterm" to Risk Level 2 (Low/Moderate) and "Final" to Risk Level 3 (High) for training.
-    def map_stress_risk(session):
-        if 'Midterm' in session: return 'High'
-        else: return 'Critical'
-    
-    df_stress['risk_category'] = df_stress['session'].apply(map_stress_risk)
-    
-    # 3. Combine Common Features
-    common_cols = list(set(df_clean.columns) & set(df_stress.columns))
-    
-    # Must include ID and target
-    if 'subject_id' not in common_cols: common_cols.append('subject_id')
-    if 'risk_category' not in common_cols: common_cols.append('risk_category')
-    
-    # Ensure EDA is included (Clean data gets 0 for EDA since it didn't have it)
-    eda_cols = [c for c in df_stress.columns if 'eda' in c]
-    for c in eda_cols:
-        if c not in df_clean.columns:
-            df_clean[c] = 0.0 # Impute baseline
-        if c not in common_cols:
-            common_cols.append(c)
-
-    df_combined = pd.concat([df_clean[common_cols], df_stress[common_cols]], ignore_index=True)
-    logger.info(f"Combined Dataset Shape: {df_combined.shape} (Includes {len(df_stress)} Stress Samples)")
+    # Fill missing subject IDs (synthetic data gets its own group)
+    df['subject_id'] = df['subject_id'].fillna('synthetic')
     
     # Filter features
-    non_features = ['subject_id', 'activity', 'window_id', 'risk_category', 'session', 'timestamp_start']
-    feature_cols = [c for c in df_combined.columns if c not in non_features]
+    non_features = ['subject_id', 'activity', 'window_id', 'risk_category', 'session', 'timestamp_start', 'target']
+    feature_cols = [c for c in df.columns if c in df.columns and c not in non_features]
     
-    X = df_combined[feature_cols].copy()
+    X = df[feature_cols].copy()
     X = X.fillna(X.median())
-    y = df_combined['risk_category']
-    subjects = df_combined['subject_id'].astype(str).values
+    y = df['target'].astype(int).values
+    subjects = df['subject_id'].astype(str).values
     
     # Subject-Wise Normalization
-    logger.info("Applying subject-wise normalization to handle multiple device types...")
+    logger.info("Applying subject-wise normalization...")
     X_vals = X.values
-    for sub in np.unique(subjects):
+    unique_subs = np.unique(subjects)
+    logger.info(f"Found {len(unique_subs)} unique subjects: {unique_subs}")
+    for sub in unique_subs:
         mask = (subjects == sub)
-        if mask.sum() > 0:
+        m_sum = mask.sum()
+        if m_sum > 0:
+            # logger.info(f"Normalizing sub: {sub} ({m_sum} samples)")
             sub_scaler = StandardScaler()
-            X_vals[mask] = sub_scaler.fit_transform(X_vals[mask])
+            try:
+                X_vals[mask] = sub_scaler.fit_transform(X_vals[mask])
+            except Exception as e:
+                logger.error(f"Failed for sub {sub} with sum {m_sum}. Slice shape: {X_vals[mask].shape}")
+                raise e
     
     # Quantile Transformer
     qt = QuantileTransformer(output_distribution='normal', random_state=42)
     X_transformed = qt.fit_transform(X_vals)
     
-    le = LabelEncoder()
-    y_encoded = le.fit_transform(y)
+    class_names = np.array(['Low', 'Low-Moderate', 'Moderate', 'High', 'Critical'])
     
-    return X_transformed, y_encoded, subjects, le.classes_, feature_cols
+    return X_transformed, y, subjects, class_names, feature_cols
 
 def train_transformer():
-    logger.info("Starting Clot-Stress Integrated Transformer Training")
+    logger.info("Starting Clot-Stress Integrated Transformer Training (v4 Balanced)")
     X, y, subjects, class_names, feature_names = load_integrated_data()
     n_features = X.shape[1]
     
@@ -219,6 +181,7 @@ def train_transformer():
     criterion = FocalLoss(gamma=2)
     scheduler = torch.optim.lr_scheduler.CosineAnnealingWarmRestarts(optimizer, T_0=15, T_mult=2)
     
+    # Class weights for WeightedRandomSampler
     counts = np.bincount(y_train)
     weights = 1.0 / torch.FloatTensor(counts)
     sample_weights = weights[torch.LongTensor(y_train)]
@@ -229,8 +192,12 @@ def train_transformer():
     test_loader = DataLoader(TensorDataset(torch.FloatTensor(X_test), torch.LongTensor(y_test)), 
                              batch_size=128, shuffle=False)
     
+    # Ensure save directory exists
+    Path('trained_models').mkdir(exist_ok=True)
+    
     best_acc = 0
-    for epoch in range(60):
+    epochs = 60
+    for epoch in range(epochs):
         model.train()
         train_loss = 0
         for batch_x, batch_y in train_loader:
@@ -259,17 +226,17 @@ def train_transformer():
         acc = 100 * correct / total
         if acc > best_acc:
             best_acc = acc
-            torch.save(model.state_dict(), 'trained_models/clot_transformer_integrated_best.pth')
+            torch.save(model.state_dict(), 'trained_models/clot_transformer_balanced_best.pth')
             
         if (epoch+1) % 10 == 0:
             logger.info(f"Epoch {epoch+1:02d} | Loss: {train_loss/len(train_loader):.4f} | Test Acc: {acc:.2f}% (Best: {best_acc:.2f}%)")
 
     # Final Evaluation
     logger.info("\n" + "="*60)
-    logger.info("FINAL EVALUATION ON UNSEEN SUBJECTS")
+    logger.info("FINAL EVALUATION ON UNSEEN SUBJECTS (v4 Balanced)")
     logger.info("="*60)
     
-    model.load_state_dict(torch.load('trained_models/clot_transformer_integrated_best.pth'))
+    model.load_state_dict(torch.load('trained_models/clot_transformer_balanced_best.pth'))
     model.eval()
     
     all_preds = []
@@ -283,11 +250,12 @@ def train_transformer():
             all_labels.extend(by.cpu().numpy())
             
     from sklearn.metrics import classification_report
-    report = classification_report(all_labels, all_preds, target_names=class_names)
-    logger.info(f"\nIntegrated Classification Report:\n{report}")
+    # Ensure all 5 classes are reported even if missing from the small test set
+    report = classification_report(all_labels, all_preds, target_names=class_names, labels=[0, 1, 2, 3, 4])
+    logger.info(f"\nBalanced Classification Report:\n{report}")
     
-    report_path = Path('model_comparison_plots_CLEAN/TRANSFORMER_INTEGRATED_REPORT.txt')
-    report_path.write_text(f"Integrated Clot/Stress Transformer Report\nTotal Samples: {len(X)}\nFeatures: {n_features}\nModel Params: {param_count:,}\nBest Test Acc: {best_acc:.2f}%\n\n{report}")
+    report_path = Path('model_comparison_plots_CLEAN/TRANSFORMER_BALANCED_REPORT.txt')
+    report_path.write_text(f"Balanced Clot/Stress Transformer Report (v4)\nTotal Samples: {len(X)}\nFeatures: {n_features}\nModel Params: {param_count:,}\nBest Test Acc: {best_acc:.2f}%\n\n{report}")
     logger.info(f"Report saved to {report_path}")
 
 if __name__ == "__main__":
