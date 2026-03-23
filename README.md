@@ -1,25 +1,86 @@
-AI Integration in Wearables for Blood Clot Monitoring (v4.0)From Predictive Analytics to Clinical-Grade Edge IntelligenceStatus: Production-Ready (v4 Balanced)Key Metric: 58% Critical Alert Precision | 52% Critical Recall | 54% Model Compression🚀 The Evolution: Beyond the "Accuracy Paradox"In Phase 1, we achieved 84% accuracy with XGBoost, but it was a "False Success"—it failed to detect a single critical clot. In Phase 4, we transitioned to a Multimodal FT-Transformer, prioritizing patient safety over nominal high scores.MilestonePhase 1: BaselinePhase 4: Production (Current)ArchitectureTraditional ML (XGBoost/RF)Bayesian FT-TransformerCritical Detection0% Recall (Failed)52% Recall (Validated)LogicStatic Spreadsheet AnalysisMultimodal Stress-Fusion (BVP + EDA)SafetyBlind GuessingMC-Dropout Safety Gate ($MI > 0.4$)Data StrategyImbalanced (13 samples)CTGAN Augmented (5,000 synthetic)🛠️ Project Structure (v4 Optimized)PlaintextAI-Integration-in-Wearables/
-├── integrated-scripts/            # THE PRODUCTION ENGINE
-│   ├── ctgan_balancing.py         # Generative Minority Oversampling
-│   ├── focal_loss.py              # Precision-Weighted Loss Function
-│   ├── mc_dropout_inference.py    # Bayesian Uncertainty Logic
-│   ├── precision_optimizer.py     # "SWAT Tier" Threshold Tuning
-│   ├── temporal_features.py       # Velocity/Rate-of-Change Engineering
-│   └── quantize_production_v4.py  # INT8 Model Compression
-│
-├── trained_models/                # DEPLOYMENT-READY ASSETS
-│   ├── clot_transformer_v4.onnx   # Optimized Edge Model (418KB)
-│   └── transformer_v4_best.pth    # Full Research Weight Map
-│
-├── processed_data/                # AI-READY DATASETS
-│   ├── integrated_features_v4_TEMPORAL.csv  # 18,369 Balanced Samples
-│   └── advanced_ppg_features.csv            # 26 Cardiac/Stress Features
-│
-├── model_comparison_plots_CLEAN/  # VALIDATION ASSETS
-│   ├── 01_confusion_matrix.png    # v4 Clinical Performance
-│   ├── 04_roc_curves_multiclass.png
-│   └── attention_maps/            # XAI (Integrated Gradients)
-│
-└── raw_data_stress/               # WESAD/Exam Stress Integration (S1-S10)
-🧬 Core v4 Architecture: The "SWAT" Tier1. Multimodal Feature Tokenizer (FT) TransformerTraditional ML fails to see the "movie" of human physiology. Our Transformer (~230k parameters) treats sensor data as tokens, using Scaled Dot-Product Attention to correlate cardiovascular drops with sympathetic stress spikes.$$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$2. CTGAN Data SynthesisTo solve the 0% recall problem, we used a Conditional Tabular GAN to simulate 5,000 high-fidelity, life-threatening physiological states. This expanded our "Danger Zone" intelligence from 13 samples to a robust, balanced training set.3. Bayesian Safety Gate (MC-Dropout)The model is self-aware. During inference, it runs $T=50$ stochastic forward passes to calculate Mutual Information ($MI$). If the AI is "ignorant" of the current sensor pattern, it triggers a clinical review.$$MI = H - \frac{1}{T} \sum_{t=1}^{T} \sum_{c=1}^{C} p_{c,t} \ln(p_{c,t})$$Rule: If $MI > 0.4$, Status = UNCERTAIN - CLINICAL REVIEW REQUIRED.📉 Final Performance BenchmarksTested on entirely unseen patient populations.Overall Accuracy: 55.56% (Clinically honest 5-class baseline)Critical Alert Precision: 58% (Up from 0% in Phase 1)Critical Recall: 52% (Correctly flags 1 in every 2 emergencies)Low Risk Recall: 100% (Zero false alarms on healthy baselines)🚀 Edge Deployment & CompressionTo enable 24/7 monitoring on low-power wearables, the v4 model underwent INT8 Dynamic Quantization.Original Size: 912.75 KBCompressed Size: 418.76 KBStorage Reduction: 54.1%Target Hardware: ARM Cortex-M (Smartwatches), Mobile Edge CPUs.🎓 Academic ContributionThis project evolved from a "Leaderboard Chase" into a Technical Whitepaper (see PROCS_ICMLDE 2025.tex). It demonstrates:Leakage Mitigation: Discovery and removal of 9 target-derived features.Generative Balancing: Using CTGAN for medical anomaly synthesis.Bayesian Inference: Quantifying uncertainty in life-critical AI.How to Deploy (Quick Start)Python# Run the quantized v4 inference (418KB model)
-python integrated-scripts/mc_dropout_inference.py --model trained_models/clot_transformer_
+# Multimodal AI for Wearable Blood Clot Monitoring: A Bayesian Transformer Approach
+
+**Lead Researcher:** Kingshuk Chatterjee  & Kanishk
+**Project Phase:** v4.0 Balanced Production Optimization  
+**Date:** March 23, 2026
+
+---
+
+## 1. Executive Abstract
+This research details the development of a clinical-grade AI system for the continuous monitoring of thrombosis risk (blood clots) via non-invasive wearable sensors. By evolving from traditional machine learning (Phase 1) to a **Bayesian Feature-Space Transformer (v4)**, the project successfully solved the **"Accuracy Paradox."**
+
+The current v4 architecture utilizes **Conditional Tabular GANs (CTGAN)** for minority class synthesis and **Monte Carlo (MC) Dropout** for uncertainty quantification. The final model achieves a **58% Critical Precision** and **52% Critical Recall** on strictly unseen patient populations, with a **54.1% reduction in model size** via INT8 quantization for edge-device deployment.
+
+---
+
+## 2. The Architectural Evolution: From 0% to 58%
+
+### **Phase 1: The Baseline (The Accuracy Paradox)**
+Initial benchmarking evaluated 11 algorithms (XGBoost, CatBoost, SVM, etc.) on 5,612 samples. 
+* **The Failure:** While XGBoost yielded 84.38% Accuracy, it suffered from 0% Critical Recall. 
+* **The Discovery:** We identified Data Leakage in 9 derived features (e.g., `composite_risk_score`). Removing these revealed the true model capability.
+
+### **Phase 4: The SWAT Tier (The Current Standard)**
+We transitioned to a Multimodal FT-Transformer to capture the temporal interplay between cardiovascular signals (BVP) and sympathetic nervous system volatility (EDA).
+
+| Metric | Phase 1 (XGBoost) | Phase 4 (FT-Transformer) |
+| :--- | :--- | :--- |
+| **Model Type** | Gradient Boosted Trees | **Bayesian FT-Transformer** |
+| **Balanced Samples** | 5,612 (Imbalanced) | **18,369 (Balanced via CTGAN)** |
+| **Critical Precision** | 0.0% | **58.0% (Targeting 75% SWAT)** |
+| **Safety Logic** | Blind Prediction | **Bayesian Safety Gate ($MI > 0.4$)** |
+
+---
+
+## 3. Mathematical & Algorithmic Framework
+
+### **A. Multimodal Feature Tokenization**
+The v4 Transformer projects each sensor reading into a high-dimensional embedding space, treating physiological states as "medical semantics."
+
+$$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$
+
+This allows the model to dynamically weigh **EDA (Stress)** spikes higher when **BVP (Blood Volume)** variability drops.
+
+### **B. Generative Minority Oversampling (CTGAN)**
+To overcome the scarcity of "Critical" events, we implemented a **Conditional Tabular GAN**.
+* **Method:** Learned the 154-dimensional probability distribution of confirmed thrombosis events.
+* **Result:** Generated **5,000 synthetic high-fidelity samples** (Quality Score: 0.88).
+
+### **C. Bayesian Uncertainty Quantification**
+We run **$T=50$ stochastic forward passes** (MC-Dropout) during every inference to calculate **Mutual Information ($MI$)**.
+
+$$MI = -\sum_{c=1}^{C} \hat{p}_c \ln(\hat{p}_c) - \frac{1}{T} \sum_{t=1}^{T} \sum_{c=1}^{C} p_{c,t} \ln(p_{c,t})$$
+
+* **Clinical Gate:** If $MI > 0.4$, the system triggers `Status: UNCERTAIN`.
+
+---
+
+## 4. Repository & File System Deep-Dive
+* **`integrated-scripts/`**
+    * `ctgan_balancing.py`: The generative engine.
+    * `focal_loss.py`: Custom PyTorch loss function.
+    * `mc_dropout_inference.py`: The Bayesian engine.
+    * `temporal_features.py`: Calculates Velocity (Rate of Change).
+* **`trained_models/`**
+    * `clot_transformer_v4.onnx`: The edge-optimized binary (418KB).
+
+---
+
+## 5. How to Run the Production Pipeline
+
+**Step 1: Balance the Data** Execute the CTGAN generative engine to handle class imbalance by synthesizing 5,000 high-fidelity "Critical Risk" samples.
+`bash
+python integrated-scripts/ctgan_balancing.py
+
+##Step 2: Train the "SWAT" Transformer Train the FT-Transformer using Weighted Focal Loss and temporal features to achieve the 58% precision threshold.
+
+Bash
+python integrated-scripts/train_optimized_v4.py
+
+##Step 3: Bayesian Inference Run the inference engine with MC-Dropout to calculate both the risk category and the Mutual Information (uncertainty) score.
+
+Bash
+python integrated-scripts/mc_dropout_inference.py --input sample_sensor_data.csv
+
+##6. Conclusion
+The v4 Balanced Transformer represents a significant shift from "score-chasing" accuracy to trustworthy medical engineering. By solving extreme class imbalance with GANs and implementing a Bayesian Safety Gate, this system provides a robust, self-aware framework ready for pilot clinical trials and edge deployment in diverse, unseen patient populations.
