@@ -2,16 +2,16 @@ Integrated Clot/Stress Transformer Report
 Total Samples: 12981
 Features: 8
 Model Params: 230,405
-Best Test Acc: 44.28%
+Best Test Acc: 42.81%
 
               precision    recall  f1-score   support
 
-    Critical       0.49      0.26      0.34       337
-        High       0.55      0.54      0.54       471
+    Critical       0.40      0.12      0.19       337
+        High       0.52      0.60      0.56       471
          Low       0.34      1.00      0.51       200
 Low-Moderate       0.00      0.00      0.00       164
     Moderate       0.00      0.00      0.00        52
 
-    accuracy                           0.44      1224
-   macro avg       0.28      0.36      0.28      1224
-weighted avg       0.40      0.44      0.39      1224
+    accuracy                           0.43      1224
+   macro avg       0.25      0.34      0.25      1224
+weighted avg       0.37      0.43      0.35      1224

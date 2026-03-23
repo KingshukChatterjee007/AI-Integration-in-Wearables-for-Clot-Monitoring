@@ -27,23 +27,33 @@ def main():
     clinical_df = pd.read_csv('processed_data/integrated_features_enhanced_CLEAN.csv')
     stress_df = pd.read_csv('processed_data/stress_features_v1.csv')
     
-    # 2.1 Mapping Clinical Activity to Target
-    # 0=Low, 1=Low-Mod, 2=Mod, 3=High, 4=Critical
+    # 2.1 HARMONIZE FEATURE NAMES (PPG and ACC)
+    rename_map = {
+        'pleth_mean': 'bvp_mean', 'pleth_std': 'bvp_std', 
+        'pleth_min': 'bvp_min', 'pleth_max': 'bvp_max',
+        'a_x_var': 'acc_x_var', 'a_y_var': 'acc_y_var', 'a_z_var': 'acc_z_var'
+    }
+    clinical_df.rename(columns=rename_map, inplace=True)
+    
+    # 2.2 Mapping Clinical Activity to Target
     clinical_df['target'] = clinical_df['activity'].map({
         'Basal': 0, 'Low': 1, 'Medium': 2, 'High': 3, 'Critical': 4
     })
     
-    # 2.2 Mapping Stress Session to Target
-    # Final Exam = Critical (4), Midterms = High (3)
+    # 2.3 Mapping Stress Session to Target
     stress_df['target'] = stress_df['session'].map({
         'Final': 4, 'Midterm 1': 3, 'Midterm 2': 3
     })
     
+    # Ensure EDA columns are imputed for clinical data (it didn't have EDA)
+    eda_cols = [c for c in stress_df.columns if 'eda' in c]
+    for c in eda_cols:
+        if c not in clinical_df.columns:
+            clinical_df[c] = 0.0 # Baseline
+    
     # Ensure columns match for concatenation
     common_cols = list(set(clinical_df.columns) & set(stress_df.columns))
     df = pd.concat([clinical_df[common_cols], stress_df[common_cols]], ignore_index=True)
-    
-    # Drop rows with NaN targets (if any)
     df = df.dropna(subset=['target'])
     
     logger.info(f"Master dataset size: {len(df)} samples")
