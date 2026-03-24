@@ -2,6 +2,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
+import pandas as pd
 from torch.utils.data import DataLoader, TensorDataset, WeightedRandomSampler
 import numpy as np
 from pathlib import Path
@@ -78,10 +79,12 @@ def train_phase5():
     # 5. Training Loop
     epochs = 40
     best_acc = 0
+    history = []
     
     for epoch in range(epochs):
         model.train()
         train_loss = 0
+        correct_t, total_t = 0, 0
         for bx, by in train_loader:
             bx, by = bx.to(DEVICE), by.to(DEVICE)
             
@@ -91,6 +94,11 @@ def train_phase5():
             loss.backward()
             optimizer.step()
             train_loss += loss.item()
+            
+            # Train accuracy
+            preds_t = logits.argmax(1)
+            total_t += by.size(0)
+            correct_t += (preds_t == by).sum().item()
             
         scheduler.step()
         
@@ -106,14 +114,26 @@ def train_phase5():
                 correct += (pred == by).sum().item()
                 
         val_acc = 100 * correct / total
+        train_acc = 100 * correct_t / total_t
+        
+        history.append({
+            'epoch': epoch + 1,
+            'train_loss': train_loss / len(train_loader),
+            'train_acc': train_acc,
+            'val_acc': val_acc
+        })
+        
         if val_acc > best_acc:
             best_acc = val_acc
             Path("trained_models").mkdir(exist_ok=True)
             torch.save(model.state_dict(), "trained_models/clot_hybrid_v5_best.pth")
             
-        if (epoch+1) % 5 == 0:
-            logger.info(f"Epoch {epoch+1:02d} | Loss: {train_loss/len(train_loader):.4f} | Val Acc: {val_acc:.2f}% (Best: {best_acc:.2f}%)")
+        logger.info(f"Epoch {epoch+1:02d} | T-Loss: {train_loss/len(train_loader):.4f} | T-Acc: {train_acc:.2f}% | V-Acc: {val_acc:.2f}%")
 
+    # Save History
+    history_df = pd.DataFrame(history)
+    history_df.to_csv("trained_models/v5_training_history.csv", index=False)
+    logger.info("Training history saved to trained_models/v5_training_history.csv")
     logger.info(f"Training Complete. Best Val Accuracy: {best_acc:.2f}%")
 
 if __name__ == "__main__":

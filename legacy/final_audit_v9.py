@@ -20,7 +20,7 @@ def run_v6_audit():
     y_test = torch.load(data_dir / "y_test_v6.pt").numpy()
     
     model = ClotHybridV6(n_features=X_test.shape[2], n_classes=3)
-    model.load_state_dict(torch.load("trained_models/clot_hybrid_v6_honest.pth", map_location='cpu'))
+    model.load_state_dict(torch.load("trained_models/clot_hybrid_v6_augmented.pth", map_location='cpu'))
     model.eval()
     
     with torch.no_grad():

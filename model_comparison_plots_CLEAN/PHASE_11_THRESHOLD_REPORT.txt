@@ -1,0 +1,17 @@
+=== PHASE 11: WARNING RECOVERY AUDIT (Threshold=0.35) ===
+
+              precision    recall  f1-score   support
+
+        SAFE       0.00      0.00      0.00         9
+     WARNING       0.10      1.00      0.18         1
+   EMERGENCY       1.00      1.00      1.00        42
+
+    accuracy                           0.83        52
+   macro avg       0.37      0.67      0.39        52
+weighted avg       0.81      0.83      0.81        52
+
+
+Confusion Matrix:
+[[ 0  9  0]
+ [ 0  1  0]
+ [ 0  0 42]]
