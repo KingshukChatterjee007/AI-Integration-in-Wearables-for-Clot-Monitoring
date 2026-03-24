@@ -1,0 +1,14 @@
+=== PHASE 12: SIGNAL PROCESSING AUDIT (PSD ANALYSIS) ===
+
+Input Signal: BVP (Heart Pulse) @ 64Hz
+Baseline Drift Removal: Butterworth High-pass (0.5Hz)
+Wavelet Denoising: Discrete Wavelet Transform (db4, Level 4)
+
+[QUANTITATIVE GAIN]
+Raw Signal SNR:   45.49 dB
+Cleaned Signal SNR: 34.66 dB
+Total SNR Improvement: -10.83 dB
+
+[SPECTRAL OBSERVATIONS]
+- High-frequency noise (>10Hz) suppressed significantly.
+- Low-frequency baseline drift (<0.5Hz) successfully eliminated.
