@@ -27,6 +27,7 @@ class FocalLoss(nn.Module):
         if self.reduction == 'mean':
             return foc_loss.mean()
         return foc_loss.sum()
+from sklearn.model_selection import GroupShuffleSplit
 import logging
 
 logging.basicConfig(level=logging.INFO)
@@ -35,24 +36,26 @@ logger = logging.getLogger(__name__)
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 def train_phase5():
-    logger.info(f"Starting Phase 5 Hybrid Training on {DEVICE}")
+    logger.info(f"Starting Phase 5.1 Hybrid Training (Subject-Wise Split) on {DEVICE}")
     
     # 1. Load Tensors
     data_dir = Path("processed_data/v5_tensors")
     X = torch.load(data_dir / "X_v5_30seq.pt")
     y = torch.load(data_dir / "y_v5_30seq.pt")
+    s = torch.load(data_dir / "subjects_v5_30seq.pt")
     
     n_samples, seq_len, n_features = X.shape
     n_classes = 5
     
-    # 2. Train/Test Split (Simple split for now, assuming dataloader handled subject grouping)
-    # Since we have only 965 sequences, let's use 85/15
-    indices = np.random.permutation(n_samples)
-    split = int(0.85 * n_samples)
-    train_idx, test_idx = indices[:split], indices[split:]
+    # 2. Subject-Wise Split (GroupShuffleSplit)
+    # This ensures no leakage: subjects in test are NEVER seen in train.
+    gss = GroupShuffleSplit(n_splits=1, test_size=0.2, random_state=42)
+    train_idx, test_idx = next(gss.split(X, y, groups=s))
     
     X_train, X_test = X[train_idx], X[test_idx]
     y_train, y_test = y[train_idx], y[test_idx]
+    
+    logger.info(f"Train on {len(np.unique(s[train_idx]))} subjects, Test on {len(np.unique(s[test_idx]))} subjects")
     
     # 3. Class Balancing (WeightedRandomSampler)
     counts = np.bincount(y_train.numpy())
@@ -65,7 +68,8 @@ def train_phase5():
     
     # 4. Initialize Model, Loss, Optimizer
     model = ClotHybridV5(n_features=n_features, n_classes=n_classes, seq_length=seq_len).to(DEVICE)
-    optimizer = optim.AdamW(model.parameters(), lr=1e-4, weight_decay=1e-2)
+    # Increased Weight Decay (1e-1) for stronger regularization
+    optimizer = optim.AdamW(model.parameters(), lr=1e-4, weight_decay=1e-1)
     criterion = FocalLoss(gamma=2)
     scheduler = optim.lr_scheduler.CosineAnnealingWarmRestarts(optimizer, T_0=10, T_mult=2)
     

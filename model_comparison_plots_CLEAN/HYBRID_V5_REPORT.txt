@@ -1,14 +1,14 @@
 Phase 5 Hybrid Temporal Fusion Report
-Latency: 5.68 ms/sample
+Latency: 8.36 ms/sample
 
               precision    recall  f1-score   support
 
-         Low       0.90      0.82      0.86        33
-     Low-Mod       0.80      0.86      0.83        14
-         Mod       0.86      0.95      0.90        19
-        High       0.20      1.00      0.33         1
-    Critical       1.00      0.95      0.97        78
+         Low       0.31      0.25      0.28        16
+     Low-Mod       0.47      0.37      0.41        19
+         Mod       0.38      0.64      0.47        22
+        High       0.25      0.25      0.25         4
+    Critical       1.00      0.91      0.95        87
 
-    accuracy                           0.91       145
-   macro avg       0.75      0.91      0.78       145
-weighted avg       0.93      0.91      0.92       145
+    accuracy                           0.71       148
+   macro avg       0.48      0.48      0.47       148
+weighted avg       0.74      0.71      0.72       148

@@ -57,7 +57,7 @@ class PositionalEncoding(nn.Module):
 # =============================================================================
 
 class ClotHybridV5(nn.Module):
-    def __init__(self, n_features, n_classes=5, seq_length=30, d_model=256, n_heads=8, n_layers=4, dropout=0.3):
+    def __init__(self, n_features, n_classes=5, seq_length=30, d_model=256, n_heads=8, n_layers=4, dropout=0.5):
         super().__init__()
         
         # Block 1: Multi-Scale CNN

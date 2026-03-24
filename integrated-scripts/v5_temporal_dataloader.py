@@ -35,8 +35,11 @@ def create_temporal_dataset(csv_path, seq_length=30, overlap=15, feature_set='al
     
     X_list = []
     y_list = []
+    s_list = [] # Subject IDs
     
     subjects = df['subject_id'].unique()
+    # Map subject strings to integers for PyTorch tensor compatibility
+    sub_map = {sub: i for i, sub in enumerate(subjects)}
     step = seq_length - overlap
     
     for sub in subjects:
@@ -50,22 +53,23 @@ def create_temporal_dataset(csv_path, seq_length=30, overlap=15, feature_set='al
         # Sliding window
         for i in range(0, len(sub_vals) - seq_length + 1, step):
             X_window = sub_vals[i : i + seq_length]
-            # Use the target of the LAST window in the sequence (Standard for forecasting/current state)
             y_label = sub_targets[i + seq_length - 1]
             
             X_list.append(X_window)
             y_list.append(y_label)
+            s_list.append(sub_map[sub])
             
     X = np.array(X_list)
     y = np.array(y_list)
+    s = np.array(s_list)
     
-    logger.info(f"Generated {X.shape[0]} sequences of shape {X.shape[1:]}")
-    return X, y, feature_cols
+    logger.info(f"Generated {X.shape[0]} sequences from {len(subjects)} subjects of shape {X.shape[1:]}")
+    return X, y, s, feature_cols, sub_map
 
 if __name__ == "__main__":
     data_path = Path(r"c:\Users\91704\AI-Integration-in-Wearables-for-Clot-Monitoring\processed_data\integrated_features_balanced_v2.csv")
     if data_path.exists():
-        X, y, features = create_temporal_dataset(data_path)
+        X, y, s, features, sub_map = create_temporal_dataset(data_path)
         
         # Save tensors for training
         output_dir = Path("processed_data/v5_tensors")
@@ -73,6 +77,7 @@ if __name__ == "__main__":
         
         torch.save(torch.FloatTensor(X), output_dir / "X_v5_30seq.pt")
         torch.save(torch.LongTensor(y), output_dir / "y_v5_30seq.pt")
+        torch.save(torch.LongTensor(s), output_dir / "subjects_v5_30seq.pt")
         
         # Save feature names for reference in training script
         with open(output_dir / "feature_names.txt", "w") as f:

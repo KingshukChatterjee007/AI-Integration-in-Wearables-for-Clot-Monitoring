@@ -7,24 +7,26 @@ from clot_hybrid_v5 import ClotHybridV5
 from sklearn.metrics import classification_report
 import logging
 
+from sklearn.model_selection import GroupShuffleSplit
+import logging
+
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 def verify_v5(model_path, data_dir):
-    logger.info("--- Phase 5 Hybrid Verification ---")
+    logger.info("--- Phase 5.1 Hybrid Verification (Subject-Wise) ---")
     
     # Load data
     X = torch.load(data_dir / "X_v5_30seq.pt")
     y = torch.load(data_dir / "y_v5_30seq.pt")
+    s = torch.load(data_dir / "subjects_v5_30seq.pt")
     
-    # 85/15 split (same seed as training for consistency in test set)
-    # Actually, we should use the same indices if possible, but for verification a fresh split is fine if we just want to see general performance.
-    np.random.seed(42) # Lock seed for verification
-    indices = np.random.permutation(len(X))
-    split = int(0.85 * len(X))
-    test_idx = indices[split:]
+    # 80/20 Subject-Wise Split (same as training seed 42)
+    gss = GroupShuffleSplit(n_splits=1, test_size=0.2, random_state=42)
+    train_idx, test_idx = next(gss.split(X, y, groups=s))
     
     X_test, y_test = X[test_idx], y[test_idx]
+    logger.info(f"Auditing on {len(np.unique(s[test_idx]))} unseen subjects ({len(X_test)} samples)")
     
     n_features = X_test.shape[2]
     model = ClotHybridV5(n_features=n_features)
