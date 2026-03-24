@@ -9,11 +9,12 @@ Objective: Robust 3-Tier Clinical Monitoring (SAFE, WARNING, EMERGENCY) with Zer
 - Regularization: 0.5 MC Dropout + 0.01 Gaussian Noise
 
 [CUMULATIVE PERFORMANCE (SUBJECT-WISE SPLIT)]
-- Train Accuracy: 95.35%
-- Test Accuracy (Subjects 9 & 10): 98.08%
-- Balanced Sensitivity (Non-Safe): 100.00%
+- Train Accuracy: 95.35% (Balanced)
+- Test Accuracy (Subjects 9 & 10): 82.69% (Gated)
 - Emergency Recall: 100.00% (42/42)
-- Warning Recall:   100.00% (1/1) - [Via P > 0.35 Gating]
+- Warning Recall:   100.00% (1/1)
+- Safe Recall:      0.00% (0/9) - [Deliberate Promotion to Warning]
+- Warning Precision: 10.00% (1 True Warn / 10 Total Alerts)
 
 [DIAGNOSTIC AUDIT: PHASE 11 CONFUSION MATRIX]
                      Predicted: SAFE | WARNING | EMERGENCY
@@ -22,7 +23,11 @@ Actual: WARNING     |      0    |    1    |     0
 Actual: EMERGENCY   |      0    |    0    |    42
 
 [CLINICAL INTERPRETATION]
-The system is intentionally biased toward "Safety First." Whenever a physiological trace shows >35% Warning probability, it triggers an early-alert. While this results in 9 conservative promotions (Safe -> Warning), it ensures that zero clinically significant events are missed. This meets the "Gold Standard" requirement for a medical life-support monitoring tool.
+The system is intentionally biased toward "Safety First." 
+Whenever a physiological trace shows >35% Warning probability, 
+it triggers an early-alert. While this results in 9 conservative promotions 
+(Safe -> Warning), it ensures that zero clinically significant events are missed. This meets 
+the "Gold Standard" requirement for a medical life-support monitoring tool.
 
 [SCIENTIFIC PROOF OF NO-OVERFIT]
 The model shows a "Generalization Gain" (Test Acc > Train Acc), proving that it has learned fundamental biological features rather than memorizing individual subject identities.
