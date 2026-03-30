@@ -39,8 +39,14 @@ def train_v6_1_recovery():
     
     model = ClotHybridV6(n_features=X_train.shape[2], n_classes=3)
     
-    # RE-BALANCED WEIGHTS: 1.0 (Safe) : 5.0 (Warning) : 5.0 (Emergency)
-    weights = torch.tensor([1.0, 5.0, 5.0])
+    # DISABLE Loading for fresh V14 training
+    # model_weights_path = Path("trained_models/clot_hybrid_v6_1_recovered.pth")
+    # if model_weights_path.exists():
+    #     logger.info(f"Loading pre-trained weights from {model_weights_path}")
+    #     model.load_state_dict(torch.load(model_weights_path, map_location='cpu'))
+
+    # V14 SAFETY-FIRST WEIGHTS: 1.0 (Safe) : 2.5 (Warning) : 5.0 (Emergency)
+    weights = torch.tensor([1.0, 2.5, 5.0])
     criterion = WeightedFocalLoss(alpha=weights, gamma=2.0)
     
     optimizer = optim.Adam(model.parameters(), lr=1e-3, weight_decay=1e-1)
