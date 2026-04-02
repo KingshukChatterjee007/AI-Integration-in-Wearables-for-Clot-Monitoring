@@ -1,0 +1,14 @@
+================== BALANCED 5-CLASS PERFORMANCE REPORT ==================
+T_crit: 0.11 | T_high: 0.01
+
+              precision    recall  f1-score   support
+
+         Low       0.00      0.00      0.00      1015
+Low-Moderate       0.00      0.00      0.00       200
+    Moderate       0.00      0.00      0.00       173
+        High       0.20      0.18      0.19       164
+    Critical       0.03      0.97      0.05        39
+
+    accuracy                           0.04      1591
+   macro avg       0.04      0.23      0.05      1591
+weighted avg       0.02      0.04      0.02      1591

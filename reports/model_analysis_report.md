@@ -79,7 +79,7 @@ The core of the predictive engine is a three-stage neural architecture, designed
 2. **Layer 2: The Relational Encoder (Transformer)**: 4 self-attention heads map cross-modal dependencies.
 3. **Layer 3: The Temporal Encoder (Stacked Bi-LSTM)**: Two 128-unit Bi-Directional LSTM layers process the temporally ordered features to distinguish sustained clinical emergencies.
 
-![Figure 4: The custom CNN-Transformer-BiLSTM Triple-Encoder Hybrid Architecture used for high-capacity temporal learning](C:/Users/91704/.gemini/antigravity/brain/43b6fc12-4cbd-4e73-a63a-50e66bdfd227/cnn_transformer_bilstm_architecture_1774869628544.png)
+![Figure 4: The custom CNN-Transformer-BiLSTM Triple-Encoder Hybrid Architecture used for high-capacity temporal learning](file:///c:/Users/91704/AI-Integration-in-Wearables-for-Clot-Monitoring/reports/assets/hybrid_architecture_CLEAN.png)
 
 ---
 
