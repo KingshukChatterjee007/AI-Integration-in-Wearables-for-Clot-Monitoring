@@ -12,7 +12,8 @@
     --text-secondary: #8E8E93;
     --text-dim: #636366;
     
-    --nav-glass: rgba(0, 0, 0, 0.85);
+    --nav-glass: rgba(10, 10, 10, 0.95);
+    --sidebar-width: 260px;
 }
 
 * {
@@ -34,6 +35,16 @@ body {
     overflow-x: hidden;
 }
 
+/* --- PROFESSIONAL SCROLLBAR REMOVAL (MINIMALIST) --- */
+::-webkit-scrollbar {
+    display: none;
+}
+
+* {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
 /* Background Atmosphere */
 .atmosphere {
     position: fixed;
@@ -48,15 +59,124 @@ body {
 }
 
 .thesis-wrapper {
-    max-width: 1680px; /* EXPANSIVE WIDE LENS */
-    margin: 0 auto;
+    max-width: 1800px;
+    margin-left: var(--sidebar-width);
     padding: 60px 80px;
+    transition: margin-left 0.3s ease;
+}
+
+/* Side Navigation Overhaul (NEW) */
+.side-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    background: var(--nav-glass);
+    border-right: 1.5px solid var(--border-soft);
+    z-index: 1000;
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.nav-brand {
+    padding: 0 30px;
+    margin-bottom: 40px;
+}
+
+.nav-brand h2 {
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: var(--text-charcoal);
+    text-transform: uppercase;
+}
+
+.nav-brand span {
+    color: var(--apple-blue);
+    display: block;
+    font-size: 0.6rem;
+    margin-top: 5px;
+    font-weight: 400;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 0 15px;
+}
+
+.nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 12px 15px;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-links a:hover {
+    color: var(--text-charcoal);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-links a.active {
+    color: var(--apple-blue);
+    background: rgba(10, 132, 255, 0.1);
+    font-weight: 700;
+}
+
+.nav-links a .nav-num {
+    font-size: 0.6rem;
+    font-weight: 800;
+    opacity: 0.4;
+    width: 20px;
+}
+
+.progress-sidebar {
+    margin-top: auto;
+    padding: 30px;
+    border-top: 1px solid var(--border-soft);
+}
+
+.progress-container {
+    height: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: var(--apple-blue);
+    transition: width 0.1s;
+}
+
+@media (max-width: 1200px) {
+    .side-navbar { width: 80px; }
+    .nav-brand h2, .nav-brand span, .nav-links a span:not(.nav-num) { display: none; }
+    .thesis-wrapper { margin-left: 80px; padding: 40px; }
+    .nav-links a { justify-content: center; padding: 15px 0; }
+}
+
+@media (max-width: 768px) {
+    .side-navbar { display: none; }
+    .thesis-wrapper { margin-left: 0; padding: 20px; }
 }
 
 /* Header Section */
 header {
-    text-align: center;
+    text-align: left;
     padding-bottom: 40px;
+    max-width: 1100px;
 }
 
 .badge-clinical {

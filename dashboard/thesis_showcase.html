@@ -14,27 +14,30 @@
 
     <div class="atmosphere"></div>
 
-    <nav class="sticky-nav">
-        <div class="nav-content">
-            <div class="nav-brand">Clinical Clot Project <span>|</span></div>
-            <div class="nav-links">
-                <a href="#s1">Interpretability</a>
-                <a href="#s2">Benchmarking</a>
-                <a href="#s3">Subject-S14</a>
-                <a href="#s4">Architecture</a>
-                <a href="#s5">Performance</a>
-                <a href="#s6">Augmentation</a>
-                <a href="#s7">Algorithms</a>
-                <a href="#s8">Telemetry</a>
-                <a href="#s9">Filtering</a>
-                <a href="#s10">ROC Curves</a>
-                <a href="#s11">Waveforms</a>
-                <a href="#s12">Synergy</a>
-                <a href="#s13">Convergence</a>
-                <a href="#s14">Challenges</a>
-                <a href="#s15">Math</a>
-                <a href="#s16">Formalism</a>
-            </div>
+    <nav class="side-navbar">
+        <div class="nav-brand">
+            <h2>Clinical Clot Project</h2>
+            <span>Master Thesis Defense</span>
+        </div>
+        <div class="nav-links">
+            <a href="#s1" class="active"><span class="nav-num">01</span> Interpretability</a>
+            <a href="#s2"><span class="nav-num">02</span> Benchmarking</a>
+            <a href="#s3"><span class="nav-num">03</span> Subject-S14</a>
+            <a href="#s4"><span class="nav-num">04</span> Architecture</a>
+            <a href="#s5"><span class="nav-num">05</span> Performance</a>
+            <a href="#s6"><span class="nav-num">06</span> Augmentation</a>
+            <a href="#s7"><span class="nav-num">07</span> Algorithms</a>
+            <a href="#s8"><span class="nav-num">08</span> Telemetry</a>
+            <a href="#s9"><span class="nav-num">09</span> Filtering</a>
+            <a href="#s10"><span class="nav-num">10</span> ROC Curves</a>
+            <a href="#s11"><span class="nav-num">11</span> Waveforms</a>
+            <a href="#s12"><span class="nav-num">12</span> Synergy</a>
+            <a href="#s13"><span class="nav-num">13</span> Convergence</a>
+            <a href="#s14"><span class="nav-num">14</span> Challenges</a>
+            <a href="#s15"><span class="nav-num">15</span> Math</a>
+            <a href="#s16"><span class="nav-num">16</span> Formalism</a>
+        </div>
+        <div class="progress-sidebar">
             <div class="progress-container">
                 <div class="progress-bar" id="scroll-progress"></div>
             </div>
@@ -77,13 +80,12 @@
             </div>
         </header>
 
-        <!-- 🧪 The Clinical AI Pipeline -->
+        <!-- The Clinical AI Pipeline -->
         <h3
             style="text-align:center; font-size:0.8rem; text-transform:uppercase; color:var(--text-dim); margin-bottom:20px; letter-spacing:0.1em;">
-            The Clinical AI Engineering Pipeline</h3>
+            Clinical AI Engineering Pipeline</h3>
         <div class="pipeline-container">
             <div class="pipeline-step">
-                <span class="step-icon">📊</span>
                 <span class="step-label">Acquisition</span>
                 <span class="step-detail">Multi-Modal Streams (<span class="glossary-term"
                         data-tooltip="Blood Volume Pulse: An optical measurement of heart rate and rhythm trends.">BVP</span>,
@@ -92,7 +94,6 @@
                     ACC)</span>
             </div>
             <div class="pipeline-step">
-                <span class="step-icon">🧹</span>
                 <span class="step-label">Denoising</span>
                 <span class="step-detail"><span class="glossary-term"
                         data-tooltip="A signal filter that removes slow sensor 'drift' caused by breathing.">Butterworth</span>
@@ -101,25 +102,21 @@
                         DWT</span></span>
             </div>
             <div class="pipeline-step">
-                <span class="step-icon">🪟</span>
                 <span class="step-label">Observation</span>
                 <span class="step-detail">30s Overlapping Windows (15s Stride)</span>
             </div>
             <div class="pipeline-step">
-                <span class="step-icon">🧬</span>
                 <span class="step-label">Synthesis</span>
                 <span class="step-detail"><span class="glossary-term"
                         data-tooltip="Wasserstein GAN with Gradient Penalty: A generative model for minority classes.">WGAN-GP</span>
                     Generative Class Balancing</span>
             </div>
             <div class="pipeline-step">
-                <span class="step-icon">🧠</span>
                 <span class="step-label">Ensemble</span>
                 <span class="step-detail">XGBoost-GNB + FT-Transformer Hybrid</span>
             </div>
             <div class="pipeline-step"
                 style="background: rgba(10, 132, 255, 0.08); border: 1px solid rgba(10, 132, 255, 0.2);">
-                <span class="step-icon">🚨</span>
                 <span class="step-label" style="color:var(--apple-blue);">Alerting</span>
                 <span class="step-detail">Fail-Safe Probability Gating (Tau = 10.9%)</span>
             </div>
@@ -424,63 +421,54 @@
                         <!-- 1. 1D-CNN -->
                         <div class="algo-card">
                             <span class="tag">Spatial</span>
-                            <span class="icon">📡</span>
                             <h4>01. 1D-CNN Encoder</h4>
                             <p>Multi-scale convolutional kernels (3, 5, 7) that extract local morphological signatures from BVP waveforms.</p>
                         </div>
                         <!-- 2. Transformer -->
                         <div class="algo-card">
                             <span class="tag">Relational</span>
-                            <span class="icon">🧩</span>
                             <h4>02. Transformer Block</h4>
                             <p>4-head Self-Attention mechanism facilitating non-linear multi-sensor fusion between BVP and EDA streams.</p>
                         </div>
                         <!-- 3. Bi-LSTM -->
                         <div class="algo-card">
                             <span class="tag">Temporal</span>
-                            <span class="icon">⏳</span>
                             <h4>03. Stacked Bi-LSTM</h4>
                             <p>Bidirectional recurrent units (128 units) capturing long-term physiological dependencies across 30s windows.</p>
                         </div>
                         <!-- 4. MC-Dropout -->
                         <div class="algo-card" style="border-color: var(--apple-blue); background: rgba(10, 132, 255, 0.05);">
                             <span class="tag">Uncertainty</span>
-                            <span class="icon">🎲</span>
                             <h4>04. Bayesian MC-Dropout</h4>
                             <p>Stochastic inference loop (T=50) quantifying model confidence to trigger human intervention loops.</p>
                         </div>
                         <!-- 5. Probability Gating -->
                         <div class="algo-card" style="border-color: var(--apple-red); background: rgba(255, 69, 58, 0.05);">
                             <span class="tag">Safety</span>
-                            <span class="icon">🛡️</span>
                             <h4>05. Clinical Gating Logic</h4>
                             <p>Probabilistic override layer that promotes borderline "Safe" cases to "Warning" based on Tau=10.9% threshold.</p>
                         </div>
                         <!-- 6. Focal Loss -->
                         <div class="algo-card">
                             <span class="tag">Optimization</span>
-                            <span class="icon">⚖️</span>
                             <h4>06. Weighted Focal Loss</h4>
                             <p>Objective function that penalizes critical misses (Emergency) 5x more heavily than baseline classification errors.</p>
                         </div>
                         <!-- 7. WGAN-GP -->
                         <div class="algo-card">
                             <span class="tag">Generative</span>
-                            <span class="icon">🧬</span>
                             <h4>07. WGAN-GP Synthesis</h4>
                             <p>Generative Adversarial Network with Gradient Penalty used to rectify chronic minority class imbalances.</p>
                         </div>
                         <!-- 8. Butterworth -->
                         <div class="algo-card">
                             <span class="tag">Processing</span>
-                            <span class="icon">🧹</span>
                             <h4>08. Butterworth Filter</h4>
                             <p>0.5Hz High-Pass Infinite Impulse Response (IIR) filter eradicating respiratory baseline wandering.</p>
                         </div>
                         <!-- 9. Wavelet DWT -->
                         <div class="algo-card">
                             <span class="tag">Processing</span>
-                            <span class="icon">🌊</span>
                             <h4>09. Level-4 DWT (db4)</h4>
                             <p>Discrete Wavelet Transform for high-frequency motion artifact removal without pulse blurring.</p>
                         </div>
@@ -656,9 +644,9 @@
                             alt="Denoising Challenges" style="width:100%; height:auto; border-radius:15px;">
                     </div>
                     <div style="margin-top: 25px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                        <div class="stat-pill" style="background:#1C1C1E; color:#FFFFFF;">⚠️ <b>Acquisition Phase</b>:
+                        <div class="stat-pill" style="background:#1C1C1E; color:#FFFFFF;">Acquisition Phase:
                             Motion Artifact Management</div>
-                        <div class="stat-pill" style="background:#2C2C2E; color:#FFFFFF;">⚙️ <b>Sourcing Phase</b>: WGAN
+                        <div class="stat-pill" style="background:#2C2C2E; color:#FFFFFF;">Sourcing Phase: WGAN
                             Mode-Collapse Resolution</div>
                     </div>
                 </section>
@@ -750,7 +738,7 @@
 
             </main>
 
-            <!-- 🏛️ The Expansive Sidebar (ML Stuff) -->
+            <!-- The Expansive Sidebar (ML Stuff) -->
             <aside class="side-rail">
 
                 <div class="side-item card-thesis" style="padding: 30px; margin-bottom: 30px;">
