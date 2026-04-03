@@ -838,3 +838,66 @@ footer { text-align: center; padding: 120px 0; color: var(--text-dim); }
 @media (max-width: 768px) {
     .algo-bento { grid-template-columns: 1fr; }
 }
+
+/* --- NEW: Mathematical Registry & Cards --- */
+.math-mini-callout {
+    background: rgba(10, 132, 255, 0.03);
+    padding: 12px 18px;
+    border-radius: 10px;
+    border-left: 3px solid var(--apple-blue);
+    margin-top: 15px;
+    font-size: 0.85rem;
+    color: var(--apple-blue);
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    display: inline-block;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.math-registry-container {
+    animation: fadeInMath 0.8s ease-out;
+}
+
+@keyframes fadeInMath {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.math-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-soft);
+    padding: 25px;
+    border-radius: 20px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.math-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.02);
+}
+
+.math-card h5 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 15px;
+    letter-spacing: 0.1em;
+    font-weight: 800;
+}
+
+.math-card p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-top: 15px;
+}
+
+/* Specific accent for PCA/Entropy cards */
+.math-card:nth-child(2) { border-left: 2px solid var(--apple-blue); }
+.math-card:nth-child(3) { border-left: 2px solid var(--apple-amber); }
+.math-card:nth-child(4) { border-left: 2px solid var(--apple-green); }
+.math-card:nth-child(1) { border-left: 2px solid var(--text-dim); }
+

@@ -17,7 +17,7 @@
     <nav class="side-navbar">
         <div class="nav-brand">
             <h2>Clinical Clot Project</h2>
-            <span>Master Thesis Defense</span>
+            <span>Major Project</span>
         </div>
         <div class="nav-links">
             <a href="#s1" class="active"><span class="nav-num">01</span> Interpretability</a>
@@ -164,6 +164,9 @@
                                 Proving class separability: The model disentangles overlapping sensor signals into 5
                                 distinct, high-confidence clinical risk clusters.
                             </p>
+                            <div class="math-mini-callout" style="margin-top: 15px; font-size: 0.85rem; color: var(--apple-blue); font-family: 'SF Mono', monospace;">
+                                \[ \text{Proj}_{V} (X) = X \cdot V_k \quad \text{where} \quad \text{Cov}(X)V = \lambda V \]
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -411,9 +414,9 @@
 
                 <!-- 07: The 9 Core Algorithms (Scientific Registry) -->
                 <section id="s7" class="card-thesis">
-                    <h2>07. The 9 Core Algorithms (Scientific Registry)</h2>
+                    <h2>07. The 9 Core Algorithms</h2>
                     <p style="color: var(--text-secondary); margin-bottom: 25px; font-size: 1.1rem; line-height: 1.6;">
-                        A comprehensive catalog of the integrated mathematical and architectural components driving 
+                        A comprehensive catalog of the integrated mathematical and architectural components driving
                         the Clot-Monitoring System.
                     </p>
 
@@ -422,55 +425,66 @@
                         <div class="algo-card">
                             <span class="tag">Spatial</span>
                             <h4>01. 1D-CNN Encoder</h4>
-                            <p>Multi-scale convolutional kernels (3, 5, 7) that extract local morphological signatures from BVP waveforms.</p>
+                            <p>Multi-scale convolutional kernels (3, 5, 7) that extract local morphological signatures
+                                from BVP waveforms.</p>
                         </div>
                         <!-- 2. Transformer -->
                         <div class="algo-card">
                             <span class="tag">Relational</span>
                             <h4>02. Transformer Block</h4>
-                            <p>4-head Self-Attention mechanism facilitating non-linear multi-sensor fusion between BVP and EDA streams.</p>
+                            <p>4-head Self-Attention mechanism facilitating non-linear multi-sensor fusion between BVP
+                                and EDA streams.</p>
                         </div>
                         <!-- 3. Bi-LSTM -->
                         <div class="algo-card">
                             <span class="tag">Temporal</span>
                             <h4>03. Stacked Bi-LSTM</h4>
-                            <p>Bidirectional recurrent units (128 units) capturing long-term physiological dependencies across 30s windows.</p>
+                            <p>Bidirectional recurrent units (128 units) capturing long-term physiological dependencies
+                                across 30s windows.</p>
                         </div>
                         <!-- 4. MC-Dropout -->
-                        <div class="algo-card" style="border-color: var(--apple-blue); background: rgba(10, 132, 255, 0.05);">
+                        <div class="algo-card"
+                            style="border-color: var(--apple-blue); background: rgba(10, 132, 255, 0.05);">
                             <span class="tag">Uncertainty</span>
                             <h4>04. Bayesian MC-Dropout</h4>
-                            <p>Stochastic inference loop (T=50) quantifying model confidence to trigger human intervention loops.</p>
+                            <p>Stochastic inference loop (T=50) quantifying model confidence to trigger human
+                                intervention loops.</p>
                         </div>
                         <!-- 5. Probability Gating -->
-                        <div class="algo-card" style="border-color: var(--apple-red); background: rgba(255, 69, 58, 0.05);">
+                        <div class="algo-card"
+                            style="border-color: var(--apple-red); background: rgba(255, 69, 58, 0.05);">
                             <span class="tag">Safety</span>
                             <h4>05. Clinical Gating Logic</h4>
-                            <p>Probabilistic override layer that promotes borderline "Safe" cases to "Warning" based on Tau=10.9% threshold.</p>
+                            <p>Probabilistic override layer that promotes borderline "Safe" cases to "Warning" based on
+                                Tau=10.9% threshold.</p>
                         </div>
                         <!-- 6. Focal Loss -->
                         <div class="algo-card">
                             <span class="tag">Optimization</span>
                             <h4>06. Weighted Focal Loss</h4>
-                            <p>Objective function that penalizes critical misses (Emergency) 5x more heavily than baseline classification errors.</p>
+                            <p>Objective function that penalizes critical misses (Emergency) 5x more heavily than
+                                baseline classification errors.</p>
                         </div>
                         <!-- 7. WGAN-GP -->
                         <div class="algo-card">
                             <span class="tag">Generative</span>
                             <h4>07. WGAN-GP Synthesis</h4>
-                            <p>Generative Adversarial Network with Gradient Penalty used to rectify chronic minority class imbalances.</p>
+                            <p>Generative Adversarial Network with Gradient Penalty used to rectify chronic minority
+                                class imbalances.</p>
                         </div>
                         <!-- 8. Butterworth -->
                         <div class="algo-card">
                             <span class="tag">Processing</span>
                             <h4>08. Butterworth Filter</h4>
-                            <p>0.5Hz High-Pass Infinite Impulse Response (IIR) filter eradicating respiratory baseline wandering.</p>
+                            <p>0.5Hz High-Pass Infinite Impulse Response (IIR) filter eradicating respiratory baseline
+                                wandering.</p>
                         </div>
                         <!-- 9. Wavelet DWT -->
                         <div class="algo-card">
                             <span class="tag">Processing</span>
                             <h4>09. Level-4 DWT (db4)</h4>
-                            <p>Discrete Wavelet Transform for high-frequency motion artifact removal without pulse blurring.</p>
+                            <p>Discrete Wavelet Transform for high-frequency motion artifact removal without pulse
+                                blurring.</p>
                         </div>
                     </div>
                 </section>
@@ -655,15 +669,17 @@
                 <section id="s15" class="card-thesis">
                     <h2>15. Mathematical Framework (Clinical Optimization)</h2>
                     <p style="color: var(--text-secondary); margin-bottom: 25px; font-size: 1.1rem; line-height: 1.6;">
-                        To solve the "Fatal Negative" paradox, the model is optimized using a <b>Weighted Focal Loss</b> 
-                        function that mathematically penalizes errors on rare clinical events (Emergencies) 5x more heavily 
+                        To solve the "Fatal Negative" paradox, the model is optimized using a <b>Weighted Focal Loss</b>
+                        function that mathematically penalizes errors on rare clinical events (Emergencies) 5x more
+                        heavily
                         than standard baseline activities.
                     </p>
-                    
+
                     <div class="math-framework-grid">
                         <div class="math-callout">
                             \[ L(p_t) = -\alpha \cdot (1 - p_t)^\gamma \cdot \ln(p_t) \]
-                            <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 15px;">Weighted Focal Loss Objective</p>
+                            <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 15px;">Weighted Focal Loss
+                                Objective</p>
                         </div>
                         <div class="math-explanation">
                             <h4>The Clinical Alpha ($\alpha$) Bias</h4>
@@ -672,9 +688,45 @@
                                 <br>$\alpha_{SAFE} = 1.0$ | $\alpha_{WARNING} = 2.5$ | $\alpha_{EMERGENCY} = 5.0$
                             </p>
                             <p>
-                                The $\gamma = 2.0$ parameter forces the 128-dimensional latent space to focus on "hard" 
-                                examples near the decision boundary, reducing model over-confidence on majority Baseline signals.
+                                The $\gamma = 2.0$ parameter forces the 128-dimensional latent space to focus on "hard"
+                                examples near the decision boundary, reducing model over-confidence on majority Baseline
+                                signals.
                             </p>
+                        </div>
+                    </div>
+
+                    <!-- New Subsection: Project Mathematical Registry -->
+                    <div class="math-registry-container" style="margin-top: 50px; border-top: 1px solid var(--border-soft); padding-top: 40px;">
+                        <h3 style="font-size: 1.2rem; color: var(--text-charcoal); margin-bottom: 30px; letter-spacing: -0.02em;">Project Mathematical Registry (Actual Implemented Logic)</h3>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                            <!-- Z-Score -->
+                            <div class="math-card">
+                                <h5>01. Sensor Fusion Normalization (Z-Score)</h5>
+                                \[ z_i = \frac{x_i - \mu_j}{\sigma_j} \]
+                                <p>Standardizing BVP (Volts) and EDA ($\mu$S) into a shared unit-less manifold for the 1D-CNN encoder.</p>
+                            </div>
+                            
+                            <!-- PCA -->
+                            <div class="math-card">
+                                <h5>02. Dimensionality Reduction (PCA)</h5>
+                                \[ C = \frac{1}{N-1} \sum_{i=1}^{N} (x_i - \bar{x})(x_i - \bar{x})^T \]
+                                <p>The covariance matrix $C$ is decomposed to identify the top 3 eigenvectors (PCs) for 3D visualization.</p>
+                            </div>
+
+                            <!-- Entropy -->
+                            <div class="math-card">
+                                <h5>03. Prediction Entropy (Shannon)</h5>
+                                \[ H(y|x) = -\sum_{c \in C} p(c|x) \log p(c|x) \]
+                                <p>Quantifying average information surprise across T=50 stochastic dropout passes.</p>
+                            </div>
+
+                            <!-- WGAN-GP -->
+                            <div class="math-card">
+                                <h5>04. Generative Penalty (GP)</h5>
+                                \[ L_{GP} = \lambda \mathbb{E}_{\hat{x}} [(\|\nabla_{\hat{x}} D(\hat{x})\|_2 - 1)^2] \]
+                                <p>Enforcing 1-Lipschitz continuity in the critic to stabilize synthetic high-risk sample generation.</p>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -694,19 +746,21 @@
                                 <span>Bayesian MC-Dropout</span>
                             </div>
                             <div class="algo-content">
-<span class="algo-keyword">Input:</span> Trained Model M, Input X, Iterations T=50
-<span class="algo-keyword">Output:</span> Mean Prob P, Uncertainty V
+                                <span class="algo-keyword">Input:</span> Trained Model M, Input X, Iterations T=50
+                                <span class="algo-keyword">Output:</span> Mean Prob P, Uncertainty V
 
-1. Initialize Prob_List = []
-2. <span class="algo-keyword">For</span> t = 1 <span class="algo-keyword">to</span> T:
-3.     Enable Dropout in M
-4.     p_t = M_forward(X)
-5.     Append p_t to Prob_List
-6. <span class="algo-keyword">End For</span>
-7. P = Mean(Prob_List)
-8. V = Variance(Prob_List)
-9. <span class="algo-keyword">Return</span> P, V</div>
-                            <div class="algo-footer">Calculating posterior predictive distribution via stochastic passes.</div>
+                                1. Initialize Prob_List = []
+                                2. <span class="algo-keyword">For</span> t = 1 <span class="algo-keyword">to</span> T:
+                                3. Enable Dropout in M
+                                4. p_t = M_forward(X)
+                                5. Append p_t to Prob_List
+                                6. <span class="algo-keyword">End For</span>
+                                7. P = Mean(Prob_List)
+                                8. V = Variance(Prob_List)
+                                9. <span class="algo-keyword">Return</span> P, V
+                            </div>
+                            <div class="algo-footer">Calculating posterior predictive distribution via stochastic
+                                passes.</div>
                         </div>
 
                         <!-- Algo 2 -->
@@ -716,20 +770,24 @@
                                 <span>Clinical Gating Logic</span>
                             </div>
                             <div class="algo-content">
-<span class="algo-keyword">Input:</span> Probabilities P=[P_s, P_w, P_e]
-<span class="algo-keyword">Output:</span> Gated Class C_g
+                                <span class="algo-keyword">Input:</span> Probabilities P=[P_s, P_w, P_e]
+                                <span class="algo-keyword">Output:</span> Gated Class C_g
 
-1. <span class="algo-keyword">Define</span> Threshold Tau = 0.1094
-2. C_std = argmax(P)
-3. <span class="algo-keyword">If</span> C_std == SAFE <span class="algo-keyword">Then</span>:
-4.     <span class="algo-keyword">If</span> (P_w + P_e) > Tau <span class="algo-keyword">Then</span>:
-5.         C_g = WARNING <span class="algo-comment">// Safety Promotion</span>
-6.     <span class="algo-keyword">Else</span>:
-7.         C_g = SAFE
-8. <span class="algo-keyword">Else</span>:
-9.     C_g = C_std
-10. <span class="algo-keyword">Return</span> C_g</div>
-                            <div class="algo-footer">Probabilistic override ensuring high-sensitivity emergency detection.</div>
+                                1. <span class="algo-keyword">Define</span> Threshold Tau = 0.1094
+                                2. C_std = argmax(P)
+                                3. <span class="algo-keyword">If</span> C_std == SAFE <span
+                                    class="algo-keyword">Then</span>:
+                                4. <span class="algo-keyword">If</span> (P_w + P_e) > Tau <span
+                                    class="algo-keyword">Then</span>:
+                                5. C_g = WARNING <span class="algo-comment">// Safety Promotion</span>
+                                6. <span class="algo-keyword">Else</span>:
+                                7. C_g = SAFE
+                                8. <span class="algo-keyword">Else</span>:
+                                9. C_g = C_std
+                                10. <span class="algo-keyword">Return</span> C_g
+                            </div>
+                            <div class="algo-footer">Probabilistic override ensuring high-sensitivity emergency
+                                detection.</div>
                         </div>
                     </div>
                 </section>
