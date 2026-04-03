@@ -972,3 +972,20 @@ footer { text-align: center; padding: 120px 0; color: var(--text-dim); }
     50% { transform: translateY(5px); opacity: 0.8; }
 }
 
+/* --- Refined Green for Step 05 --- */
+.flow-step.step-output {
+    border-color: rgba(48, 209, 88, 0.4);
+    background: rgba(48, 209, 88, 0.05);
+}
+
+.flow-step.step-output h4 {
+    color: #32d74b;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(50, 215, 75, 0.2);
+}
+
+.flow-step.step-output:hover {
+    border-color: #32d74b;
+    background: rgba(48, 209, 88, 0.08);
+}
+
