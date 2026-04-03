@@ -15,12 +15,29 @@
     <div class="thesis-wrapper">
         
         <header>
-            <div class="badge-clinical">Clinical AI | Master's Thesis Defense</div>
-            <p class="academic-abstract">
-                Addressing the "Fatal Negative" clinical paradox in wearable monitoring. By transitioning 
-                to a <b>Hierarchical Gating Paradigm</b>, the system optimizes for high-sensitivity detection 
-                of critical cardiovascular events via a calibrated 10.9% safety sensitivity threshold.
-            </p>
+            <div class="badge-clinical">Clinical AI Monitoring Portal</div>
+            <h1>AI Integration in Wearables for Clot Monitoring</h1>
+            
+            <div class="intro-grid">
+                <div class="intro-card issue">
+                    <h3>The Clinical Challenge (The Issue)</h3>
+                    <p>
+                        Standard machine learning models for clinical wearables inherently optimize for global classification accuracy. 
+                        This objective function inadvertently suppresses the detection of statistically rare, yet life-threatening, 
+                        physiological anomalies like blood clots—creating the <b>"Fatal Negative"</b> paradox where a model appears 
+                        99% accurate while missing every critical emergency.
+                    </p>
+                </div>
+                <div class="intro-card proposal">
+                    <h3>The fail-safe Proposal (The Solution)</h3>
+                    <p>
+                        This project proposes a <b>Spatial-Relational-Temporal Hybrid</b> architecture (CNN-Transformer-LSTM) that 
+                        prioritizes clinical safety over raw accuracy. By abandoning passive argmax classification in favor of an 
+                        active <b>"Safety-First" Bayesian probability gate</b>, the system ensures 100% Emergency Recall for 
+                        unseen patient cohorts.
+                    </p>
+                </div>
+            </div>
         </header>
 
         <!-- 🧪 The Clinical AI Pipeline -->
