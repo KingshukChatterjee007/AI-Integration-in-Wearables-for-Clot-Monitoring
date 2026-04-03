@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Master Thesis Showcase | Clinical Clot AI</title>
+    <title>Clinical Clot AI</title>
     <link rel="stylesheet" href="thesis_style.css">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -164,8 +164,10 @@
                                 Proving class separability: The model disentangles overlapping sensor signals into 5
                                 distinct, high-confidence clinical risk clusters.
                             </p>
-                            <div class="math-mini-callout" style="margin-top: 15px; font-size: 0.85rem; color: var(--apple-blue); font-family: 'SF Mono', monospace;">
-                                \[ \text{Proj}_{V} (X) = X \cdot V_k \quad \text{where} \quad \text{Cov}(X)V = \lambda V \]
+                            <div class="math-mini-callout"
+                                style="margin-top: 15px; font-size: 0.85rem; color: var(--apple-blue); font-family: 'SF Mono', monospace;">
+                                \[ \text{Proj}_{V} (X) = X \cdot V_k \quad \text{where} \quad \text{Cov}(X)V = \lambda V
+                                \]
                             </div>
                         </div>
                     </div>
@@ -239,36 +241,57 @@
                                 <td class="model-name">Extra Trees (ETR)</td>
                                 <td class="metric-val">73.69%</td>
                                 <td class="metric-val">0.693</td>
-                                <td>Extremely Randomized Subset</td>
-                            </tr>
-                            <tr>
-                                <td class="model-name">SVM (Radial Basis Function)</td>
-                                <td class="metric-val">70.60%</td>
-                                <td class="metric-val">0.656</td>
-                                <td>High-Dimensional Boundary Map</td>
-                            </tr>
-                            <tr>
-                                <td class="model-name">Logistic Regression</td>
-                                <td class="metric-val">67.16%</td>
-                                <td class="metric-val">0.624</td>
-                                <td>Linear Clinical Baseline</td>
-                            </tr>
-                            <tr>
-                                <td class="model-name">AdaBoost</td>
-                                <td class="metric-val">64.13%</td>
-                                <td class="metric-val">0.565</td>
-                                <td>Iterative Error Weighting</td>
-                            </tr>
-                            <tr style="opacity: 0.6;">
-                                <td class="model-name">Naive Bayes</td>
-                                <td class="metric-val">31.35%</td>
-                                <td class="metric-val">0.358</td>
-                                <td>Probabilistic Independence Lower Bound</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div
-                        style="display: grid; grid-template-columns: 1fr 300px; gap: 30px; margin-top: 30px; align-items: flex-start;">
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Architecture Variant</th>
+                                    <th>Accuracy</th>
+                                    <th>F1-Score</th>
+                                    <th>Physiological Focus</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="row-hybrid">
+                                    <td class="model-name">Spatial-Temporal Hybrid</td>
+                                    <td class="metric-val">63.52%</td>
+                                    <td class="metric-val">0.655</td>
+                                    <td>Global Latent Space Generalization</td>
+                                </tr>
+                                <tr>
+                                    <td class="model-name">XGBoost (Ensemble)</td>
+                                    <td class="metric-val">84.14%</td>
+                                    <td class="metric-val">0.822</td>
+                                    <td>Local Feature Importance Partitioning</td>
+                                </tr>
+                                <tr>
+                                    <td class="model-name">Random Forest</td>
+                                    <td class="metric-val">79.25%</td>
+                                    <td class="metric-val">0.784</td>
+                                    <td>High-Dimensional Boundary Map</td>
+                                </tr>
+                                <tr>
+                                    <td class="model-name">Logistic Regression</td>
+                                    <td class="metric-val">67.16%</td>
+                                    <td class="metric-val">0.624</td>
+                                    <td>Linear Clinical Baseline</td>
+                                </tr>
+                                <tr>
+                                    <td class="model-name">AdaBoost</td>
+                                    <td class="metric-val">64.13%</td>
+                                    <td class="metric-val">0.565</td>
+                                    <td>Iterative Error Weighting</td>
+                                </tr>
+                                <tr style="opacity: 0.6;">
+                                    <td class="model-name">Naive Bayes</td>
+                                    <td class="metric-val">31.35%</td>
+                                    <td class="metric-val">0.358</td>
+                                    <td>Probabilistic Independence Lower Bound</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="grid-dynamic">
                         <p style="font-size: 0.85rem; color: var(--text-dim); line-height: 1.6;">
                             *The <b>Spatial-Temporal Hybrid</b> exhibits a lower raw test accuracy compared to XGBoost
                             due to its design focus on <b>cross-subject invariance</b>. While tree ensembles like
@@ -336,58 +359,60 @@
                 <!-- 05: Performance Audit -->
                 <section id="s5" class="card-thesis">
                     <h2>05. Performance Metrics (Subject-Wise Audit)</h2>
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>Clinical Tier</th>
-                                <th><span class="glossary-term"
-                                        data-tooltip="The percentage of alerts that were actually correct (how specific the model is).">Precision</span>
-                                </th>
-                                <th><span class="glossary-term"
-                                        data-tooltip="The percentage of actual emergencies the model successfully captured (how sensitive the model is).">Recall</span>
-                                    (Sens)</th>
-                                <th>F1-Score</th>
-                                <th>Support</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td style="font-weight: 600;">Low (Baseline)</td>
-                                <td>0.87</td>
-                                <td>0.96</td>
-                                <td>0.91</td>
-                                <td>526</td>
-                            </tr>
-                            <tr>
-                                <td style="font-weight: 600;">Low-Moderate</td>
-                                <td>0.76</td>
-                                <td>0.72</td>
-                                <td>0.74</td>
-                                <td>155</td>
-                            </tr>
-                            <tr>
-                                <td style="font-weight: 600;">Moderate Risk</td>
-                                <td>0.91</td>
-                                <td>0.64</td>
-                                <td>0.75</td>
-                                <td>112</td>
-                            </tr>
-                            <tr class="row-emergency">
-                                <td>HIGH RISK</td>
-                                <td>0.94</td>
-                                <td>0.40</td>
-                                <td>0.57</td>
-                                <td>42</td>
-                            </tr>
-                            <tr class="row-emergency">
-                                <td>CRITICAL ALERT</td>
-                                <td>0.30</td>
-                                <td>0.86</td>
-                                <td>0.44</td>
-                                <td>7</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Clinical Tier</th>
+                                    <th><span class="glossary-term"
+                                            data-tooltip="The percentage of alerts that were actually correct (how specific the model is).">Precision</span>
+                                    </th>
+                                    <th><span class="glossary-term"
+                                            data-tooltip="The percentage of actual emergencies the model successfully captured (how sensitive the model is).">Recall</span>
+                                        (Sens)</th>
+                                    <th>F1-Score</th>
+                                    <th>Support</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="font-weight: 600;">Low (Baseline)</td>
+                                    <td>0.87</td>
+                                    <td>0.96</td>
+                                    <td>0.91</td>
+                                    <td>526</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">Low-Moderate</td>
+                                    <td>0.76</td>
+                                    <td>0.72</td>
+                                    <td>0.74</td>
+                                    <td>155</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">Moderate Risk</td>
+                                    <td>0.91</td>
+                                    <td>0.64</td>
+                                    <td>0.75</td>
+                                    <td>112</td>
+                                </tr>
+                                <tr class="row-emergency">
+                                    <td>HIGH RISK</td>
+                                    <td>0.94</td>
+                                    <td>0.40</td>
+                                    <td>0.57</td>
+                                    <td>42</td>
+                                </tr>
+                                <tr class="row-emergency">
+                                    <td>CRITICAL ALERT</td>
+                                    <td>0.30</td>
+                                    <td>0.86</td>
+                                    <td>0.44</td>
+                                    <td>7</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </section>
 
                 <!-- 06: Clinical Audit Matrix & Augmentation Proof -->
@@ -396,7 +421,7 @@
                     <p style="color: var(--text-secondary); margin-bottom: 30px; font-size: 1.1rem;">
                         Verification of generative class balancing and final decision transparency.
                     </p>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+                    <div class="grid-2-col">
                         <div>
                             <h4 style="color: var(--text-charcoal); margin-bottom:20px; font-weight: 800;">Generative
                                 Synthesis (WGAN-GP)</h4>
@@ -492,7 +517,7 @@
                 <!-- 08: Training Telemetry -->
                 <section id="s8" class="card-thesis">
                     <h2>08. Training Telemetry & Foundation</h2>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+                    <div class="grid-2-col">
                         <div>
                             <h4 style="color: var(--text-charcoal); margin-bottom: 20px; font-weight: 800;">Loss
                                 Function: <span class="glossary-term"
@@ -514,12 +539,13 @@
                                 <li><span>Total Epochs</span> <span class="spec-val">200 (Adaptive)</span></li>
                                 <li><span>Early Stopping</span> <span class="spec-val">Patience = 15</span></li>
                                 <li><span>Optimizer</span> <span class="spec-val"><span class="glossary-term"
-                                            data-tooltip="An optimizer that decouples weight decay from the gradient update for better generalization.">AdamW</span>
+                                             data-tooltip="An optimizer that decouples weight decay from the gradient update for better generalization.">AdamW</span>
                                         (Decouple)</span></li>
                                 <li><span>Batch Size</span> <span class="spec-val">128 (Balanced)</span></li>
                             </ul>
                         </div>
                     </div>
+iv>
                 </section>
 
                 <!-- 09: Clinical Signal Integrity (PSD Analysis) -->
@@ -633,7 +659,7 @@
                         was selected—it is the only model that converges on universal physiological markers rather than
                         overfitting to individual data noise.
                     </p>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                    <div class="grid-2-col">
                         <img src="../model_comparison_plots_CLEAN/visualizations/evolution_accuracy.png"
                             alt="Accuracy Evolution"
                             style="width:100%; border-radius:15px; border:1px solid var(--border-soft);">
@@ -657,7 +683,7 @@
                         <img src="../model_comparison_plots_CLEAN/visualizations/v12_order_comparison.png"
                             alt="Denoising Challenges" style="width:100%; height:auto; border-radius:15px;">
                     </div>
-                    <div style="margin-top: 25px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="grid-2-col" style="margin-top: 25px;">
                         <div class="stat-pill" style="background:#1C1C1E; color:#FFFFFF;">Acquisition Phase:
                             Motion Artifact Management</div>
                         <div class="stat-pill" style="background:#2C2C2E; color:#FFFFFF;">Sourcing Phase: WGAN
@@ -696,22 +722,27 @@
                     </div>
 
                     <!-- New Subsection: Project Mathematical Registry -->
-                    <div class="math-registry-container" style="margin-top: 50px; border-top: 1px solid var(--border-soft); padding-top: 40px;">
-                        <h3 style="font-size: 1.2rem; color: var(--text-charcoal); margin-bottom: 30px; letter-spacing: -0.02em;">Project Mathematical Registry (Actual Implemented Logic)</h3>
-                        
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                    <div class="math-registry-container"
+                        style="margin-top: 50px; border-top: 1px solid var(--border-soft); padding-top: 40px;">
+                        <h3
+                            style="font-size: 1.2rem; color: var(--text-charcoal); margin-bottom: 30px; letter-spacing: -0.02em;">
+                            Project Mathematical Registry (Actual Implemented Logic)</h3>
+
+                        <div class="grid-2-col">
                             <!-- Z-Score -->
                             <div class="math-card">
                                 <h5>01. Sensor Fusion Normalization (Z-Score)</h5>
                                 \[ z_i = \frac{x_i - \mu_j}{\sigma_j} \]
-                                <p>Standardizing BVP (Volts) and EDA ($\mu$S) into a shared unit-less manifold for the 1D-CNN encoder.</p>
+                                <p>Standardizing BVP (Volts) and EDA ($\mu$S) into a shared unit-less manifold for the
+                                    1D-CNN encoder.</p>
                             </div>
-                            
+
                             <!-- PCA -->
                             <div class="math-card">
                                 <h5>02. Dimensionality Reduction (PCA)</h5>
                                 \[ C = \frac{1}{N-1} \sum_{i=1}^{N} (x_i - \bar{x})(x_i - \bar{x})^T \]
-                                <p>The covariance matrix $C$ is decomposed to identify the top 3 eigenvectors (PCs) for 3D visualization.</p>
+                                <p>The covariance matrix $C$ is decomposed to identify the top 3 eigenvectors (PCs) for
+                                    3D visualization.</p>
                             </div>
 
                             <!-- Entropy -->
@@ -725,7 +756,8 @@
                             <div class="math-card">
                                 <h5>04. Generative Penalty (GP)</h5>
                                 \[ L_{GP} = \lambda \mathbb{E}_{\hat{x}} [(\|\nabla_{\hat{x}} D(\hat{x})\|_2 - 1)^2] \]
-                                <p>Enforcing 1-Lipschitz continuity in the critic to stabilize synthetic high-risk sample generation.</p>
+                                <p>Enforcing 1-Lipschitz continuity in the critic to stabilize synthetic high-risk
+                                    sample generation.</p>
                             </div>
                         </div>
                     </div>
@@ -738,7 +770,7 @@
                         Rigorous definition of the internal inference loops and the fail-safe gating logic.
                     </p>
 
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                    <div class="grid-2-col">
                         <!-- Algo 1 -->
                         <div class="algo-block">
                             <div class="algo-header">

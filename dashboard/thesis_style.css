@@ -640,6 +640,74 @@ footer { text-align: center; padding: 120px 0; color: var(--text-dim); }
     .simulator-layout { grid-template-columns: 1fr; }
 }
 
+@media (max-width: 768px) {
+    .side-navbar { display: none; }
+    .thesis-wrapper { margin-left: 0; padding: 25px; padding-top: 80px; }
+    
+    header h1 { font-size: 2rem !important; }
+    header p { font-size: 1rem !important; }
+    
+    .pipeline-container { 
+        grid-template-columns: 1fr; 
+        gap: 20px;
+    }
+    
+    .pipeline-step::after { display: none; }
+    
+    .grid-2-col, .grid-dynamic, .intro-grid, .info-rail {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+
+    .case-study-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .viz-viewport {
+        height: 500px;
+    }
+}
+
+@media (max-width: 480px) {
+    .thesis-wrapper { padding: 15px; padding-top: 70px; }
+    header h1 { font-size: 1.6rem !important; }
+    .badge-clinical { padding: 6px 12px; font-size: 0.6rem; }
+    
+    .card-thesis { padding: 20px; }
+    .card-thesis h2 { font-size: 1.1rem; }
+}
+
+/* --- Responsive Utilities --- */
+.grid-2-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.grid-dynamic {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 30px;
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 20px;
+    border-radius: 12px;
+}
+
+.table-responsive::-webkit-scrollbar {
+    display: block;
+    height: 4px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+    background: var(--border-soft);
+    border-radius: 10px;
+}
+
 /* --- NEW: Interactive Medical Glossary (Glassmorphism) --- */
 .glossary-term {
     color: var(--apple-blue);
