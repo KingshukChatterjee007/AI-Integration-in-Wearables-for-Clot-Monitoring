@@ -213,7 +213,7 @@
                         <div>
                             <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.6;">
                                 Real-world validation on <b>Subject S14</b>: The model identified a transition from "Low-Moderate" 
-                                to "Critical" risk signatures **3 hours and 12 minutes** before clinical confirmation.
+                                to "Critical" risk signatures <b>3 hours and 12 minutes</b> before clinical confirmation.
                             </p>
                             <p style="margin-top: 15px; font-size: 0.95rem; color: var(--text-charcoal);">
                                 Use the <b>"Patient Trajectory"</b> 3D view in Section 01 to visualize this specific longitudinal manifold.
@@ -343,8 +343,8 @@
                 <section class="card-thesis">
                     <h2>08. Clinical Signal Integrity (PSD Analysis)</h2>
                     <p style="color: var(--text-secondary); margin-bottom: 25px; font-size: 1.1rem; line-height: 1.6;">
-                        Validation of the filtering pipeline: A **0.5Hz Butterworth High-Pass** filter isolates the AC cardiovascular 
-                        component from respiratory DC drift, while a **Level-4 Daubechies (db4) Discrete Wavelet Transform (DWT)** 
+                        Validation of the filtering pipeline: A <b>0.5Hz Butterworth High-Pass</b> filter isolates the AC cardiovascular 
+                        component from respiratory DC drift, while a <b>Level-4 Daubechies (db4) Discrete Wavelet Transform (DWT)</b> 
                         eradicates high-frequency motion artifacts without blurring vital pulse morphology.
                     </p>
                     <div style="background:rgba(0,0,0,0.01); padding:20px; border-radius:24px; border:1px solid var(--border-soft);">
@@ -352,8 +352,8 @@
                              alt="PSD Analysis" style="width:100%; height:auto; border-radius:12px;">
                     </div>
                     <p style="font-size: 0.9rem; color: var(--text-dim); margin-top: 20px;">
-                        The Power Spectral Density (PSD) analysis confirms peak energy preservation in the **0.5-4.0Hz band**, 
-                        ensuring that the **Spatial-Temporal Hybrid** model receives clinical-grade BVP integrity.
+                        The Power Spectral Density (PSD) analysis confirms peak energy preservation in the <b>0.5-4.0Hz band</b>, 
+                        ensuring that the <b>Spatial-Temporal Hybrid</b> model receives clinical-grade BVP integrity.
                     </p>
                 </section>
 
@@ -384,8 +384,8 @@
                 <section class="card-thesis">
                     <h2>10. Waveform Morphology & Synthetic Logic</h2>
                     <p style="color: var(--text-secondary); margin-bottom: 25px; font-size: 1.1rem; line-height: 1.6;">
-                        Continuous physiological streams are segmented into **30-second observation windows** with a 
-                        **15-second sliding overlap**. The WGAN-GP rectification logic synthesizes realistic morphological 
+                        Continuous physiological streams are segmented into <b>30-second observation windows</b> with a 
+                        <b>15-second sliding overlap</b>. The WGAN-GP rectification logic synthesizes realistic morphological 
                         variants of rare "Emergency" events to teach the model's 128-unit temporal hidden layers.
                     </p>
                     <div style="background:rgba(0,0,0,0.03); padding:40px; border-radius:30px; border:1px solid var(--border-soft);">
@@ -405,9 +405,9 @@
                 <section class="card-thesis">
                     <h2>11. Multi-Modal Relational Synergy (Relational Attention)</h2>
                     <p style="color: var(--text-secondary); margin-bottom: 25px; font-size: 1.1rem; line-height: 1.6;">
-                        As modeled by the **Transformer Relational Encoder**, the synergy between BVP (Heart Rate) and EDA (Stress) 
+                        As modeled by the <b>Transformer Relational Encoder</b>, the synergy between BVP (Heart Rate) and EDA (Stress) 
                         provides a non-linear risk signature. The graph below displays the alignment between these modalities 
-                        under the latest **Clinical Framework** (Stable vs Critical Risk).
+                        under the latest <b>Clinical Framework</b> (Stable vs Critical Risk).
                     </p>
                     <div style="background:rgba(0,0,0,0.02); padding:30px; border-radius:30px; border:1px solid var(--border-soft);">
                         <img src="../model_comparison_plots_CLEAN/visualizations/binary_overlay_FIXED.png" 
@@ -469,7 +469,7 @@
                 <div class="side-item card-thesis" style="background: var(--apple-blue); padding: 30px; border: none;">
                     <h3 style="color: rgba(255,255,255,0.8);">Production Readiness</h3>
                     <p style="color: #FFF; font-size: 0.9rem; margin-bottom: 20px; font-weight: 500;">
-                        The architecture is fully **Int8 quantized** for low-power operation on wearable Cortex-M4 units.
+                        The architecture is fully <b>Int8 quantized</b> for low-power operation on wearable Cortex-M4 units.
                     </p>
                     <span style="background: rgba(255,255,255,0.2); color: #FFF; padding: 8px 16px; border-radius: 100px; font-size: 0.75rem; font-weight: 800;">CLINICAL PILOT READY</span>
                 </div>
