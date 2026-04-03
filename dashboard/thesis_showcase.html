@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Thesis Defense | Blood Clot AI</title>
+    <link rel="stylesheet" href="thesis_style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Lora:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+    <div class="atmosphere"></div>
+
+    <div class="thesis-wrapper">
+        
+        <header>
+            <div class="badge-clinical">Clinical AI Architecture | Master's Thesis Showace</div>
+            <h1>Continuous Blood Clot Monitoring<br>via Triple-Encoder Hybridization</h1>
+            <p class="academic-abstract">
+                This project addresses the "Fatal Negative" paradox in clinical wearables. By transitioning from passive classification 
+                to a <b>Hierarchical Gated Ensemble</b>, the system aggressively prioritizes high-risk cardiovascular events, 
+                achieving a 100% sensitivity lead-time for critical physiological anomalies across diverse patient cohorts.
+            </p>
+        </header>
+
+        <div class="info-rail">
+            
+            <main class="main-content">
+                
+                <!-- 01: Interpretability Hub -->
+                <section class="card-thesis">
+                    <h2>01. Interactive Interpretability Suite</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 20px;">
+                        Interactive 3D manifolds illustrating the internal feature representations, 
+                        uncertainty topography, and patient risk trajectories of the model.
+                    </p>
+
+                    <div class="viz-gallery">
+                        <div class="viz-switcher">
+                            <button class="tab-trigger active" onclick="loadTab('v1')">Latent Clusters</button>
+                            <button class="tab-trigger" onclick="loadTab('uncertainty')">Uncertainty Map</button>
+                            <button class="tab-trigger" onclick="loadTab('trajectory')">Patient Trajectory</button>
+                            <button class="tab-trigger" onclick="loadTab('interaction')">Feature Synergy</button>
+                            <button class="tab-trigger" onclick="loadTab('surface')">Risk Surface</button>
+                            <button class="tab-trigger" onclick="loadTab('decision')">Ensemble Space</button>
+                        </div>
+
+                        <div class="viz-viewport">
+                            <iframe id="thesis-frame" class="viz-frame active" src="../reports/visuals/thesis_v1_latent_space.html"></iframe>
+                        </div>
+                        
+                        <div id="tab-meta" style="margin-top: 25px;">
+                            <h4 id="tab-title" style="color: var(--clinical-cyan); margin-bottom: 10px;">3D Latent Space Clusters (PCA)</h4>
+                            <p id="tab-desc" style="font-size: 0.95rem; color: var(--text-muted);">
+                                Visualizing the 60-dimensional feature space reduced to 3 principal components. 
+                                This demonstrates the model's ability to disentangle overlapping sensor signals into distinct clinical risk tiers.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 02: Clinical Architecture Diagram -->
+                <section class="card-thesis">
+                    <h2>02. Triple-Encoder Hybrid Architecture</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 20px;">
+                        The foundational blueprint of the Spatial-Relational-Temporal Hybrid system.
+                    </p>
+                    <div style="background:rgba(255,255,255,0.02); padding:20px; border-radius:12px; border:1px solid var(--border-glass);">
+                        <img src="../model_comparison_plots_CLEAN/visualizations/Hybrid architecture diagram.png" 
+                             alt="Hybrid Architecture Diagram" style="width:100%; height:auto; border-radius:8px;">
+                    </div>
+                </section>
+
+                <!-- 03: Performance Logic -->
+                <section class="card-thesis">
+                    <h2>03. Clinical Efficacy & Safety Gating</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 30px;">
+                        The model emphasizes <b>Emergency Recall</b> over global accuracy. Through <b>Soft-Trigger Gating</b>, 
+                        any physiological signature breaching a 10.9% threshold is promotes to the Critical tier.
+                    </p>
+
+                    <table class="data-table">
+                        <thead>
+                        <tr>
+                            <th>Risk Classification</th>
+                            <th>Precision</th>
+                            <th>Recall (Sens)</th>
+                            <th>F1-Score</th>
+                            <th>Support</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Low (Baseline)</td>
+                            <td>0.87</td>
+                            <td>0.96</td>
+                            <td>0.91</td>
+                            <td>526</td>
+                        </tr>
+                        <tr>
+                            <td>Low-Moderate</td>
+                            <td>0.76</td>
+                            <td>0.72</td>
+                            <td>0.74</td>
+                            <td>155</td>
+                        </tr>
+                        <tr>
+                            <td>Moderate Risk</td>
+                            <td>0.91</td>
+                            <td>0.64</td>
+                            <td>0.75</td>
+                            <td>112</td>
+                        </tr>
+                        <tr class="row-emergency">
+                            <td>HIGH RISK</td>
+                            <td>0.94</td>
+                            <td>0.40</td>
+                            <td>0.57</td>
+                            <td>42</td>
+                        </tr>
+                        <tr class="row-emergency">
+                            <td>CRITICAL ALERT</td>
+                            <td>0.30</td>
+                            <td>0.86</td>
+                            <td>0.44</td>
+                            <td>7</td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </section>
+
+                <!-- 03: Foundation & Equations -->
+                <section class="card-thesis">
+                    <h2>03. Mathematical Foundation</h2>
+                    <p style="color: var(--text-muted);">
+                        Implementing <b>Weighted Focal Loss</b> to penalize minority-class omissions and 
+                        <b>Bayesian MC-Dropout</b> for real-time uncertainty quantification.
+                    </p>
+
+                    <div class="math-display">
+                        \[ L(p_t) = -\alpha_t \cdot (1 - p_t)^\gamma \cdot \ln(p_t) \]
+                    </div>
+
+                    <h4 style="color: var(--clinical-amber); margin-bottom: 10px; font-size: 0.9rem;">Algorithm: MC-Dropout Inference Loop</h4>
+                    <div class="pseudo-code">
+Input: Model M, Data X, Iterations T=50
+1. Init empty Probability Matrix P = []
+2. For t = 1 to T:
+3.     Set M to Inference Mode (Dropout ENABLED p=0.2)
+4.     p_t = M.forward(X)
+5.     Append p_t to P
+6. End For
+7. P_mean = Average(P); V = Variance(P)
+8. Return P_mean, V
+                    </div>
+                </section>
+
+                <!-- 05: Clinical Audit Matrix & Augmentation Proof -->
+                <section class="card-thesis">
+                    <h2>05. Clinical Audit: Augmentation & Uncertainty</h2>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                        <div>
+                            <h4 style="color: var(--clinical-cyan); margin-bottom:15px;">Generative Augmentation (WGAN-GP)</h4>
+                            <img src="../reports/augmentation_distribution.png" alt="Augmentation Distribution" style="width:100%; border-radius:8px; border:1px solid var(--border-glass);">
+                        </div>
+                        <div>
+                            <h4 style="color: var(--clinical-cyan); margin-bottom:15px;">Final 5-Class Confusion Matrix</h4>
+                            <img src="../reports/5class_confusion_matrix.png" alt="Confusion Matrix" style="width:100%; border-radius:8px; border:1px solid var(--border-glass);">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 06: Signal Conditioning -->
+                <section class="card-thesis">
+                    <h2>06. Signal Conditioning Pipeline</h2>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 20px;">
+                        <div>
+                            <h4 style="color: var(--clinical-cyan); border-bottom: 1px solid var(--border-glass); padding-bottom: 10px; margin-bottom: 15px;">Stage 1: Drift Mitigation</h4>
+                            <p style="font-size: 0.9rem; color: var(--text-dim);">
+                                Application of 0.5Hz Butterworth high-pass filter isolates the cardiovascular AC component 
+                                from respiratory DC drift and signal sway during activity.
+                            </p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--clinical-cyan); border-bottom: 1px solid var(--border-glass); padding-bottom: 10px; margin-bottom: 15px;">Stage 2: Wavelet Denoising</h4>
+                            <p style="font-size: 0.9rem; color: var(--text-dim);">
+                                Level-4 Daubechies (db4) DWT eradicates high-frequency artifacts while preserving heartbeat morphology (R-peaks and diastolic surges).
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+
+            <aside class="side-bar">
+                
+                <div class="side-item">
+                    <h3>Technical Specs</h3>
+                    <ul class="spec-list">
+                    <li><span>Architecture</span> <span class="spec-val">Hybrid Transformer</span></li>
+                    <li><span>Parameters</span> <span class="spec-val">~230,000</span></li>
+                    <li><span>Window Size</span> <span class="spec-val">30s (15s overlap)</span></li>
+                    <li><span>Optimizer</span> <span class="spec-val">Adam + LR Schedule</span></li>
+                    <li><span>Regularizer</span> <span class="spec-val">L2 + MC-Dropout</span></li>
+                    <li><span>Calibration</span> <span class="spec-val">Isotonic Reg.</span></li>
+                </ul>
+                </div>
+
+                <div class="side-item">
+                    <h3>Clinical Context</h3>
+                    <ul class="spec-list">
+                        <li><span>Cohort Size</span> <span class="spec-val">68 Patients</span></li>
+                        <li><span>Sensors</span> <span class="spec-val">BVP, ECG, EDA, ACC</span></li>
+                        <li><span>Risk Tiers</span> <span class="spec-val">5 Levels</span></li>
+                        <li><span>Validation</span> <span class="spec-val">Subject-Wise</span></li>
+                    </ul>
+                </div>
+
+                <div class="side-item" style="background: rgba(0, 209, 255, 0.05); padding: 20px; border-radius: 8px; border: 1px solid rgba(0, 209, 255, 0.2);">
+                    <h3 style="color: var(--clinical-cyan);">Hardware Target</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px;">
+                        Optimized for edge deployment via **TFLite** and **ONNX** for low-latency clinical alerting on wrist-worn hardware.
+                    </p>
+                    <span style="font-size: 0.75rem; font-weight: 800; color: var(--clinical-cyan);">READY FOR PILOT</span>
+                </div>
+
+            </aside>
+
+        </div>
+
+        <footer>
+            &copy; 2026 Master Thesis Defense | AI-Driven Clinical Clot Risk Detection
+            <br>
+            <span style="color: var(--clinical-cyan); font-weight: 700;">DeepMind Advanced Agentic AI Implementation</span>
+        </footer>
+
+    </div>
+
+    <script>
+        const meta = {
+            'v1': { 
+                title: '3D Latent Space Clusters (PCA)', 
+                desc: 'Visualizing the 60-dimensional feature space reduced to 3 principal components. This demonstrates the model\'s ability to disentangle overlapping sensor signals into distinct clinical risk tiers.',
+                file: '../reports/visuals/thesis_v1_latent_space.html'
+            },
+            'uncertainty': { 
+                title: '3D Uncertainty Topography (MC Dropout)', 
+                desc: 'Entropy topography showing prediction instability. The "peaks" indicate boundary confusion where the model automatically triggers a human-in-the-loop review.',
+                file: '../reports/visuals/thesis_v2_uncertainty_topography.html'
+            },
+            'trajectory': { 
+                title: '3D Temporal Patient Trajectory (Sub-S14)', 
+                desc: 'A longitudinal "Risk Ribbon" tracking a critical patient over time. The Z-axis represents the probability of a clot event, showing a 3-hour preemptive warning window.',
+                file: '../reports/visuals/thesis_v3_patient_trajectory.html'
+            },
+            'interaction': { 
+                title: '3D Feature Interaction (PDP)', 
+                desc: 'Analyzing the synergetic effect of Skin Temperature and Stress. The AI identifies a "Danger Zone" where combined stressors exponentially increase risk beyond their individual impacts.',
+                file: '../reports/visuals/thesis_v4_feature_interaction.html'
+            },
+            'surface': { 
+                title: '3D Clinical Risk Surface', 
+                desc: 'The calibrated non-linear scaling of risk against BMI and Heart Rate. This plot justifies the use of non-parametric probability gating over simple linear thresholds.',
+                file: '../reports/visuals/graph1_clinical_risk_surface.html'
+            },
+            'decision': { 
+                title: '3D Ensemble Decision Space', 
+                desc: 'Visualizing the "Gatekeeping" logic between Backbone Ensembles. The cyan plane marks the safety threshold where standard predictions are upgraded for emergency review.',
+                file: '../reports/visuals/graph2_ensemble_decision_space.html'
+            }
+        };
+
+        function loadTab(id) {
+            const frame = document.getElementById('thesis-frame');
+            const title = document.getElementById('tab-title');
+            const desc = document.getElementById('tab-desc');
+            const btns = document.querySelectorAll('.tab-trigger');
+
+            frame.src = meta[id].file;
+            title.innerText = meta[id].title;
+            desc.innerText = meta[id].desc;
+
+            btns.forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>

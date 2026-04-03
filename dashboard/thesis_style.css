@@ -1,0 +1,269 @@
+:root {
+    --bg-black: #000000;
+    --bg-slate: #0F172A;
+    --card-glass: rgba(15, 23, 42, 0.6);
+    --border-glass: rgba(255, 255, 255, 0.05);
+    
+    --clinical-cyan: #00D1FF;
+    --clinical-red: #FF3B3B;
+    --clinical-amber: #FFB800;
+    --clinical-green: #00E676;
+    
+    --text-pure: #FFFFFF;
+    --text-muted: #94A3B8;
+    --text-dim: #64748B;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-black);
+    color: var(--text-pure);
+    font-family: 'Outfit', sans-serif;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+/* Background Atmosphere */
+.atmosphere {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 10% 10%, rgba(0, 209, 255, 0.03) 0%, transparent 40%),
+                radial-gradient(circle at 90% 90%, rgba(255, 59, 59, 0.03) 0%, transparent 40%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.thesis-wrapper {
+    max-width: 100%;
+    margin: 0;
+    padding: 60px 80px;
+}
+
+/* Hero Section */
+header {
+    padding-bottom: 80px;
+    border-bottom: 1px solid var(--border-glass);
+    margin-bottom: 60px;
+}
+
+.badge-clinical {
+    display: inline-block;
+    padding: 5px 15px;
+    background: rgba(0, 209, 255, 0.05);
+    border: 1px solid rgba(0, 209, 255, 0.2);
+    color: var(--clinical-cyan);
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    letter-spacing: -3px;
+    margin-bottom: 25px;
+    line-height: 1.1;
+}
+
+.academic-abstract {
+    max-width: 900px;
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    font-family: 'Lora', serif; /* Optional class if loaded */
+}
+
+/* Layout Blocks */
+.info-rail {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 40px;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.card-thesis {
+    background: var(--card-glass);
+    border: 1px solid var(--border-glass);
+    border-radius: 12px;
+    padding: 40px;
+    backdrop-filter: blur(20px);
+}
+
+.card-thesis h2 {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    color: var(--clinical-cyan);
+}
+
+.card-thesis h2::before {
+    content: '';
+    width: 30px;
+    height: 1px;
+    background: var(--clinical-cyan);
+}
+
+/* Visualization Hub */
+.viz-gallery {
+    margin-top: 30px;
+}
+
+.viz-switcher {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.tab-trigger {
+    background: transparent;
+    border: 1px solid var(--border-glass);
+    color: var(--text-dim);
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.tab-trigger:hover {
+    border-color: var(--clinical-cyan);
+    color: var(--clinical-cyan);
+}
+
+.tab-trigger.active {
+    background: var(--clinical-cyan);
+    color: var(--bg-black);
+    border-color: var(--clinical-cyan);
+}
+
+.viz-viewport {
+    width: 100%;
+    height: 650px;
+    background: #000;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid var(--border-glass);
+}
+
+.viz-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: none;
+}
+
+.viz-frame.active {
+    display: block;
+}
+
+/* Tables & Metrics */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th {
+    text-align: left;
+    padding: 15px;
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border-glass);
+}
+
+.data-table td {
+    padding: 20px 15px;
+    border-bottom: 1px solid var(--border-glass);
+}
+
+.row-emergency {
+    background: rgba(255, 59, 59, 0.03);
+}
+
+.row-emergency td:first-child {
+    color: var(--clinical-red);
+    font-weight: 800;
+}
+
+/* Algorithmic & Math Blocks */
+.pseudo-code {
+    background: rgba(0,0,0,0.4);
+    padding: 30px;
+    border-radius: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--clinical-amber);
+    border-left: 3px solid var(--clinical-amber);
+    margin: 20px 0;
+    white-space: pre-wrap;
+}
+
+.math-display {
+    text-align: center;
+    font-size: 1.4rem;
+    padding: 40px 0;
+    color: var(--clinical-cyan);
+}
+
+/* Side Rail */
+.side-item {
+    margin-bottom: 40px;
+}
+
+.side-item h3 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-dim);
+    margin-bottom: 15px;
+}
+
+.spec-list {
+    list-style: none;
+}
+
+.spec-list li {
+    font-size: 0.9rem;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-glass);
+    display: flex;
+    justify-content: space-between;
+}
+
+.spec-val {
+    color: var(--clinical-cyan);
+    font-weight: 700;
+}
+
+footer {
+    text-align: center;
+    padding: 100px 0;
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--border-glass);
+}
+
+@media (max-width: 1100px) {
+    .info-rail { grid-template-columns: 1fr; }
+    h1 { font-size: 3rem; }
+}

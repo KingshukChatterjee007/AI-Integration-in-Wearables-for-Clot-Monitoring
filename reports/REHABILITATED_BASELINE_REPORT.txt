@@ -1,0 +1,24 @@
+================== REHABILITATED BASELINE PERFORMANCE REPORT ==================
+Technique: XGBoost + SMOTE + Manual Multi-Class Isotonic Calibration
+Objective: Critical Recall >= 0.95 on Validation
+Optimal Threshold (Critical): 0.1094
+
+              precision    recall  f1-score   support
+
+         Low       0.87      0.96      0.91       526
+     Low-Mod       0.76      0.72      0.74       155
+         Mod       0.91      0.64      0.75       112
+        High       0.94      0.40      0.57        42
+    Critical       0.30      0.86      0.44         7
+
+    accuracy                           0.84       842
+   macro avg       0.76      0.72      0.68       842
+weighted avg       0.85      0.84      0.84       842
+
+
+Confusion Matrix:
+[[503  22   1   0   0]
+ [ 40 112   3   0   0]
+ [ 31   7  72   0   2]
+ [  4   6   3  17  12]
+ [  0   0   0   1   6]]
