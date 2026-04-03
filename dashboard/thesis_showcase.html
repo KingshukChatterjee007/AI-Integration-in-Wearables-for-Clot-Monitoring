@@ -24,15 +24,16 @@
                 <a href="#s4">Architecture</a>
                 <a href="#s5">Performance</a>
                 <a href="#s6">Augmentation</a>
-                <a href="#s7">Telemetry</a>
-                <a href="#s8">Filtering</a>
-                <a href="#s9">ROC Curves</a>
-                <a href="#s10">Waveforms</a>
-                <a href="#s11">Synergy</a>
-                <a href="#s12">Convergence</a>
-                <a href="#s13">Challenges</a>
-                <a href="#s14">Math</a>
-                <a href="#s15">Algorithms</a>
+                <a href="#s7">Algorithms</a>
+                <a href="#s8">Telemetry</a>
+                <a href="#s9">Filtering</a>
+                <a href="#s10">ROC Curves</a>
+                <a href="#s11">Waveforms</a>
+                <a href="#s12">Synergy</a>
+                <a href="#s13">Convergence</a>
+                <a href="#s14">Challenges</a>
+                <a href="#s15">Math</a>
+                <a href="#s16">Formalism</a>
             </div>
             <div class="progress-container">
                 <div class="progress-bar" id="scroll-progress"></div>
@@ -411,9 +412,84 @@
                     </div>
                 </section>
 
-                <!-- 07: Training Telemetry -->
+                <!-- 07: The 9 Core Algorithms (Scientific Registry) -->
                 <section id="s7" class="card-thesis">
-                    <h2>07. Training Telemetry & Foundation</h2>
+                    <h2>07. The 9 Core Algorithms (Scientific Registry)</h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 25px; font-size: 1.1rem; line-height: 1.6;">
+                        A comprehensive catalog of the integrated mathematical and architectural components driving 
+                        the Clot-Monitoring System.
+                    </p>
+
+                    <div class="algo-bento">
+                        <!-- 1. 1D-CNN -->
+                        <div class="algo-card">
+                            <span class="tag">Spatial</span>
+                            <span class="icon">📡</span>
+                            <h4>01. 1D-CNN Encoder</h4>
+                            <p>Multi-scale convolutional kernels (3, 5, 7) that extract local morphological signatures from BVP waveforms.</p>
+                        </div>
+                        <!-- 2. Transformer -->
+                        <div class="algo-card">
+                            <span class="tag">Relational</span>
+                            <span class="icon">🧩</span>
+                            <h4>02. Transformer Block</h4>
+                            <p>4-head Self-Attention mechanism facilitating non-linear multi-sensor fusion between BVP and EDA streams.</p>
+                        </div>
+                        <!-- 3. Bi-LSTM -->
+                        <div class="algo-card">
+                            <span class="tag">Temporal</span>
+                            <span class="icon">⏳</span>
+                            <h4>03. Stacked Bi-LSTM</h4>
+                            <p>Bidirectional recurrent units (128 units) capturing long-term physiological dependencies across 30s windows.</p>
+                        </div>
+                        <!-- 4. MC-Dropout -->
+                        <div class="algo-card" style="border-color: var(--apple-blue); background: rgba(10, 132, 255, 0.05);">
+                            <span class="tag">Uncertainty</span>
+                            <span class="icon">🎲</span>
+                            <h4>04. Bayesian MC-Dropout</h4>
+                            <p>Stochastic inference loop (T=50) quantifying model confidence to trigger human intervention loops.</p>
+                        </div>
+                        <!-- 5. Probability Gating -->
+                        <div class="algo-card" style="border-color: var(--apple-red); background: rgba(255, 69, 58, 0.05);">
+                            <span class="tag">Safety</span>
+                            <span class="icon">🛡️</span>
+                            <h4>05. Clinical Gating Logic</h4>
+                            <p>Probabilistic override layer that promotes borderline "Safe" cases to "Warning" based on Tau=10.9% threshold.</p>
+                        </div>
+                        <!-- 6. Focal Loss -->
+                        <div class="algo-card">
+                            <span class="tag">Optimization</span>
+                            <span class="icon">⚖️</span>
+                            <h4>06. Weighted Focal Loss</h4>
+                            <p>Objective function that penalizes critical misses (Emergency) 5x more heavily than baseline classification errors.</p>
+                        </div>
+                        <!-- 7. WGAN-GP -->
+                        <div class="algo-card">
+                            <span class="tag">Generative</span>
+                            <span class="icon">🧬</span>
+                            <h4>07. WGAN-GP Synthesis</h4>
+                            <p>Generative Adversarial Network with Gradient Penalty used to rectify chronic minority class imbalances.</p>
+                        </div>
+                        <!-- 8. Butterworth -->
+                        <div class="algo-card">
+                            <span class="tag">Processing</span>
+                            <span class="icon">🧹</span>
+                            <h4>08. Butterworth Filter</h4>
+                            <p>0.5Hz High-Pass Infinite Impulse Response (IIR) filter eradicating respiratory baseline wandering.</p>
+                        </div>
+                        <!-- 9. Wavelet DWT -->
+                        <div class="algo-card">
+                            <span class="tag">Processing</span>
+                            <span class="icon">🌊</span>
+                            <h4>09. Level-4 DWT (db4)</h4>
+                            <p>Discrete Wavelet Transform for high-frequency motion artifact removal without pulse blurring.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 08: Training Telemetry -->
+                <section id="s8" class="card-thesis">
+                    <h2>08. Training Telemetry & Foundation</h2>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
                         <div>
                             <h4 style="color: var(--text-charcoal); margin-bottom: 20px; font-weight: 800;">Loss
@@ -444,9 +520,9 @@
                     </div>
                 </section>
 
-                <!-- 08: Clinical Signal Integrity (PSD Analysis) -->
-                <section id="s8" class="card-thesis">
-                    <h2>08. Clinical Signal Integrity (PSD Analysis)</h2>
+                <!-- 09: Clinical Signal Integrity (PSD Analysis) -->
+                <section id="s9" class="card-thesis">
+                    <h2>09. Clinical Signal Integrity (PSD Analysis)</h2>
                     <p style="color: var(--text-secondary); margin-bottom: 25px; font-size: 1.1rem; line-height: 1.6;">
                         Validation of the filtering pipeline: A <b>0.5Hz Butterworth High-Pass</b> filter isolates the
                         AC cardiovascular
@@ -466,9 +542,9 @@
                     </p>
                 </section>
 
-                <!-- 09: Model Sensitivity (AUC-ROC Curves) -->
-                <section id="s9" class="card-thesis">
-                    <h2>09. Model Sensitivity (AUC-ROC Curves)</h2>
+                <!-- 10: Model Sensitivity (AUC-ROC Curves) -->
+                <section id="s10" class="card-thesis">
+                    <h2>10. Model Sensitivity (AUC-ROC Curves)</h2>
                     <div
                         style="background:#FFF; padding:40px; border-radius:30px; border:1px solid var(--border-soft); box-shadow: inset 0 2px 10px rgba(0,0,0,0.02); margin-bottom: 30px; text-align: center;">
                         <img src="../model_comparison_plots_CLEAN/04_roc_curves_multiclass.png"
@@ -501,9 +577,9 @@
                     </div>
                 </section>
 
-                <!-- 10: Waveform Morphology & Synthetic Logic -->
-                <section id="s10" class="card-thesis">
-                    <h2>10. Waveform Morphology & Synthetic Logic</h2>
+                <!-- 11: Waveform Morphology & Synthetic Logic -->
+                <section id="s11" class="card-thesis">
+                    <h2>11. Waveform Morphology & Synthetic Logic</h2>
                     <p style="color: var(--text-secondary); margin-bottom: 25px; font-size: 1.1rem; line-height: 1.6;">
                         Continuous physiological streams are segmented into <b>30-second observation windows</b> with a
                         <b>15-second sliding overlap</b>. The WGAN-GP rectification logic synthesizes realistic
@@ -525,9 +601,9 @@
                     </div>
                 </section>
 
-                <!-- 11: Multi-Modal Relational Synergy -->
-                <section id="s11" class="card-thesis">
-                    <h2>11. Multi-Modal Relational Synergy (Relational Attention)</h2>
+                <!-- 12: Multi-Modal Relational Synergy -->
+                <section id="s12" class="card-thesis">
+                    <h2>12. Multi-Modal Relational Synergy (Relational Attention)</h2>
                     <p style="color: var(--text-secondary); margin-bottom: 25px; font-size: 1.1rem; line-height: 1.6;">
                         As modeled by the <b>Transformer Relational Encoder</b>, the synergy between BVP (Heart Rate)
                         and EDA (Stress)
@@ -542,9 +618,9 @@
                     </div>
                 </section>
 
-                <!-- 12: Clinical Convergence & Architecture Evolution -->
-                <section id="s12" class="card-thesis">
-                    <h2>12. Clinical Convergence & History (Hybrid vs. 12 Ensembles)</h2>
+                <!-- 13: Clinical Convergence & Architecture Evolution -->
+                <section id="s13" class="card-thesis">
+                    <h2>13. Clinical Convergence & History (Hybrid vs. 12 Ensembles)</h2>
                     <p style="color: var(--text-secondary); margin-bottom: 25px; font-size: 1.1rem; line-height: 1.6;">
                         While the <b>Original 12 Ensemble Models</b> (XGBoost, RF, GBM) achieve high 84% accuracy on
                         fixed patient
@@ -565,9 +641,9 @@
                     </div>
                 </section>
 
-                <!-- 13: Research & Clinical Challenges -->
-                <section id="s13" class="card-thesis">
-                    <h2>13. Research & Clinical Challenges (The Denoising Hurdles)</h2>
+                <!-- 14: Research & Clinical Challenges -->
+                <section id="s14" class="card-thesis">
+                    <h2>14. Research & Clinical Challenges (The Denoising Hurdles)</h2>
                     <p style="color: var(--text-secondary); margin-bottom: 25px; font-size: 1.1rem; line-height: 1.6;">
                         Transitioning from <b>Raw Wearable Data</b> to <b>Clinical Alerts</b> required overcoming
                         significant signal artifacts. The plot below illustrates the "Denoising Challenge"—the messy
@@ -587,9 +663,9 @@
                     </div>
                 </section>
 
-                <!-- 14: IEEE Mathematical Framework -->
-                <section id="s14" class="card-thesis">
-                    <h2>14. Mathematical Framework (Clinical Optimization)</h2>
+                <!-- 15: IEEE Mathematical Framework -->
+                <section id="s15" class="card-thesis">
+                    <h2>15. Mathematical Framework (Clinical Optimization)</h2>
                     <p style="color: var(--text-secondary); margin-bottom: 25px; font-size: 1.1rem; line-height: 1.6;">
                         To solve the "Fatal Negative" paradox, the model is optimized using a <b>Weighted Focal Loss</b> 
                         function that mathematically penalizes errors on rare clinical events (Emergencies) 5x more heavily 
@@ -615,9 +691,9 @@
                     </div>
                 </section>
 
-                <!-- 15: IEEE Formal Methodology -->
-                <section id="s15" class="card-thesis">
-                    <h2>15. Formal Methodology (Algorithm Blocks)</h2>
+                <!-- 16: IEEE Formal Methodology -->
+                <section id="s16" class="card-thesis">
+                    <h2>16. Formal Methodology (Algorithm Blocks)</h2>
                     <p style="color: var(--text-secondary); margin-bottom: 25px; font-size: 1.1rem; line-height: 1.6;">
                         Rigorous definition of the internal inference loops and the fail-safe gating logic.
                     </p>
