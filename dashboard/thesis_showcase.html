@@ -339,6 +339,54 @@
                     </div>
                 </section>
 
+                <!-- 08: Clinical Signal Integrity (PSD Analysis) -->
+                <section class="card-thesis">
+                    <h2>08. Clinical Signal Integrity (PSD Analysis)</h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 25px; font-size: 1.1rem;">
+                        Validating that filtering processes (Butterworth + DWT) preserved critical 
+                        Physiological Power Spectral Density.
+                    </p>
+                    <div style="background:rgba(0,0,0,0.01); padding:20px; border-radius:24px; border:1px solid var(--border-soft);">
+                        <img src="../model_comparison_plots_CLEAN/visualizations/v12_psd_analysis.png" 
+                             alt="PSD Analysis" style="width:100%; height:auto; border-radius:12px;">
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--text-dim); margin-top: 20px;">
+                        The analysis confirms peak energy preservation in the 0.5-4.0Hz band, ensuring 
+                        no loss of clinical BVP morphology.
+                    </p>
+                </section>
+
+                <!-- 09: Model Sensitivity (AUC-ROC Curves) -->
+                <section class="card-thesis">
+                    <h2>09. Model Sensitivity (AUC-ROC Curves)</h2>
+                    <div style="display: grid; grid-template-columns: 1fr 400px; gap: 40px; align-items: center;">
+                        <div style="background:#FFF; padding:20px; border-radius:24px; border:1px solid var(--border-soft);">
+                            <img src="../model_comparison_plots_CLEAN/visualizations/final_roc_curves.png" 
+                                 alt="AUC-ROC Curves" style="width:100%; height:auto; border-radius:12px;">
+                        </div>
+                        <div>
+                            <h4 style="color: var(--text-charcoal); margin-bottom: 15px; font-weight: 800;">Class-Wise Sensitivity Analysis</h4>
+                            <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.6;">
+                                The Receiver Operating Characteristic (ROC) curves demonstrate the model's ability to maintain high 
+                                True Positive Rates (TPR) while minimizing exposure to False Negatives—crucial for 
+                                <b>"Fatal Negative"</b> risk mitigation in emergency medicine.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 10: Waveform Morphology & Synthetic Logic -->
+                <section class="card-thesis">
+                    <h2>10. Waveform Morphology & Synthetic Logic</h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 25px; font-size: 1.1rem;">
+                        Comparing observed physiological streams against the WGAN-GP rectified morphology.
+                    </p>
+                    <div style="background:rgba(0,0,0,0.02); padding:30px; border-radius:30px; border:1px solid var(--border-soft);">
+                        <img src="../model_comparison_plots_CLEAN/visualizations/waveform_grid_FIXED.png" 
+                             alt="Waveform Grid" style="width:100%; height:auto; border-radius:15px;">
+                    </div>
+                </section>
+
             </main>
 
             <!-- 🏛️ The Expansive Sidebar (ML Stuff) -->
