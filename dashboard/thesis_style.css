@@ -94,12 +94,21 @@ body {
     text-transform: uppercase;
 }
 
-.nav-brand span {
+.nav-brand span, .github-badge {
     color: var(--apple-blue);
     display: block;
     font-size: 0.6rem;
     margin-top: 5px;
     font-weight: 400;
+}
+.github-badge {
+    display: flex;
+    align-items: center;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+.github-badge:hover {
+    opacity: 1;
 }
 
 .nav-links {
