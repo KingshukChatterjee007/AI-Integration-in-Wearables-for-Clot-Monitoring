@@ -391,6 +391,24 @@
                             </tr>
                         </tbody>
                     </table>
+                    <div style="margin-top: 30px; padding: 25px; background: rgba(10, 132, 255, 0.04); border-radius: 20px; border: 1px solid rgba(10, 132, 255, 0.15);">
+                        <h4 style="font-size: 0.85rem; color: var(--apple-blue); text-transform: uppercase; margin-bottom: 12px; letter-spacing: 0.05em; font-weight: 800;">
+                            Methodological Note: Support Count & Data Integrity</h4>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+                                <b>The Augmentation Paradox:</b> While the training dataset was balanced using 
+                                <b>WGAN-GP and SMOTE</b> to ~2,400 samples per category, these synthetic distributions 
+                                are strictly excluded from this report. This Performance Audit is conducted on the 
+                                <b>un-augmented hold-out test set</b>.
+                            </p>
+                            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+                                <b>Scientific Validity:</b> To ensure the results generalize to real patients, we maintain 
+                                the <b>natural clinical imbalance</b> during testing. The low support for "Critical" 
+                                and "High Risk" tiers represents original patient data, proving the model's 
+                                <b>86% Recall</b> is based on real-world physiological signatures, not synthetic noise.
+                            </p>
+                        </div>
+                    </div>
                 </section>
 
                 <!-- 06: Clinical Audit Matrix & Augmentation Proof -->
