@@ -1,6 +1,6 @@
 # Multimodal AI for Wearable Blood Clot Monitoring: A Bayesian Transformer Approach
 
-**Idea Interpreter:** Md Azlan
+**Idea Interpreter and Research Paper:** Md Azlan
 
 **Lead Researcher:** Kingshuk Chatterjee  & Kanishk
 
