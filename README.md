@@ -7,14 +7,10 @@
 **Project Phase:** v4.0 Balanced Production Optimization  
 **Date:** March 23, 2026
 
----
-
 ## 1. Executive Abstract
 This research details the development of a clinical-grade AI system for the continuous monitoring of thrombosis risk (blood clots) via non-invasive wearable sensors. By evolving from traditional machine learning (Phase 1) to a **Bayesian Feature-Space Transformer (v4)**, the project successfully solved the "Accuracy Paradox."
 
 The current v4 architecture utilizes **Conditional Tabular GANs (CTGAN)** for minority class synthesis and **Monte Carlo (MC) Dropout** for uncertainty quantification. The final model achieves a **58% Critical Precision** and **52% Critical Recall** on strictly unseen patient populations, with a **54.1% reduction in model size** via INT8 quantization for edge-device deployment.
-
----
 
 ## 2. The Architectural Evolution: From 0% to 58%
 
@@ -32,8 +28,6 @@ We transitioned to a Multimodal FT-Transformer to capture the temporal interplay
 | **Balanced Samples** | 5,612 (Imbalanced) | 18,369 (Balanced via CTGAN) |
 | **Critical Precision** | 0.0% | 58.0% (Targeting 75% SWAT) |
 | **Safety Logic** | Blind Prediction | Bayesian Safety Gate (MI > 0.4) |
-
----
 
 ## 3. Mathematical & Algorithmic Framework
 
@@ -55,8 +49,6 @@ We run $T=50$ stochastic forward passes (MC-Dropout) during every inference to c
 $$MI = - \sum_{c=1}^{C} \hat{p}_c \ln(\hat{p}_c) - \frac{1}{T} \sum_{t=1}^{T} \sum_{c=1}^{C} p_{c,t} \ln(p_{c,t})$$
 
 * **Clinical Gate:** If $MI > 0.4$, the system triggers **Status: UNCERTAIN**, prompting a human-in-the-loop review.
-
----
 
 ## 4. Repository & File System Deep-Dive
 
