@@ -1,1030 +1,562 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clinical Clot AI</title>
+    <title>Clinical Clot AI | Research Terminal</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    
+    <!-- Styles -->
     <link rel="stylesheet" href="thesis_style.css">
+    
+    <!-- MathJax -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
-
 <body>
 
-    <div class="atmosphere"></div>
+    <div class="bg-atmosphere">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
 
-    <nav class="side-navbar">
-        <div class="nav-brand">
-            <a href="https://github.com/KingshukChatterjee007" target="_blank" style="text-decoration: none;">
-                <h2>Clinical Clot Project</h2>
-                <span class="github-badge"><svg height="12" viewBox="0 0 16 16" width="12" style="fill: var(--apple-blue); vertical-align: middle; margin-right: 4px;"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg> @KingshukChatterjee007</span>
+    <header class="top-app-bar">
+        <div class="brand-section">
+            <div class="brand-logo">C</div>
+            <span class="brand-name">Clinical Clot <span style="color: var(--on-surface-variant); font-weight: 400;">Project</span></span>
+        </div>
+        <div class="top-bar-actions">
+            <a href="https://github.com/KingshukChatterjee007/AI-Integration-in-Wearables-for-Clot-Monitoring" target="_blank" class="icon-btn" title="View Source on GitHub">
+                <svg height="24" viewBox="0 0 16 16" width="24" style="fill: var(--on-surface);"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
             </a>
         </div>
-        <div class="nav-links">
-            <a href="#s1" class="active"><span class="nav-num">01</span> Interpretability</a>
-            <a href="#s2"><span class="nav-num">02</span> Benchmarking</a>
-            <a href="#s3"><span class="nav-num">03</span> Subject-S14</a>
-            <a href="#s4"><span class="nav-num">04</span> Architecture</a>
-            <a href="#s5"><span class="nav-num">05</span> Performance</a>
-            <a href="#s6"><span class="nav-num">06</span> Augmentation</a>
-            <a href="#s7"><span class="nav-num">07</span> Algorithms</a>
-            <a href="#s8"><span class="nav-num">08</span> Telemetry</a>
-            <a href="#s9"><span class="nav-num">09</span> Filtering</a>
-            <a href="#s10"><span class="nav-num">10</span> ROC Curves</a>
-            <a href="#s11"><span class="nav-num">11</span> Waveforms</a>
-            <a href="#s12"><span class="nav-num">12</span> Synergy</a>
-            <a href="#s13"><span class="nav-num">13</span> Convergence</a>
-            <a href="#s14"><span class="nav-num">14</span> Challenges</a>
-            <a href="#s15"><span class="nav-num">15</span> Math</a>
-            <a href="#s16"><span class="nav-num">16</span> Formalism</a>
-            <a href="#s17"><span class="nav-num">17</span> CI/CD</a>
-        </div>
-        <div class="progress-sidebar">
-            <div class="progress-container">
-                <div class="progress-bar" id="scroll-progress"></div>
-            </div>
-        </div>
-    </nav>
+    </header>
 
-    <div class="thesis-wrapper">
+    <!-- Animated Scroll Progress -->
+    <div class="scroll-progress-container">
+        <div id="scroll-progress" class="scroll-progress-bar"></div>
+    </div>
 
-        <header>
-            <div class="badge-clinical">Clinical AI Monitoring Project</div>
-            <h1>AI Integration in Wearables for Clot Monitoring</h1>
+    <div class="app-container">
+        <nav class="side-nav">
+            <div class="nav-links-container">
+                <a href="#s1" class="nav-link active"><span class="nav-num">01</span><span>Dashboard</span></a>
+                <a href="#s2" class="nav-link"><span class="nav-num">02</span><span>Interpretability</span></a>
+                <a href="#s3" class="nav-link"><span class="nav-num">03</span><span>Benchmarking</span></a>
+                <a href="#s4" class="nav-link"><span class="nav-num">04</span><span>Subject-S14</span></a>
+                <a href="#s5" class="nav-link"><span class="nav-num">05</span><span>Architecture</span></a>
+                <a href="#s6" class="nav-link"><span class="nav-num">06</span><span>Performance</span></a>
+                <a href="#s7" class="nav-link"><span class="nav-num">07</span><span>Augmentation</span></a>
+                <a href="#s8" class="nav-link"><span class="nav-num">08</span><span>Algorithms</span></a>
+                <a href="#s9" class="nav-link"><span class="nav-num">09</span><span>Telemetry</span></a>
+                <a href="#s10" class="nav-link"><span class="nav-num">10</span><span>Filtering</span></a>
+                <a href="#s11" class="nav-link"><span class="nav-num">11</span><span>ROC Curves</span></a>
+                <a href="#s12" class="nav-link"><span class="nav-num">12</span><span>Waveforms</span></a>
+                <a href="#s13" class="nav-link"><span class="nav-num">13</span><span>Synergy</span></a>
+                <a href="#s14" class="nav-link"><span class="nav-num">14</span><span>Convergence</span></a>
+                <a href="#s15" class="nav-link"><span class="nav-num">15</span><span>Challenges</span></a>
+                <a href="#s16" class="nav-link"><span class="nav-num">16</span><span>Math Registry</span></a>
+                <a href="#s17" class="nav-link"><span class="nav-num">17</span><span>Formalism</span></a>
+                <a href="#s18" class="nav-link"><span class="nav-num">18</span><span>CI/CD Workflow</span></a>
+            </div>
+            
+        </nav>
 
-            <div class="intro-grid">
-                <div class="intro-card issue">
-                    <h3>The Clinical Challenge (The Issue)</h3>
-                    <p>
-                        Standard machine learning models for clinical wearables inherently optimize for global
-                        classification accuracy.
-                        This objective function inadvertently suppresses the detection of statistically rare, yet
-                        life-threatening,
-                        physiological anomalies like blood clots—creating the <b>"Fatal Negative"</b> paradox where a
-                        model appears
-                        99% accurate while missing every critical emergency.
-                    </p>
-                </div>
-                <div class="intro-card proposal">
-                    <h3>The fail-safe Proposal (The Solution)</h3>
-                    <p>
-                        This project proposes a <b>Spatial-Relational-Temporal Hybrid</b> architecture
-                        (CNN-Transformer-LSTM) that
-                        prioritizes clinical safety over raw accuracy. By abandoning passive argmax classification in
-                        favor of an
-                        active <b>"Safety-First" <span class="glossary-term"
-                                data-tooltip="A safety-first logic layer that promotes potential emergencies based on probability distribution rather than simple accuracy.">Bayesian
-                                probability gate</span></b>, the system ensures 100% Emergency Recall
-                        for
-                        unseen patient cohorts.
-                    </p>
-                </div>
-            </div>
-        </header>
-
-        <!-- The Clinical AI Pipeline -->
-        <h3
-            style="text-align:center; font-size:0.8rem; text-transform:uppercase; color:var(--text-dim); margin-bottom:20px; letter-spacing:0.1em;">
-            Clinical AI Engineering Pipeline</h3>
-        <div class="pipeline-container">
-            <div class="pipeline-step">
-                <span class="step-label">Acquisition</span>
-                <span class="step-detail">Multi-Modal Streams (<span class="glossary-term"
-                        data-tooltip="Blood Volume Pulse: An optical measurement of heart rate and rhythm trends.">BVP</span>,
-                    4Hz <span class="glossary-term"
-                        data-tooltip="Electrodermal Activity: Measurement of skin conductance reflecting stress.">EDA</span>,
-                    ACC)</span>
-            </div>
-            <div class="pipeline-step">
-                <span class="step-label">Denoising</span>
-                <span class="step-detail"><span class="glossary-term"
-                        data-tooltip="A signal filter that removes slow sensor 'drift' caused by breathing.">Butterworth</span>
-                    + Level-4 <span class="glossary-term"
-                        data-tooltip="Discrete Wavelet Transform: A math technique to remove noise while preserving peaks.">Daubechies
-                        DWT</span></span>
-            </div>
-            <div class="pipeline-step">
-                <span class="step-label">Observation</span>
-                <span class="step-detail">30s Overlapping Windows (15s Stride)</span>
-            </div>
-            <div class="pipeline-step">
-                <span class="step-label">Synthesis</span>
-                <span class="step-detail"><span class="glossary-term"
-                        data-tooltip="Wasserstein GAN with Gradient Penalty: A generative model for minority classes.">WGAN-GP</span>
-                    Generative Class Balancing</span>
-            </div>
-            <div class="pipeline-step">
-                <span class="step-label">Ensemble</span>
-                <span class="step-detail">XGBoost-GNB + FT-Transformer Hybrid</span>
-            </div>
-            <div class="pipeline-step"
-                style="background: rgba(10, 132, 255, 0.08); border: 1px solid rgba(10, 132, 255, 0.2);">
-                <span class="step-label" style="color:var(--apple-blue);">Alerting</span>
-                <span class="step-detail">Fail-Safe Probability Gating (Tau = 10.9%)</span>
-            </div>
-        </div>
-
-        <div class="info-rail">
-
-            <main class="main-content">
-
-                <!-- 01: Interpretability Hub -->
-                <section id="s1" class="card-thesis">
-                    <div
-                        style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 25px;">
-                        <h2>01. Interactive Interpretability Suite</h2>
-                        <div class="viz-switcher">
-                            <button class="nav-btn active" onclick="loadTab('v1')">Latent Clusters</button>
-                            <button class="nav-btn" onclick="loadTab('uncertainty')">Uncertainty</button>
-                            <button class="nav-btn" onclick="loadTab('trajectory')">Trajectory</button>
-                            <button class="nav-btn" onclick="loadTab('interaction')">Synergy</button>
-                            <button class="nav-btn" onclick="loadTab('surface')">Risk Surface</button>
-                            <button class="nav-btn" onclick="loadTab('decision')">Ensemble Logic</button>
+        <main class="main-content">
+            <div class="content-wrapper">
+                
+                <section id="s1" class="section-reveal active">
+                    <h1 class="gradient-text">AI Integration in Wearables for Clot Monitoring</h1>
+                    
+                    <div class="bento-grid">
+                        <div class="col-7 glass-card">
+                            <h3 style="color: var(--error); margin-bottom: 20px; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em;">The Clinical Challenge</h3>
+                            <p style="font-size: 1.1rem; line-height: 1.8; color: var(--on-surface-variant);">
+                                Standard models inherently optimize for global classification accuracy. This objective function inadvertently suppresses rare, yet life-threatening, physiological anomalies—creating the <b>"Fatal Negative" paradox</b> where a model appears 99% accurate while missing every critical emergency.
+                            </p>
+                        </div>
+                        <div class="col-5 glass-card" style="border-color: var(--secondary);">
+                            <h3 style="color: var(--secondary); margin-bottom: 20px; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em;">The Fail-Safe Proposal</h3>
+                            <p style="font-size: 1rem; line-height: 1.7; color: var(--on-surface-variant);">
+                                A <b>Spatial-Relational-Temporal Hybrid</b> architecture (CNN-Transformer-LSTM) that prioritizes safety over accuracy. By using an active <b>Bayesian probability gate</b>, we ensure 100% Emergency Recall.
+                            </p>
                         </div>
                     </div>
 
-                    <p style="color: var(--text-secondary); margin-bottom: 25px; font-size: 1.1rem;">
-                        Interactive 3D <span class="glossary-term"
-                            data-tooltip="A lower-dimensional representation of complex sensor data where AI clusters similar states.">manifolds</span>
-                        illustrating the internal feature representations,
-                        uncertainty topography, and longitudinal risk trajectories.
-                    </p>
-
-                    <div class="viz-gallery">
-                        <div class="viz-viewport">
-                            <iframe id="thesis-frame" class="viz-frame active"
-                                src="../reports/visuals/thesis_v1_latent_space.html"
-                                style="width: 100%; height: 100%; border: none;"></iframe>
-                        </div>
-
-                        <div id="tab-meta"
-                            style="margin-top: 30px; border-left: 3px solid var(--apple-blue); padding-left: 20px;">
-                            <h4 id="tab-title"
-                                style="color: var(--apple-blue); margin-bottom: 5px; font-weight: 800; font-size: 1.2rem;">
-                                3D Latent Space Clusters (PCA)</h4>
-                            <p id="tab-desc" style="font-size: 1rem; color: var(--text-secondary); max-width: 900px;">
-                                Proving class separability: The model disentangles overlapping sensor signals into 5
-                                distinct, high-confidence clinical risk clusters.
-                            </p>
-                            <div class="math-mini-callout"
-                                style="margin-top: 15px; font-size: 0.85rem; color: var(--apple-blue); font-family: 'SF Mono', monospace;">
-                                \[ \text{Proj}_{V} (X) = X \cdot V_k \quad \text{where} \quad \text{Cov}(X)V = \lambda V
-                                \]
-                            </div>
+                    <div style="margin-top: 32px;">
+                        <h3 style="text-align:center; font-size:0.75rem; text-transform:uppercase; color:var(--on-surface-variant); margin-bottom:24px; letter-spacing:0.2em;">Clinical AI Engineering Pipeline</h3>
+                        <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;">
+                            <div class="status-pill" style="color: var(--primary); border-color: var(--primary);">Acquisition (Multi-Modal)</div>
+                            <div class="status-pill" style="color: var(--secondary); border-color: var(--secondary);">Denoising (DWT)</div>
+                            <div class="status-pill">Observation (30s Windows)</div>
+                            <div class="status-pill" style="color: var(--tertiary); border-color: var(--tertiary);">Synthesis (WGAN-GP)</div>
+                            <div class="status-pill">Ensemble (Hybrid)</div>
+                            <div class="status-pill" style="color: var(--error); border-color: var(--error);">Alerting (Tau=10.9%)</div>
                         </div>
                     </div>
                 </section>
 
-                <!-- 02: Comparative Architecture Benchmarking -->
-                <section id="s2" class="card-thesis">
-                    <h2>02. Architecture Evolution & Benchmarking Analysis</h2>
-                    <p style="color: var(--text-secondary); margin-bottom: 25px; font-size: 1.1rem;">
-                        Rigorous evaluation across 12 diverse architectures. The 1D-CNN + Bi-LSTM v2
-                        architecture demonstrates superior generalizability to novel patient cohorts, while
-                        ensemble-based paradigms provide the upper ceiling for fixed-cohort classification.
-                    </p>
-                    <table class="evolution-table">
+                <!-- 02: Interpretability Suite -->
+                <section id="s2" class="glass-card section-reveal">
+                    <div style="margin-bottom: 40px;">
+                        <h2 style="margin-bottom: 8px;">02. Interactive Interpretability Suite</h2>
+                        <p style="color: var(--on-surface-variant); margin-bottom: 24px;">Exploring 3D manifolds of latent clinical risk.</p>
+                        
+                        <div class="tab-group">
+                            <button class="tab-btn active" onclick="loadTab('v1')">Clusters</button>
+                            <button class="tab-btn" onclick="loadTab('uncertainty')">Uncertainty</button>
+                            <button class="tab-btn" onclick="loadTab('trajectory')">Patient Path</button>
+                            <button class="tab-btn" onclick="loadTab('interaction')">Synergy</button>
+                            <button class="tab-btn" onclick="loadTab('surface')">Risk Surface</button>
+                            <button class="tab-btn" onclick="loadTab('decision')">Logic Gate</button>
+                        </div>
+                    </div>
+
+                    <div class="viz-container">
+                        <iframe id="thesis-frame" class="viz-frame" src="../reports/visuals/thesis_v1_latent_space.html"></iframe>
+                    </div>
+
+                    <div id="tab-meta" style="margin-top: 40px; border-left: 6px solid var(--primary); padding-left: 32px;">
+                        <h4 id="tab-title" style="color: var(--primary); font-weight: 800; font-size: 1.4rem; margin-bottom: 12px;">3D Latent Space Clusters (PCA)</h4>
+                        <p id="tab-desc" style="color: var(--on-surface-variant); max-width: 950px; font-size: 1.1rem; line-height: 1.6;">
+                            Proving class separability: The model disentangles overlapping sensor signals into 5 distinct clinical risk clusters.
+                        </p>
+                        <div style="margin-top: 16px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--secondary);">
+                            \[ \text{Proj}_{V} (X) = X \cdot V_k \quad \text{where} \quad \text{Cov}(X)V = \lambda V \]
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 03: Benchmarking -->
+                <section id="s3" class="glass-card section-reveal">
+                    <h2>03. Evolution & Benchmarking Analysis</h2>
+                    <p style="color: var(--on-surface-variant); margin-bottom: 32px; font-size: 1.1rem;">Full evaluation across 12 diverse architectures, prioritizing cross-subject invariance.</p>
+                    <table class="data-table">
                         <thead>
                             <tr>
                                 <th>Architecture Variant</th>
-                                <th>Test Accuracy</th>
-                                <th><span class="glossary-term"
-                                        data-tooltip="The harmonic mean of precision and recall, providing a balanced metric for medicine.">F1-Score</span>
-                                </th>
+                                <th>Accuracy</th>
+                                <th>F1-Score</th>
                                 <th>Clinical Observation</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr style="background: rgba(48, 209, 88, 0.08);">
-                                <td class="model-name">Spatial-Temporal Hybrid (1D CNN, Bi-LSTM, Transformer Encoder)
-                                </td>
-                                <td class="best-val" style="color: var(--apple-green);">63.52%</td>
-                                <td class="best-val" style="color: var(--apple-green);">0.599</td>
-                                <td style="font-weight:700; color:var(--apple-green);">Zero Generalization Gap (SOTA)
-                                </td>
+                            <tr style="background: rgba(208, 188, 255, 0.1); border-left: 4px solid var(--primary);">
+                                <td style="font-weight: 800; color: var(--primary);">Spatial-Temporal Hybrid (Proposed)</td>
+                                <td>63.52%</td>
+                                <td>0.599</td>
+                                <td style="color: var(--secondary); font-weight: 700;">Zero Generalization Gap (SOTA)</td>
                             </tr>
-                            <tr class="best-row">
-                                <td class="model-name">XGBoost Ensemble</td>
-                                <td class="best-val">84.38%</td>
-                                <td class="best-val">0.836</td>
-                                <td style="font-weight:700; color:var(--apple-blue);">Peak Fixed-Cohort Accuracy</td>
+                            <tr style="background: rgba(76, 215, 246, 0.05);">
+                                <td style="font-weight: 700;">XGBoost Ensemble</td>
+                                <td>84.38%</td>
+                                <td>0.836</td>
+                                <td style="color: var(--primary);">Peak Fixed-Cohort Accuracy</td>
                             </tr>
-                            <tr>
-                                <td class="model-name">Gradient Boosting (GBM)</td>
-                                <td class="metric-val">82.95%</td>
-                                <td class="metric-val">0.822</td>
-                                <td>Robust Predictive Density</td>
-                            </tr>
-                            <tr>
-                                <td class="model-name">CatBoost</td>
-                                <td class="metric-val">75.35%</td>
-                                <td class="metric-val">0.721</td>
-                                <td>Categorical Feature Stability</td>
-                            </tr>
-                            <tr>
-                                <td class="model-name">Random Forest</td>
-                                <td class="metric-val">75.11%</td>
-                                <td class="metric-val">0.714</td>
-                                <td>High-Variance Bagging Baseline</td>
-                            </tr>
-                            <tr>
-                                <td class="model-name">K-Nearest Neighbors (KNN)</td>
-                                <td class="metric-val">74.82%</td>
-                                <td class="metric-val">0.726</td>
-                                <td>Instance-Based Clustering</td>
-                            </tr>
-                            <tr>
-                                <td class="model-name">Decision Tree (CART)</td>
-                                <td class="metric-val">74.70%</td>
-                                <td class="metric-val">0.726</td>
-                                <td>Primary Hierarchical Baseline</td>
-                            </tr>
-                            <tr>
-                                <td class="model-name">Extra Trees (ETR)</td>
-                                <td class="metric-val">73.69%</td>
-                                <td class="metric-val">0.693</td>
-                                <td>Extremely Randomized Subset</td>
-                            </tr>
-                            <tr>
-                                <td class="model-name">SVM (Radial Basis Function)</td>
-                                <td class="metric-val">70.60%</td>
-                                <td class="metric-val">0.656</td>
-                                <td>High-Dimensional Boundary Map</td>
-                            </tr>
-                            <tr>
-                                <td class="model-name">Logistic Regression</td>
-                                <td class="metric-val">67.16%</td>
-                                <td class="metric-val">0.624</td>
-                                <td>Linear Clinical Baseline</td>
-                            </tr>
-                            <tr>
-                                <td class="model-name">AdaBoost</td>
-                                <td class="metric-val">64.13%</td>
-                                <td class="metric-val">0.565</td>
-                                <td>Iterative Error Weighting</td>
-                            </tr>
-                            <tr style="opacity: 0.6;">
-                                <td class="model-name">Naive Bayes</td>
-                                <td class="metric-val">31.35%</td>
-                                <td class="metric-val">0.358</td>
-                                <td>Probabilistic Independence Lower Bound</td>
-                            </tr>
+                            <tr><td>Gradient Boosting (GBM)</td><td>82.95%</td><td>0.822</td><td>Robust Predictive Density</td></tr>
+                            <tr><td>CatBoost</td><td>75.35%</td><td>0.721</td><td>Categorical Feature Stability</td></tr>
+                            <tr><td>Random Forest</td><td>75.11%</td><td>0.714</td><td>High-Variance Bagging Baseline</td></tr>
+                            <tr><td>K-Nearest Neighbors (KNN)</td><td>74.82%</td><td>0.726</td><td>Instance-Based Clustering</td></tr>
+                            <tr><td>Decision Tree (CART)</td><td>74.70%</td><td>0.726</td><td>Primary Hierarchical Baseline</td></tr>
+                            <tr><td>Extra Trees (ETR)</td><td>73.69%</td><td>0.693</td><td>Extremely Randomized Subset</td></tr>
+                            <tr><td>SVM (RBF Kernel)</td><td>70.60%</td><td>0.656</td><td>High-Dimensional Boundary Map</td></tr>
+                            <tr><td>Logistic Regression</td><td>67.16%</td><td>0.624</td><td>Linear Clinical Baseline</td></tr>
+                            <tr><td>AdaBoost</td><td>64.13%</td><td>0.565</td><td>Iterative Error Weighting</td></tr>
+                            <tr style="opacity: 0.5;"><td>Naive Bayes</td><td>31.35%</td><td>0.358</td><td>Probabilistic Independence Bound</td></tr>
                         </tbody>
                     </table>
-                    <div
-                        style="display: grid; grid-template-columns: 1fr 300px; gap: 30px; margin-top: 30px; align-items: flex-start;">
-                        <p style="font-size: 0.85rem; color: var(--text-dim); line-height: 1.6;">
-                            *The <b>Spatial-Temporal Hybrid</b> exhibits a lower raw test accuracy compared to XGBoost
-                            due to its design focus on <b>cross-subject invariance</b>. While tree ensembles like
-                            XGBoost excels
-                            at extracting high-variance patterns within fixed partitions, the Hybrid architecture
-                            prioritizes deep physiological signatures that generalize to completely
-                            unseen patient cohorts—effectively solving the "Overfitting to Cohort" problem prevalent in
-                            clinical ML.
-                        </p>
-                        <div
-                            style="background: rgba(10, 132, 255, 0.05); padding: 20px; border-radius: 16px; border: 1px solid rgba(10, 132, 255, 0.2);">
-                            <h4
-                                style="font-size: 0.75rem; color: var(--apple-blue); text-transform: uppercase; margin-bottom: 10px;">
-                                Clinical Rationale</h4>
-                            <p style="font-size: 0.8rem; color: var(--text-secondary);">
-                                Superior generalization over raw accuracy ensures safety during the first-contact phase
-                                with a new patient, where ensemble-based tree models may fail due to sensor-noise
-                                shifts.
+                </section>
+
+                <!-- 04: Subject S14 -->
+                <section id="s4" class="glass-card section-reveal" style="border-color: var(--primary);">
+                    <h2>04. Subject-Specific Case Study: Sub-S14</h2>
+                    <div class="bento-grid" style="margin-top: 32px;">
+                        <div class="col-8">
+                            <p style="font-size: 1.25rem; line-height: 1.6; color: var(--on-surface-variant); margin-bottom: 24px;">
+                                Real-world validation on <b>Subject S14</b>: The model identified a transition from "Low-Moderate" to "Critical" signatures <b>3 hours and 12 minutes</b> before clinical confirmation.
                             </p>
+                            <p style="font-size: 1rem; color: var(--secondary); font-family: var(--font-mono);">* Use "Patient Path" tab in Section 02 to view the manifold.</p>
+                        </div>
+                        <div class="col-4 algo-card">
+                            <div class="status-pill" style="margin-bottom: 16px;">+3h 12m LEAD TIME</div>
+                            <div style="display: flex; flex-direction: column; gap: 12px;">
+                                <div style="display: flex; justify-content: space-between;"><span style="font-size: 0.75rem; color: var(--on-surface-variant);">Subject ID</span><span style="font-weight: 700; font-family: var(--font-mono);">S14-EX-2</span></div>
+                                <div style="display: flex; justify-content: space-between;"><span style="font-size: 0.75rem; color: var(--on-surface-variant);">Freq</span><span style="font-weight: 700; font-family: var(--font-mono);">4Hz (EDA)</span></div>
+                                <div style="display: flex; justify-content: space-between;"><span style="font-size: 0.75rem; color: var(--on-surface-variant);">Label</span><span style="font-weight: 900; color: var(--error);">CRITICAL</span></div>
+                            </div>
                         </div>
                     </div>
                 </section>
 
-                <!-- 03: Subject-Specific Case Study -->
-                <section id="s3" class="card-thesis">
-                    <h2>03. Subject-Specific Case Study: Sub-S14</h2>
-                    <div class="case-study-hero">
-                        <div>
-                            <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.6;">
-                                Real-world validation on <b>Subject S14</b>: The model identified a transition from
-                                "Low-Moderate"
-                                to "Critical" risk signatures <b>3 hours and 12 minutes</b> before clinical
-                                confirmation.
-                            </p>
-                            <p style="margin-top: 15px; font-size: 0.95rem; color: var(--text-charcoal);">
-                                Use the <b>"Patient Trajectory"</b> 3D view in Section 01 to visualize this specific
-                                longitudinal manifold.
-                            </p>
+                <!-- Side Rail Integration (The Missing "ML Cookery") -->
+                <section id="s_metrics" class="section-reveal">
+                    <h2 style="margin-bottom: 40px; text-align: center;">Clinical & ML Audit Metrics</h2>
+                    <div class="bento-grid">
+                        <!-- Feature Importance -->
+                        <div class="col-6 glass-card" style="margin-bottom: 0;">
+                            <h3 style="margin-bottom: 24px; font-size: 1.1rem; color: var(--primary);">Feature Importance Rank</h3>
+                            <div style="display: flex; flex-direction: column; gap: 16px;">
+                                <div style="width: 100%;">
+                                    <div style="display: flex; justify-content: space-between; margin-bottom: 4px; font-size: 0.8rem;"><span>Mean Heart Rate</span><span>84%</span></div>
+                                    <div style="height: 6px; background: rgba(255,255,255,0.05); border-radius: 3px;"><div style="width: 84%; height: 100%; background: var(--primary); border-radius: 3px;"></div></div>
+                                </div>
+                                <div style="width: 100%;">
+                                    <div style="display: flex; justify-content: space-between; margin-bottom: 4px; font-size: 0.8rem;"><span>Physiological Stress (EDA)</span><span>72%</span></div>
+                                    <div style="height: 6px; background: rgba(255,255,255,0.05); border-radius: 3px;"><div style="width: 72%; height: 100%; background: var(--tertiary); border-radius: 3px;"></div></div>
+                                </div>
+                                <div style="width: 100%;">
+                                    <div style="display: flex; justify-content: space-between; margin-bottom: 4px; font-size: 0.8rem;"><span>ACC Movement Variance</span><span>54%</span></div>
+                                    <div style="height: 6px; background: rgba(255,255,255,0.05); border-radius: 3px;"><div style="width: 54%; height: 100%; background: var(--secondary); border-radius: 3px;"></div></div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="case-metadata">
-                            <span class="lead-time-badge">+3h 12m LEAD TIME</span>
-                            <ul class="spec-list">
-                                <li><span>Subject ID</span> <span class="spec-val">S14-EX-2</span></li>
-                                <li><span>Data Frequency</span> <span class="spec-val">4Hz (EDA)</span></li>
-                                <li><span>Class Label</span> <span class="spec-val"
-                                        style="color:var(--apple-red);">CRITICAL</span></li>
-                            </ul>
+                        
+                        <!-- Complexity -->
+                        <div class="col-6 glass-card" style="margin-bottom: 0;">
+                            <h3 style="margin-bottom: 24px; font-size: 1.1rem; color: var(--secondary);">Complexity Breakdown</h3>
+                            <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--font-mono); font-size: 0.85rem;">
+                                <div style="display: flex; justify-content: space-between;"><span>CNN Encoder</span><span style="color: var(--secondary);">68.8k</span></div>
+                                <div style="display: flex; justify-content: space-between;"><span>Bi-LSTM Stack</span><span style="color: var(--secondary);">197.6k</span></div>
+                                <div style="display: flex; justify-content: space-between;"><span>Transformer Encoder</span><span style="color: var(--secondary);">264.9k</span></div>
+                                <div style="margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--outline); font-weight: 800; display: flex; justify-content: space-between;"><span>TOTAL PARAMS</span><span style="color: var(--primary);">541,957</span></div>
+                            </div>
+                        </div>
+
+                        <!-- Hardware Audit -->
+                        <div class="col-4 glass-card" style="margin-bottom: 0; background: linear-gradient(135deg, rgba(76,215,246,0.1), transparent);">
+                            <h4 style="color: var(--secondary); font-size: 0.8rem; text-transform: uppercase; margin-bottom: 16px;">Hardware Audit</h4>
+                            <div style="font-family: var(--font-mono); font-size: 0.85rem;">
+                                <div>Edge Latency: 12.4ms</div>
+                                <div style="margin-top: 4px;">Memory: 4.21 MB</div>
+                                <div style="margin-top: 4px; color: var(--secondary);">Target: Cortex-M4</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Deployment -->
+                        <div class="col-8 glass-card" style="margin-bottom: 0; background: linear-gradient(135deg, rgba(208,188,255,0.15), transparent);">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <h4 style="color: var(--primary); font-size: 1.1rem; margin-bottom: 8px;">Production Readiness</h4>
+                                    <p style="font-size: 0.85rem; color: var(--on-surface-variant);">Fully Int8 quantized for low-power operation on medical edge units.</p>
+                                </div>
+                                <div class="status-pill" style="color: white; background: var(--primary-container); border: none;">CLINICAL PILOT READY</div>
+                            </div>
                         </div>
                     </div>
                 </section>
 
-                <!-- 04: Architecture Blueprint -->
-                <section id="s4" class="card-thesis">
-                    <h2>04. Triple-Encoder Hybrid Architecture</h2>
-                    <p style="color: var(--text-secondary); margin-bottom: 25px; font-size: 1.1rem;">
-                        The foundational structural blueprint of the Clot-Monitoring Transformer.
-                    </p>
-                    <div
-                        style="background:rgba(0,0,0,0.02); padding:30px; border-radius:30px; border:1px solid var(--border-soft); box-shadow: inset 0 2px 15px rgba(0,0,0,0.03);">
-                        <img src="../model_comparison_plots_CLEAN/visualizations/Hybrid architecture diagram.png"
-                            alt="Architecture Blueprint" style="width:100%; height:auto; border-radius:15px;">
+                <!-- Rest of the sections continue... -->
+                <!-- 05: Architecture Blueprint -->
+                <section id="s5" class="glass-card section-reveal side-beam-accent">
+                    <h2>05. Triple-Encoder Architecture</h2>
+                    <div style="background:rgba(0,0,0,0.3); padding:40px; border-radius:var(--radius-lg); border:1px solid var(--outline); margin-top: 32px;">
+                        <img src="../model_comparison_plots_CLEAN/visualizations/Hybrid architecture diagram.png" alt="Architecture" style="width:100%; height:auto;">
                     </div>
                 </section>
 
-                <!-- 05: Performance Audit -->
-                <section id="s5" class="card-thesis">
-                    <h2>05. Performance Metrics (Subject-Wise Audit)</h2>
+                <!-- 06: Performance Metrics -->
+                <section id="s6" class="glass-card section-reveal">
+                    <h2>06. Subject-Wise Performance Audit</h2>
                     <table class="data-table">
                         <thead>
-                            <tr>
-                                <th>Clinical Tier</th>
-                                <th><span class="glossary-term"
-                                        data-tooltip="The percentage of alerts that were actually correct (how specific the model is).">Precision</span>
-                                </th>
-                                <th><span class="glossary-term"
-                                        data-tooltip="The percentage of actual emergencies the model successfully captured (how sensitive the model is).">Recall</span>
-                                    (Sens)</th>
-                                <th>F1-Score</th>
-                                <th>Support</th>
-                            </tr>
+                            <tr><th>Clinical Tier</th><th>Precision</th><th>Recall (Sens)</th><th>F1-Score</th><th>Support</th></tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td style="font-weight: 600;">Low (Baseline)</td>
-                                <td>0.87</td>
-                                <td>0.96</td>
-                                <td>0.91</td>
-                                <td>526</td>
-                            </tr>
-                            <tr>
-                                <td style="font-weight: 600;">Low-Moderate</td>
-                                <td>0.76</td>
-                                <td>0.72</td>
-                                <td>0.74</td>
-                                <td>155</td>
-                            </tr>
-                            <tr>
-                                <td style="font-weight: 600;">Moderate Risk</td>
-                                <td>0.91</td>
-                                <td>0.64</td>
-                                <td>0.75</td>
-                                <td>112</td>
-                            </tr>
-                            <tr class="row-emergency">
-                                <td>HIGH RISK</td>
-                                <td>0.94</td>
-                                <td>0.40</td>
-                                <td>0.57</td>
-                                <td>42</td>
-                            </tr>
-                            <tr class="row-emergency">
-                                <td>CRITICAL ALERT</td>
-                                <td>0.30</td>
-                                <td>0.86</td>
-                                <td>0.44</td>
-                                <td>7</td>
-                            </tr>
+                            <tr><td style="font-weight: 600;">Low (Baseline)</td><td>0.87</td><td>0.96</td><td>0.91</td><td>526</td></tr>
+                            <tr><td style="font-weight: 600;">Low-Moderate</td><td>0.76</td><td>0.72</td><td>0.74</td><td>155</td></tr>
+                            <tr><td style="font-weight: 600;">Moderate Risk</td><td>0.91</td><td>0.64</td><td>0.75</td><td>112</td></tr>
+                            <tr class="critical-row"><td>HIGH RISK</td><td>0.94</td><td>0.40</td><td>0.57</td><td>42</td></tr>
+                            <tr class="critical-row"><td>CRITICAL ALERT</td><td>0.30</td><td>0.86</td><td>0.44</td><td>7</td></tr>
                         </tbody>
                     </table>
-                    <div style="margin-top: 30px; padding: 25px; background: rgba(10, 132, 255, 0.04); border-radius: 20px; border: 1px solid rgba(10, 132, 255, 0.15);">
-                        <h4 style="font-size: 0.85rem; color: var(--apple-blue); text-transform: uppercase; margin-bottom: 12px; letter-spacing: 0.05em; font-weight: 800;">
-                            Methodological Note: Support Count & Data Integrity</h4>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
-                            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
-                                <b>The Augmentation Paradox:</b> While the training dataset was balanced using 
-                                <b>WGAN-GP and SMOTE</b> to ~2,400 samples per category, these synthetic distributions 
-                                are strictly excluded from this report. This Performance Audit is conducted on the 
-                                <b>un-augmented hold-out test set</b>.
-                            </p>
-                            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
-                                <b>Scientific Validity:</b> To ensure the results generalize to real patients, we maintain 
-                                the <b>natural clinical imbalance</b> during testing. The low support for "Critical" 
-                                and "High Risk" tiers represents original patient data, proving the model's 
-                                <b>86% Recall</b> is based on real-world physiological signatures, not synthetic noise.
-                            </p>
+                    <div class="bento-grid" style="margin-top: 32px;">
+                        <div class="col-6 algo-card"><h5 style="color: var(--primary); margin-bottom: 8px;">The Augmentation Paradox</h5><p style="font-size: 0.85rem; color: var(--on-surface-variant);">While training was balanced via WGAN-GP to ~2,400 samples/class, this audit uses the <b>un-augmented test set</b> for clinical validity.</p></div>
+                        <div class="col-6 algo-card"><h5 style="color: var(--secondary); margin-bottom: 8px;">Scientific Validity</h5><p style="font-size: 0.85rem; color: var(--on-surface-variant);">Maintaining natural clinical imbalance during testing proves the model captures real signatures, not synthetic noise.</p></div>
+                    </div>
+                </section>
+
+                <!-- 07: Augmentation & Uncertainty -->
+                <section id="s7" class="glass-card section-reveal">
+                    <h2>07. Clinical Audit: Augmentation & Uncertainty</h2>
+                    <p style="color: var(--on-surface-variant); margin-bottom: 32px;">Verification of generative class balancing and final decision transparency.</p>
+                    <div class="bento-grid">
+                        <div class="col-6">
+                            <h4 style="margin-bottom: 16px; font-size: 0.9rem; color: var(--secondary);">Generative Synthesis (WGAN-GP)</h4>
+                            <img src="../reports/augmentation_distribution.png" alt="Augmentation" style="width:100%; border-radius: var(--radius-md); border: 1px solid var(--outline);">
+                        </div>
+                        <div class="col-6">
+                            <h4 style="margin-bottom: 16px; font-size: 0.9rem; color: var(--primary);">Final 5-Class Confusion Matrix</h4>
+                            <img src="../reports/5class_confusion_matrix.png" alt="Confusion Matrix" style="width:100%; border-radius: var(--radius-md); border: 1px solid var(--outline);">
                         </div>
                     </div>
                 </section>
 
-                <!-- 06: Clinical Audit Matrix & Augmentation Proof -->
-                <section id="s6" class="card-thesis">
-                    <h2>06. Clinical Audit: Augmentation & Uncertainty</h2>
-                    <p style="color: var(--text-secondary); margin-bottom: 30px; font-size: 1.1rem;">
-                        Verification of generative class balancing and final decision transparency.
-                    </p>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
-                        <div>
-                            <h4 style="color: var(--text-charcoal); margin-bottom:20px; font-weight: 800;">Generative
-                                Synthesis (WGAN-GP)</h4>
-                            <img src="../reports/augmentation_distribution.png" alt="Augmentation Proof"
-                                style="width:100%; border-radius:20px; border:1px solid var(--border-soft);">
-                        </div>
-                        <div>
-                            <h4 style="color: var(--text-charcoal); margin-bottom:20px; font-weight: 800;">Final 5-Class
-                                Confusion Matrix</h4>
-                            <img src="../reports/5class_confusion_matrix.png" alt="Clinical Audit Matrix"
-                                style="width:100%; border-radius:20px; border:1px solid var(--border-soft);">
-                        </div>
+                <!-- 08: The 9 Core Algorithms -->
+                <section id="s8" class="section-reveal">
+                    <h2 style="text-align: center; margin-bottom: 48px; font-size: 2.5rem;">08. The 9 Core Algorithms</h2>
+                    <div class="bento-grid">
+                        <div class="col-4 algo-card"><span class="algo-tag">Spatial</span><h4>01. 1D-CNN Encoder</h4><p>Multi-scale kernels (3, 5, 7) for local morphological signatures.</p></div>
+                        <div class="col-4 algo-card"><span class="algo-tag">Relational</span><h4>02. Transformer Block</h4><p>4-head Self-Attention for non-linear BVP/EDA fusion.</p></div>
+                        <div class="col-4 algo-card"><span class="algo-tag">Temporal</span><h4>03. Stacked Bi-LSTM</h4><p>128 bidirectional recurrent units for 30s temporal windows.</p></div>
+                        <div class="col-4 algo-card" style="border-color: var(--primary);"><span class="algo-tag" style="color: var(--primary);">Uncertainty</span><h4>04. Bayesian MC-Dropout</h4><p>Stochastic inference loop (T=50) for human-in-the-loop intervention.</p></div>
+                        <div class="col-4 algo-card" style="border-color: var(--error);"><span class="algo-tag" style="color: var(--error);">Safety</span><h4>05. Clinical Gating Logic</h4><p>Probabilistic override (Tau=10.9%) promoting borderline emergencies.</p></div>
+                        <div class="col-4 algo-card"><span class="algo-tag">Optimization</span><h4>06. Weighted Focal Loss</h4><p>Penalizing "Fatal Negatives" 5x more heavily during gradient descent.</p></div>
+                        <div class="col-4 algo-card"><span class="algo-tag">Generative</span><h4>07. WGAN-GP Synthesis</h4><p>Adversarial synthesis of rare high-risk variants for class balancing.</p></div>
+                        <div class="col-4 algo-card"><span class="algo-tag">Processing</span><h4>08. Butterworth Filter</h4><p>0.5Hz IIR filter eradicating respiratory baseline wander.</p></div>
+                        <div class="col-4 algo-card"><span class="algo-tag">Processing</span><h4>09. Level-4 DWT (db4)</h4><p>Motion artifact removal without vital pulse morphology blurring.</p></div>
                     </div>
                 </section>
 
-                <!-- 07: The 9 Core Algorithms (Scientific Registry) -->
-                <section id="s7" class="card-thesis">
-                    <h2>07. The 9 Core Algorithms</h2>
-                    <p style="color: var(--text-secondary); margin-bottom: 25px; font-size: 1.1rem; line-height: 1.6;">
-                        A comprehensive catalog of the integrated mathematical and architectural components driving
-                        the Clot-Monitoring System.
-                    </p>
-
-                    <div class="algo-bento">
-                        <!-- 1. 1D-CNN -->
-                        <div class="algo-card">
-                            <span class="tag">Spatial</span>
-                            <h4>01. 1D-CNN Encoder</h4>
-                            <p>Multi-scale convolutional kernels (3, 5, 7) that extract local morphological signatures
-                                from BVP waveforms.</p>
-                        </div>
-                        <!-- 2. Transformer -->
-                        <div class="algo-card">
-                            <span class="tag">Relational</span>
-                            <h4>02. Transformer Block</h4>
-                            <p>4-head Self-Attention mechanism facilitating non-linear multi-sensor fusion between BVP
-                                and EDA streams.</p>
-                        </div>
-                        <!-- 3. Bi-LSTM -->
-                        <div class="algo-card">
-                            <span class="tag">Temporal</span>
-                            <h4>03. Stacked Bi-LSTM</h4>
-                            <p>Bidirectional recurrent units (128 units) capturing long-term physiological dependencies
-                                across 30s windows.</p>
-                        </div>
-                        <!-- 4. MC-Dropout -->
-                        <div class="algo-card"
-                            style="border-color: var(--apple-blue); background: rgba(10, 132, 255, 0.05);">
-                            <span class="tag">Uncertainty</span>
-                            <h4>04. Bayesian MC-Dropout</h4>
-                            <p>Stochastic inference loop (T=50) quantifying model confidence to trigger human
-                                intervention loops.</p>
-                        </div>
-                        <!-- 5. Probability Gating -->
-                        <div class="algo-card"
-                            style="border-color: var(--apple-red); background: rgba(255, 69, 58, 0.05);">
-                            <span class="tag">Safety</span>
-                            <h4>05. Clinical Gating Logic</h4>
-                            <p>Probabilistic override layer that promotes borderline "Safe" cases to "Warning" based on
-                                Tau=10.9% threshold.</p>
-                        </div>
-                        <!-- 6. Focal Loss -->
-                        <div class="algo-card">
-                            <span class="tag">Optimization</span>
-                            <h4>06. Weighted Focal Loss</h4>
-                            <p>Objective function that penalizes critical misses (Emergency) 5x more heavily than
-                                baseline classification errors.</p>
-                        </div>
-                        <!-- 7. WGAN-GP -->
-                        <div class="algo-card">
-                            <span class="tag">Generative</span>
-                            <h4>07. WGAN-GP Synthesis</h4>
-                            <p>Generative Adversarial Network with Gradient Penalty used to rectify chronic minority
-                                class imbalances.</p>
-                        </div>
-                        <!-- 8. Butterworth -->
-                        <div class="algo-card">
-                            <span class="tag">Processing</span>
-                            <h4>08. Butterworth Filter</h4>
-                            <p>0.5Hz High-Pass Infinite Impulse Response (IIR) filter eradicating respiratory baseline
-                                wandering.</p>
-                        </div>
-                        <!-- 9. Wavelet DWT -->
-                        <div class="algo-card">
-                            <span class="tag">Processing</span>
-                            <h4>09. Level-4 DWT (db4)</h4>
-                            <p>Discrete Wavelet Transform for high-frequency motion artifact removal without pulse
-                                blurring.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 08: Training Telemetry -->
-                <section id="s8" class="card-thesis">
-                    <h2>08. Training Telemetry & Foundation</h2>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
-                        <div>
-                            <h4 style="color: var(--text-charcoal); margin-bottom: 20px; font-weight: 800;">Loss
-                                Function: <span class="glossary-term"
-                                    data-tooltip="A loss function that penalizes mistakes on rare minority classes like 'Emergency' more heavily than others.">Weighted
-                                    Focal Loss</span></h4>
-                            <div class="math-display">
+                <!-- 09: Telemetry -->
+                <section id="s9" class="glass-card section-reveal">
+                    <h2>09. Training Telemetry & Foundation</h2>
+                    <div class="bento-grid">
+                        <div class="col-6">
+                            <h4 style="color: var(--primary); margin-bottom: 16px;">Loss Function: Weighted Focal Loss</h4>
+                            <div style="font-size: 1.5rem; text-align: center; padding: 24px; background: rgba(0,0,0,0.2); border-radius: var(--radius-md); margin-bottom: 16px;">
                                 \[ L(p_t) = -\alpha \cdot (1 - p_t)^\gamma \cdot \ln(p_t) \]
                             </div>
-                            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 15px;">
-                                Alpha ($\alpha$) = 0.25 was used to balance class frequencies, while Gamma ($\gamma$) =
-                                2.0 forced the model
-                                to focus on difficult, high-risk window signatures during training.
-                            </p>
+                            <p style="font-size: 0.9rem; color: var(--on-surface-variant);">Alpha ($\alpha$) = 0.25 balances class frequencies, while Gamma ($\gamma$) = 2.0 focus on difficult, high-risk signatures.</p>
                         </div>
-                        <div>
-                            <h4 style="color: var(--text-charcoal); margin-bottom: 20px; font-weight: 800;">Training
-                                Evolution</h4>
-                            <ul class="spec-list">
-                                <li><span>Total Epochs</span> <span class="spec-val">200 (Adaptive)</span></li>
-                                <li><span>Early Stopping</span> <span class="spec-val">Patience = 15</span></li>
-                                <li><span>Optimizer</span> <span class="spec-val"><span class="glossary-term"
-                                            data-tooltip="An optimizer that decouples weight decay from the gradient update for better generalization.">AdamW</span>
-                                        (Decouple)</span></li>
-                                <li><span>Batch Size</span> <span class="spec-val">128 (Balanced)</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 09: Clinical Signal Integrity (PSD Analysis) -->
-                <section id="s9" class="card-thesis">
-                    <h2>09. Clinical Signal Integrity (PSD Analysis)</h2>
-                    <p style="color: var(--text-secondary); margin-bottom: 25px; font-size: 1.1rem; line-height: 1.6;">
-                        Validation of the filtering pipeline: A <b>0.5Hz Butterworth High-Pass</b> filter isolates the
-                        AC cardiovascular
-                        component from respiratory DC drift, while a <b>Level-4 Daubechies (db4) Discrete Wavelet
-                            Transform (DWT)</b>
-                        eradicates high-frequency motion artifacts without blurring vital pulse morphology.
-                    </p>
-                    <div
-                        style="background:rgba(0,0,0,0.01); padding:20px; border-radius:24px; border:1px solid var(--border-soft);">
-                        <img src="../model_comparison_plots_CLEAN/visualizations/v12_psd_analysis.png"
-                            alt="PSD Analysis" style="width:100%; height:auto; border-radius:12px;">
-                    </div>
-                    <p style="font-size: 0.9rem; color: var(--text-dim); margin-top: 20px;">
-                        The Power Spectral Density (PSD) analysis confirms peak energy preservation in the <b>0.5-4.0Hz
-                            band</b>,
-                        ensuring that the <b>Spatial-Temporal Hybrid</b> model receives clinical-grade BVP integrity.
-                    </p>
-                </section>
-
-                <!-- 10: Model Sensitivity (AUC-ROC Curves) -->
-                <section id="s10" class="card-thesis">
-                    <h2>10. Model Sensitivity (AUC-ROC Curves)</h2>
-                    <div
-                        style="background:#FFF; padding:40px; border-radius:30px; border:1px solid var(--border-soft); box-shadow: inset 0 2px 10px rgba(0,0,0,0.02); margin-bottom: 30px; text-align: center;">
-                        <img src="../model_comparison_plots_CLEAN/04_roc_curves_multiclass.png"
-                            alt="5-Class Multiclass ROC Curves"
-                            style="width:100%; max-width:1100px; height:auto; border-radius:12px;">
-                    </div>
-                    <div style="padding: 0 10px;">
-                        <h4
-                            style="color: var(--apple-blue); margin-bottom: 15px; font-weight: 800; font-size: 1.25rem;">
-                            Technical Note: <span class="glossary-term"
-                                data-tooltip="A lower-dimensional representation of complex sensor data where AI clusters similar states.">Latent
-                                Separation</span> Topology</h4>
-                        <p
-                            style="color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem; margin-bottom: 20px;">
-                            The observed multi-modal ROC curves (AUC 0.91–0.988) demonstrate the <b>Class-Specific
-                                Sensitivity</b>
-                            achieved by the Hybrid Architecture. By rectifying rare "Critical" events via the WGAN-GP
-                            pipeline,
-                            the system enforces high non-overlapping clusters in the 128-dimensional latent space. This
-                            eliminates
-                            the "Mode Collapse" seen in standard generative architectures, providing clinical-grade
-                            separation.
-                        </p>
-                        <p style="color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem;">
-                            This ensures the <b>Fail-Safe Gating Logic</b> can operate on high-certainty boundaries,
-                            effectively
-                            "curing" the signal-noise overlap inherent in raw wearable time-series data and enabling the
-                            3-hour preemptive warning window.
-                        </p>
-                    </div>
-                </section>
-
-                <!-- 11: Waveform Morphology & Synthetic Logic -->
-                <section id="s11" class="card-thesis">
-                    <h2>11. Waveform Morphology & Synthetic Logic</h2>
-                    <p style="color: var(--text-secondary); margin-bottom: 25px; font-size: 1.1rem; line-height: 1.6;">
-                        Continuous physiological streams are segmented into <b>30-second observation windows</b> with a
-                        <b>15-second sliding overlap</b>. The WGAN-GP rectification logic synthesizes realistic
-                        morphological
-                        variants of rare "Emergency" events to teach the model's 128-unit temporal hidden layers.
-                    </p>
-                    <div
-                        style="background:rgba(0,0,0,0.03); padding:40px; border-radius:30px; border:1px solid var(--border-soft);">
-                        <img src="../model_comparison_plots_CLEAN/visualizations/waveform_grid_FIXED.png"
-                            alt="Waveform Grid"
-                            style="width:100%; height:auto; border-radius:15px; box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
-
-                        <div class="waveform-legend">
-                            <div class="legend-item"><span class="dot dot-green"></span> Baseline BVP</div>
-                            <div class="legend-item"><span class="dot dot-red"></span> Critical Event BVP</div>
-                            <div class="legend-item"><span class="dot dot-blue"></span> EDA (Skin Stress)</div>
-                            <div class="legend-item"><span class="dot dot-yellow"></span> 3-Axis ACC (Motion)</div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 12: Multi-Modal Relational Synergy -->
-                <section id="s12" class="card-thesis">
-                    <h2>12. Multi-Modal Relational Synergy (Relational Attention)</h2>
-                    <p style="color: var(--text-secondary); margin-bottom: 25px; font-size: 1.1rem; line-height: 1.6;">
-                        As modeled by the <b>Transformer Relational Encoder</b>, the synergy between BVP (Heart Rate)
-                        and EDA (Stress)
-                        provides a non-linear risk signature. The graph below displays the alignment between these
-                        modalities
-                        under the latest <b>Clinical Framework</b> (Stable vs Critical Risk).
-                    </p>
-                    <div
-                        style="background:rgba(0,0,0,0.02); padding:30px; border-radius:30px; border:1px solid var(--border-soft);">
-                        <img src="../model_comparison_plots_CLEAN/visualizations/binary_overlay_FIXED.png"
-                            alt="Relational Synergy" style="width:100%; height:auto; border-radius:15px;">
-                    </div>
-                </section>
-
-                <!-- 13: Clinical Convergence & Architecture Evolution -->
-                <section id="s13" class="card-thesis">
-                    <h2>13. Clinical Convergence & History (Hybrid vs. 12 Ensembles)</h2>
-                    <p style="color: var(--text-secondary); margin-bottom: 25px; font-size: 1.1rem; line-height: 1.6;">
-                        While the <b>Original 12 Ensemble Models</b> (XGBoost, RF, GBM) achieve high 84% accuracy on
-                        fixed patient
-                        cohorts, they suffer from <b>"Passive Generalization Gaps"</b> when exposed to new clinical
-                        environments.
-                        The training convergence below demonstrates why the <b>Hierarchical Hybrid</b> architecture
-                        (63.52%)
-                        was selected—it is the only model that converges on universal physiological markers rather than
-                        overfitting to individual data noise.
-                    </p>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
-                        <img src="../model_comparison_plots_CLEAN/visualizations/evolution_accuracy.png"
-                            alt="Accuracy Evolution"
-                            style="width:100%; border-radius:15px; border:1px solid var(--border-soft);">
-                        <img src="../model_comparison_plots_CLEAN/visualizations/evolution_recall.png"
-                            alt="Recall Evolution"
-                            style="width:100%; border-radius:15px; border:1px solid var(--border-soft);">
-                    </div>
-                </section>
-
-                <!-- 14: Research & Clinical Challenges -->
-                <section id="s14" class="card-thesis">
-                    <h2>14. Research & Clinical Challenges (The Denoising Hurdles)</h2>
-                    <p style="color: var(--text-secondary); margin-bottom: 25px; font-size: 1.1rem; line-height: 1.6;">
-                        Transitioning from <b>Raw Wearable Data</b> to <b>Clinical Alerts</b> required overcoming
-                        significant signal artifacts. The plot below illustrates the "Denoising Challenge"—the messy
-                        multi-modal reality of BVP sensor drift versus the stabilized signal required for life-saving
-                        clot detection.
-                    </p>
-                    <div
-                        style="background:rgba(0,0,0,0.02); padding:30px; border-radius:30px; border:1px solid var(--border-soft);">
-                        <img src="../model_comparison_plots_CLEAN/visualizations/v12_order_comparison.png"
-                            alt="Denoising Challenges" style="width:100%; height:auto; border-radius:15px;">
-                    </div>
-                    <div style="margin-top: 25px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                        <div class="stat-pill" style="background:#1C1C1E; color:#FFFFFF;">Acquisition Phase:
-                            Motion Artifact Management</div>
-                        <div class="stat-pill" style="background:#2C2C2E; color:#FFFFFF;">Sourcing Phase: WGAN
-                            Mode-Collapse Resolution</div>
-                    </div>
-                </section>
-
-                <!-- 15: IEEE Mathematical Framework -->
-                <section id="s15" class="card-thesis">
-                    <h2>15. Mathematical Framework (Clinical Optimization)</h2>
-                    <p style="color: var(--text-secondary); margin-bottom: 25px; font-size: 1.1rem; line-height: 1.6;">
-                        To solve the "Fatal Negative" paradox, the model is optimized using a <b>Weighted Focal Loss</b>
-                        function that mathematically penalizes errors on rare clinical events (Emergencies) 5x more
-                        heavily
-                        than standard baseline activities.
-                    </p>
-
-                    <div class="math-framework-grid">
-                        <div class="math-callout">
-                            \[ L(p_t) = -\alpha \cdot (1 - p_t)^\gamma \cdot \ln(p_t) \]
-                            <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 15px;">Weighted Focal Loss
-                                Objective</p>
-                        </div>
-                        <div class="math-explanation">
-                            <h4>The Clinical Alpha ($\alpha$) Bias</h4>
-                            <p>
-                                Unlike standard Cross-Entropy, we utilize a class-specific weighting vector:
-                                <br>$\alpha_{SAFE} = 1.0$ | $\alpha_{WARNING} = 2.5$ | $\alpha_{EMERGENCY} = 5.0$
-                            </p>
-                            <p>
-                                The $\gamma = 2.0$ parameter forces the 128-dimensional latent space to focus on "hard"
-                                examples near the decision boundary, reducing model over-confidence on majority Baseline
-                                signals.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- New Subsection: Project Mathematical Registry -->
-                    <div class="math-registry-container"
-                        style="margin-top: 50px; border-top: 1px solid var(--border-soft); padding-top: 40px;">
-                        <h3
-                            style="font-size: 1.2rem; color: var(--text-charcoal); margin-bottom: 30px; letter-spacing: -0.02em;">
-                            Project Mathematical Registry (Actual Implemented Logic)</h3>
-
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
-                            <!-- Z-Score -->
-                            <div class="math-card">
-                                <h5>01. Sensor Fusion Normalization (Z-Score)</h5>
-                                \[ z_i = \frac{x_i - \mu_j}{\sigma_j} \]
-                                <p>Standardizing BVP (Volts) and EDA ($\mu$S) into a shared unit-less manifold for the
-                                    1D-CNN encoder.</p>
-                            </div>
-
-                            <!-- PCA -->
-                            <div class="math-card">
-                                <h5>02. Dimensionality Reduction (PCA)</h5>
-                                \[ C = \frac{1}{N-1} \sum_{i=1}^{N} (x_i - \bar{x})(x_i - \bar{x})^T \]
-                                <p>The covariance matrix $C$ is decomposed to identify the top 3 eigenvectors (PCs) for
-                                    3D visualization.</p>
-                            </div>
-
-                            <!-- Entropy -->
-                            <div class="math-card">
-                                <h5>03. Prediction Entropy (Shannon)</h5>
-                                \[ H(y|x) = -\sum_{c \in C} p(c|x) \log p(c|x) \]
-                                <p>Quantifying average information surprise across T=50 stochastic dropout passes.</p>
-                            </div>
-
-                            <!-- WGAN-GP -->
-                            <div class="math-card">
-                                <h5>04. Generative Penalty (GP)</h5>
-                                \[ L_{GP} = \lambda \mathbb{E}_{\hat{x}} [(\|\nabla_{\hat{x}} D(\hat{x})\|_2 - 1)^2] \]
-                                <p>Enforcing 1-Lipschitz continuity in the critic to stabilize synthetic high-risk
-                                    sample generation.</p>
+                        <div class="col-6">
+                            <h4 style="color: var(--secondary); margin-bottom: 16px;">Training Evolution Parameters</h4>
+                            <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--font-mono); font-size: 0.9rem;">
+                                <div style="display: flex; justify-content: space-between;"><span>Total Epochs</span><span>200 (Adaptive)</span></div>
+                                <div style="display: flex; justify-content: space-between;"><span>Early Stopping</span><span>Patience = 15</span></div>
+                                <div style="display: flex; justify-content: space-between;"><span>Optimizer</span><span>AdamW (Decouple)</span></div>
+                                <div style="display: flex; justify-content: space-between;"><span>Batch Size</span><span>128 (Balanced)</span></div>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <!-- 16: IEEE Formal Methodology -->
-                <section id="s16" class="card-thesis">
-                    <h2>16. Formal Methodology (Algorithm Blocks)</h2>
-                    <p style="color: var(--text-secondary); margin-bottom: 25px; font-size: 1.1rem; line-height: 1.6;">
-                        Rigorous definition of the internal inference loops and the fail-safe gating logic.
-                    </p>
+                <!-- 10: Filtering -->
+                <section id="s10" class="glass-card section-reveal">
+                    <h2>10. Clinical Signal Integrity (PSD Analysis)</h2>
+                    <p style="color: var(--on-surface-variant); margin-bottom: 24px;">Validation of the 0.5Hz Butterworth filter and Level-4 Wavelet DWT integrity.</p>
+                    <div style="background:rgba(0,0,0,0.2); padding:24px; border-radius:var(--radius-lg); border: 1px solid var(--outline);">
+                        <img src="../model_comparison_plots_CLEAN/visualizations/v12_psd_analysis.png" alt="PSD Analysis" style="width:100%; border-radius: var(--radius-md);">
+                    </div>
+                </section>
 
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
-                        <!-- Algo 1 -->
-                        <div class="algo-block">
-                            <div class="algo-header">
-                                <span>Algorithm 1</span>
-                                <span>Bayesian MC-Dropout</span>
-                            </div>
-                            <div class="algo-content">
-                                <span class="algo-keyword">Input:</span> Trained Model M, Input X, Iterations T=50
-                                <span class="algo-keyword">Output:</span> Mean Prob P, Uncertainty V
+                <!-- 11: ROC Curves -->
+                <section id="s11" class="glass-card section-reveal">
+                    <h2>11. Model Sensitivity (AUC-ROC Curves)</h2>
+                    <div style="background:#fff; padding:32px; border-radius:var(--radius-lg); margin-bottom: 32px;">
+                        <img src="../model_comparison_plots_CLEAN/04_roc_curves_multiclass.png" alt="ROC Curves" style="width:100%;">
+                    </div>
+                    <h4 style="color: var(--primary); margin-bottom: 12px;">Latent Separation Topology</h4>
+                    <p style="color: var(--on-surface-variant); line-height: 1.6;">The multi-modal ROC curves (AUC 0.91–0.988) demonstrate the class-specific sensitivity achieved by the Hybrid Architecture, ensuring fail-safe gating logic can operate on high-certainty boundaries.</p>
+                </section>
 
-                                1. Initialize Prob_List = []
-                                2. <span class="algo-keyword">For</span> t = 1 <span class="algo-keyword">to</span> T:
-                                3. Enable Dropout in M
-                                4. p_t = M_forward(X)
-                                5. Append p_t to Prob_List
-                                6. <span class="algo-keyword">End For</span>
-                                7. P = Mean(Prob_List)
-                                8. V = Variance(Prob_List)
-                                9. <span class="algo-keyword">Return</span> P, V
-                            </div>
-                            <div class="algo-footer">Calculating posterior predictive distribution via stochastic
-                                passes.</div>
+                <!-- 12: Waveforms -->
+                <section id="s12" class="glass-card section-reveal">
+                    <h2>12. Waveform Morphology & Synthetic Logic</h2>
+                    <p style="color: var(--on-surface-variant); margin-bottom: 24px;">Segmentation into 30s windows with 15s sliding overlap and WGAN-GP rectification.</p>
+                    <div style="background:rgba(0,0,0,0.2); padding:32px; border-radius:var(--radius-lg); border: 1px solid var(--outline);">
+                        <img src="../model_comparison_plots_CLEAN/visualizations/waveform_grid_FIXED.png" alt="Waveform Grid" style="width:100%; border-radius: var(--radius-md);">
+                    </div>
+                </section>
+
+                <!-- 13: Synergy -->
+                <section id="s13" class="glass-card section-reveal">
+                    <h2>13. Multi-Modal Relational Synergy</h2>
+                    <p style="color: var(--on-surface-variant); margin-bottom: 24px;">As modeled by the Transformer Relational Encoder, identifying alignment between BVP and EDA streams.</p>
+                    <div style="background:rgba(0,0,0,0.2); padding:32px; border-radius:var(--radius-lg); border: 1px solid var(--outline);">
+                        <img src="../model_comparison_plots_CLEAN/visualizations/binary_overlay_FIXED.png" alt="Synergy Overlay" style="width:100%; border-radius: var(--radius-md);">
+                    </div>
+                </section>
+
+                <!-- 14: Convergence -->
+                <section id="s14" class="glass-card section-reveal">
+                    <h2>14. Clinical Convergence History</h2>
+                    <div class="bento-grid">
+                        <div class="col-6">
+                            <h4 style="color: var(--primary); margin-bottom: 16px;">Accuracy Evolution</h4>
+                            <img src="../model_comparison_plots_CLEAN/visualizations/evolution_accuracy.png" style="width:100%; border-radius: var(--radius-md); border: 1px solid var(--outline);">
                         </div>
-
-                        <!-- Algo 2 -->
-                        <div class="algo-block">
-                            <div class="algo-header">
-                                <span>Algorithm 2</span>
-                                <span>Clinical Gating Logic</span>
-                            </div>
-                            <div class="algo-content">
-                                <span class="algo-keyword">Input:</span> Probabilities P=[P_s, P_w, P_e]
-                                <span class="algo-keyword">Output:</span> Gated Class C_g
-
-                                1. <span class="algo-keyword">Define</span> Threshold Tau = 0.1094
-                                2. C_std = argmax(P)
-                                3. <span class="algo-keyword">If</span> C_std == SAFE <span
-                                    class="algo-keyword">Then</span>:
-                                4. <span class="algo-keyword">If</span> (P_w + P_e) > Tau <span
-                                    class="algo-keyword">Then</span>:
-                                5. C_g = WARNING <span class="algo-comment">// Safety Promotion</span>
-                                6. <span class="algo-keyword">Else</span>:
-                                7. C_g = SAFE
-                                8. <span class="algo-keyword">Else</span>:
-                                9. C_g = C_std
-                                10. <span class="algo-keyword">Return</span> C_g
-                            </div>
-                            <div class="algo-footer">Probabilistic override ensuring high-sensitivity emergency
-                                detection.</div>
+                        <div class="col-6">
+                            <h4 style="color: var(--secondary); margin-bottom: 16px;">Recall Evolution</h4>
+                            <img src="../model_comparison_plots_CLEAN/visualizations/evolution_recall.png" style="width:100%; border-radius: var(--radius-md); border: 1px solid var(--outline);">
                         </div>
                     </div>
                 </section>
 
-                <!-- 17: CI/CD & Technical Deployment -->
-                <section id="s17" class="card-thesis">
-                    <h2>17. CI/CD & Technical Inference Workflow</h2>
-                    <p style="color: var(--text-secondary); margin-bottom: 25px; font-size: 1.1rem; line-height: 1.6;">
-                        Formal mapping of the data-to-prediction lifecycle, from raw wearable telemetry to clinical risk
-                        output.
-                    </p>
+                <!-- 15: Challenges -->
+                <section id="s15" class="glass-card section-reveal">
+                    <h2>15. Research & Clinical Challenges</h2>
+                    <p style="color: var(--on-surface-variant); margin-bottom: 24px;">Transitioning from raw wearable data to clinical alerts requires overcoming significant artifacts.</p>
+                    <div style="background:rgba(0,0,0,0.2); padding:32px; border-radius:var(--radius-lg); border: 1px solid var(--outline); margin-bottom: 32px;">
+                        <img src="../model_comparison_plots_CLEAN/visualizations/v12_order_comparison.png" alt="Denoising Challenges" style="width:100%; border-radius: var(--radius-md);">
+                    </div>
+                    <div style="display: flex; gap: 16px;">
+                        <div class="status-pill" style="color: white; border-color: var(--outline);">Acquisition: Motion Artifact Management</div>
+                        <div class="status-pill" style="color: white; border-color: var(--outline);">Sourcing: WGAN Mode-Collapse Resolution</div>
+                    </div>
+                </section>
 
-                    <div class="cicd-flow-container">
-                        <div class="flow-step">
-                            <span class="flow-num">01</span>
-                            <div class="flow-box">
+                <!-- 16: Math Registry -->
+                <section id="s16" class="glass-card section-reveal">
+                    <h2>16. Mathematical Framework</h2>
+                    <div class="bento-grid" style="margin-top: 40px;">
+                        <div class="col-12 glass-card" style="background: rgba(0,0,0,0.5); padding: 60px; text-align: center; margin-bottom: 32px;">
+                            <div style="font-size: 2.5rem;">\[ L(p_t) = -\alpha \cdot (1 - p_t)^\gamma \cdot \ln(p_t) \]</div>
+                            <p style="margin-top: 24px; color: var(--on-surface-variant); font-size: 1.1rem;">Weighted Focal Loss ensures $\alpha_{EMER} = 5.0$ vs $\alpha_{SAFE} = 1.0$</p>
+                        </div>
+                        <div class="col-3 algo-card"><h5>01. Z-Score Fusion</h5>\[ z_i = \frac{x_i - \mu_j}{\sigma_j} \]</div>
+                        <div class="col-3 algo-card"><h5>02. PCA Reduction</h5>\[ C = \frac{1}{N-1} \sum (x - \bar{x})^2 \]</div>
+                        <div class="col-3 algo-card"><h5>03. Shannon Entropy</h5>\[ H(y|x) = -\sum p \log p \]</div>
+                        <div class="col-3 algo-card"><h5>04. Generative Penalty</h5>\[ L_{GP} = \lambda \mathbb{E} [(\|\nabla D\| - 1)^2] \]</div>
+                    </div>
+                </section>
+
+                <!-- Formalism & CI/CD -->
+                <section id="s17" class="glass-card section-reveal">
+                    <h2>17. Formal Methodology</h2>
+                    <div class="bento-grid" style="margin-top: 32px;">
+                        <div class="col-6 algo-card" style="font-family: var(--font-mono); font-size: 0.8rem; line-height: 1.6;">
+                            <div style="color: var(--primary); margin-bottom: 16px; font-weight: 800;">ALGORITHM 01: MC-DROPOUT</div>
+                            1. Input: Model M, Data X, T=50<br>
+                            2. Loop t = 1 to T:<br>
+                            3. &nbsp;&nbsp;&nbsp;M.enable_dropout()<br>
+                            4. &nbsp;&nbsp;&nbsp;p_t = M_forward(X)<br>
+                            5. Return Mean(p_t), Var(p_t)
+                        </div>
+                        <div class="col-6 algo-card" style="font-family: var(--font-mono); font-size: 0.8rem; line-height: 1.6;">
+                            <div style="color: var(--error); margin-bottom: 16px; font-weight: 800;">ALGORITHM 02: CLINICAL GATING</div>
+                            1. Define Threshold Tau = 0.1094<br>
+                            2. C_std = argmax(P)<br>
+                            3. If C_std == SAFE AND (P_w + P_e) > Tau:<br>
+                            4. &nbsp;&nbsp;&nbsp;C_g = WARNING (Safety Promotion)<br>
+                            5. Return C_g
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 18: CI/CD Workflow -->
+                <section id="s18" class="section-reveal">
+                    <h2 style="text-align: center; margin-bottom: 64px;">18. CI/CD Inference Workflow</h2>
+                    
+                    <div class="workflow-container">
+                        <div class="workflow-step">
+                            <div class="step-number">01</div>
+                            <div class="step-info">
                                 <h4>Wearable Sensor Data</h4>
                                 <p>Multi-modal BVP, EDA, and 3-axis ACC clinical streams.</p>
                             </div>
                         </div>
-                        <div class="flow-arrow">↓</div>
-                        <div class="flow-step">
-                            <span class="flow-num">02</span>
-                            <div class="flow-box">
-                                <h4>Preprocessing</h4>
+                        <span class="material-symbols-outlined workflow-arrow">south</span>
+                        
+                        <div class="workflow-step">
+                            <div class="step-number">02</div>
+                            <div class="step-info">
+                                <h4>Preprocessing Pipeline</h4>
                                 <p>Butterworth high-pass & Wavelet DWT noise filtering.</p>
                             </div>
                         </div>
-                        <div class="flow-arrow">↓</div>
-                        <div class="flow-step">
-                            <span class="flow-num">03</span>
-                            <div class="flow-box">
+                        <span class="material-symbols-outlined workflow-arrow">south</span>
+                        
+                        <div class="workflow-step">
+                            <div class="step-number">03</div>
+                            <div class="step-info">
                                 <h4>Feature Extraction</h4>
                                 <p>Spatial kernels and multi-scale morphological synthesis.</p>
                             </div>
                         </div>
-                        <div class="flow-arrow">↓</div>
-                        <div class="flow-step">
-                            <span class="flow-num">04</span>
-                            <div class="flow-box">
+                        <span class="material-symbols-outlined workflow-arrow">south</span>
+                        
+                        <div class="workflow-step">
+                            <div class="step-number">04</div>
+                            <div class="step-info">
                                 <h4>LSTM / Hybrid Model</h4>
                                 <p>Hierarchical inference via CNN-Transformer-BiLSTM ensemble.</p>
                             </div>
                         </div>
-                        <div class="flow-arrow">↓</div>
-                        <div class="flow-step step-output">
-                            <span class="flow-num">05</span>
-                            <div class="flow-box">
-                                <h4>Risk Prediction Output</h4>
-                                <p>5-class clinical alerting with bayesian safety guards.</p>
+                        <span class="material-symbols-outlined workflow-arrow">south</span>
+                        
+                        <div class="workflow-step success">
+                            <div class="step-number">05</div>
+                            <div class="step-info">
+                                <h4 style="color: var(--secondary);">Risk Prediction Output</h4>
+                                <p>5-class clinical alerting with Bayesian safety guards.</p>
                             </div>
                         </div>
                     </div>
                 </section>
 
-
-
-            </main>
-
-            <!-- The Expansive Sidebar (ML Stuff) -->
-            <aside class="side-rail">
-
-                <div class="side-item card-thesis" style="padding: 30px; margin-bottom: 30px;">
-                    <h3>Feature Importance</h3>
-                    <div class="importance-bar-group">
-                        <div class="importance-row">
-                            <div class="label-row"><span>Mean Heart Rate</span> <span>84%</span></div>
-                            <div class="bar-bg">
-                                <div class="bar-fill" style="width: 84%;"></div>
-                            </div>
-                        </div>
-                        <div class="importance-row">
-                            <div class="label-row"><span>Physiological Stress (EDA)</span> <span>72%</span></div>
-                            <div class="bar-bg">
-                                <div class="bar-fill" style="width: 72%; background: var(--apple-amber);"></div>
-                            </div>
-                        </div>
-                        <div class="importance-row">
-                            <div class="label-row"><span>ACC Movement Variance</span> <span>54%</span></div>
-                            <div class="bar-bg">
-                                <div class="bar-fill" style="width: 54%; background: var(--apple-green);"></div>
-                            </div>
-                        </div>
-                        <div class="importance-row">
-                            <div class="label-row"><span>BVP Peak Amplitude</span> <span>41%</span></div>
-                            <div class="bar-bg">
-                                <div class="bar-fill" style="width: 41%;"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 20px; line-height: 1.4;">
-                        Model prioritizes vitals over movement, proving clinical relevance over artifact correlation.
-                    </p>
-                </div>
-
-                <div class="side-item card-thesis" style="padding: 30px; margin-bottom: 30px;">
-                    <h3>Model Hyperparameters</h3>
-                    <ul class="spec-list">
-                        <li><span>Dropout Rate</span> <span class="spec-val">0.20</span></li>
-                        <li><span>Hidden Dim</span> <span class="spec-val">256</span></li>
-                        <li><span>Encoder Layers</span> <span class="spec-val">4 (Heads=8)</span></li>
-                        <li><span>Weight Decay</span> <span class="spec-val">1e-4</span></li>
-                        <li><span>Gating Tau</span> <span class="spec-val">0.1094</span></li>
-                    </ul>
-                </div>
-
-                <div class="side-item card-thesis" style="padding: 30px; margin-bottom: 30px;">
-                    <h3>Architectural Complexity</h3>
-                    <ul class="spec-list">
-                        <li><span>Research Params</span> <span class="spec-val">541,957</span></li>
-                        <li style="font-size: 0.75rem; color: var(--text-dim); padding-left: 10px;">CNN Encoder: 68.8k
-                        </li>
-                        <li style="font-size: 0.75rem; color: var(--text-dim); padding-left: 10px;">Bi-LSTM: 197.6k</li>
-                        <li style="font-size: 0.75rem; color: var(--text-dim); padding-left: 10px;">Transformer: 264.9k
-                        </li>
-                        <hr style="border: 0; border-top: 1px solid var(--border-soft); margin: 10px 0;">
-                        <li><span>Hardware Optimized</span> <span class="spec-val">~230,000</span></li>
-                    </ul>
-                </div>
-
-                <div class="side-item card-thesis" style="padding: 30px; margin-bottom: 30px;">
-                    <h3>Deployment Audit</h3>
-                    <ul class="spec-list">
-                        <li><span>Architecture</span> <span class="spec-val">Integrated FT</span></li>
-                        <li><span>Edge Latency</span> <span class="spec-val">12.4ms</span></li>
-                        <li><span>Mem Footprint</span> <span class="spec-val">4.21 MB</span></li>
-                    </ul>
-                </div>
-
-                <div class="side-item card-thesis"
-                    style="background: linear-gradient(135deg, rgba(10,132,255,0.1), transparent); padding: 30px; border: 1px solid rgba(10,132,255,0.2);">
-                    <h3 style="color: var(--apple-blue);">Production Readiness</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 20px; font-weight: 400;">
-                        The architecture is fully <b>Int8 quantized</b> for low-power operation on wearable Cortex-M4
-                        units.
-                    </p>
-                    <span
-                        style="background: var(--apple-blue); color: #FFF; padding: 8px 16px; border-radius: 100px; font-size: 0.75rem; font-weight: 800; box-shadow: 0 4px 12px rgba(10,132,255,0.3);">CLINICAL
-                        PILOT READY</span>
-                </div>
-
-            </aside>
-
-        </div>
-
-        <footer>
-            &copy; 2026 Master Thesis Defense | Clinical Clot Risk Detection AI
-        </footer>
-
+            </div>
+            
+            <footer style="margin-top: 120px; padding-bottom: 80px; text-align: center; color: var(--on-surface-variant); opacity: 0.3;">
+                <p>&copy; 2026 Master Thesis Defense | Clinical Clot Detection Terminal</p>
+            </footer>
+        </main>
     </div>
 
     <script>
         const meta = {
             'v1': { title: '3D Latent Space Clusters (PCA)', desc: 'Proving class separability: The model disentangles overlapping sensor signals into 5 distinct clinical risk clusters.', file: '../reports/visuals/thesis_v1_latent_space.html' },
-            'uncertainty': { title: '3D Uncertainty Topography', desc: '<span class="glossary-term" data-tooltip="At inference time, performing multiple forward passes to measure prediction variance.">MC Dropout</span> entropy topography showing boundary confusion where human intervention is triggered.', file: '../reports/visuals/thesis_v2_uncertainty_topography.html' },
-            'trajectory': { title: '3D Patient Trajectory (Sub-S14)', desc: 'Longitudinal risk ribbon tracking the 3-hour preemptive warning window before a critical event.', file: '../reports/visuals/thesis_v3_patient_trajectory.html' },
-            'interaction': { title: '3D Feature Interaction (PDP)', desc: 'Identifying the "Danger Zone" where Skin Temp and Stress synergy exponentially increase risk.', file: '../reports/visuals/thesis_v4_feature_interaction.html' },
+            'uncertainty': { title: '3D Uncertainty Map', desc: 'MC Dropout entropy topography showing boundary confusion where human intervention is triggered.', file: '../reports/visuals/thesis_v2_uncertainty_topography.html' },
+            'trajectory': { title: '3D Patient Path (S14)', desc: 'Longitudinal risk ribbon tracking the 3-hour preemptive warning window before clinical confirmation.', file: '../reports/visuals/thesis_v3_patient_trajectory.html' },
+            'interaction': { title: '3D Feature Interaction (PDP)', desc: 'Identifying the "Danger Zone" where Stress synergy increases risk exponentially.', file: '../reports/visuals/thesis_v4_feature_interaction.html' },
             'surface': { title: '3D Clinical Risk Surface', desc: 'Calibrated non-linear probability increase across BMI and Heart Rate spectrums.', file: '../reports/visuals/graph1_clinical_risk_surface.html' },
-            'decision': { title: '3D Ensemble Decision Space', desc: 'Visualizing the "Gatekeeping" logic and the safety threshold upgrades.', file: '../reports/visuals/graph2_ensemble_decision_space.html' }
+            'decision': { title: '3D Ensemble Decision Space', desc: 'Visualizing the gatekeeping logic and safety threshold upgrades.', file: '../reports/visuals/graph2_ensemble_decision_space.html' }
         };
 
         function loadTab(id) {
             const frame = document.getElementById('thesis-frame');
             const title = document.getElementById('tab-title');
             const desc = document.getElementById('tab-desc');
-            const btns = document.querySelectorAll('.nav-btn');
-            frame.src = meta[id].file;
-            title.innerText = meta[id].title;
-            desc.innerText = meta[id].desc;
+            const btns = document.querySelectorAll('.tab-btn');
+            
+            frame.style.opacity = '0';
+            setTimeout(() => {
+                frame.src = meta[id].file;
+                title.innerText = meta[id].title;
+                desc.innerHTML = meta[id].desc;
+                frame.style.opacity = '1';
+            }, 300);
+            
             btns.forEach(b => b.classList.remove('active'));
             event.target.classList.add('active');
         }
 
-        // --- NEW: Scroll Progress & Active Section Tracking ---
-        window.onscroll = function () {
-            updateScrollProgress();
-            updateActiveNav();
-        };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
 
-        function updateScrollProgress() {
+        document.querySelectorAll('.section-reveal').forEach(s => observer.observe(s));
+
+        // Navigation Sync & Scroll Progress
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            // Update Scroll Progress Bar
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrolled = (winScroll / height) * 100;
-            const bar = document.getElementById("scroll-progress");
-            if (bar) bar.style.width = scrolled + "%";
-        }
+            const progressBar = document.getElementById("scroll-progress");
+            if (progressBar) progressBar.style.width = scrolled + "%";
 
-        function updateActiveNav() {
-            const sections = document.querySelectorAll("section[id]");
-            const navLinks = document.querySelectorAll(".nav-links a");
-            let current = "s1"; // Default to first section
-
-            sections.forEach((section) => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 250) {
-                    current = section.getAttribute("id");
-                }
+            sections.forEach(s => {
+                if (pageYOffset >= s.offsetTop - 300) current = s.getAttribute('id');
             });
-
-            navLinks.forEach((a) => {
-                a.classList.remove("active");
-                // Use exact match to avoid "s1" matching "s10", "s11", etc.
-                if (a.getAttribute("href") === "#" + current) {
-                    a.classList.add("active");
-                }
+            navLinks.forEach(l => {
+                l.classList.remove('active');
+                if (l.getAttribute('href') === `#${current}`) l.classList.add('active');
             });
-        }
+        });
     </script>
 </body>
-
 </html>
